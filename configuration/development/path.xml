@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<configuration>configuration</configuration>
+	<log>log</log>
+	<src>src</src>
+	<vendor>vendor</vendor>
+	<web>web</web>
+</configuration>

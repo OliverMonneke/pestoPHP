@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<type>mysql</type>
+	<user>root</user>
+	<password></password>
+	<database>csframework</database>
+	<port></port>
+	<socket></socket>
+</configuration>

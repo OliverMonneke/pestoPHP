@@ -1,0 +1,17 @@
+{
+    "name": "Codersquad/pestoPHP",
+    "description": "a delicious PHP framework",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Oliver Monneke",
+            "email": "oliver@codersquad.de"
+        }
+    ],
+    "require" : {
+        "phpunit/phpunit" : "=3.7.28"
+    },
+    "autoload": {
+        "psr-0": { "codersquad\\": [ "vendor/", "src/"] }
+    }
+}
