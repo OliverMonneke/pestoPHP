@@ -4,6 +4,8 @@
  * Handling all REQUEST data
  */
 namespace Codersquad\Request;
+use Codersquad\Clipboard\ClipboardRequest;
+use Codersquad\Classmanagement\ICommand;
 
 /**
  * Class Request

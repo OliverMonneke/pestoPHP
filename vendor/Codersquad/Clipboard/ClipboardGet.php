@@ -4,6 +4,7 @@
  * Clipboard for GET parameter
  */
 namespace Codersquad\Clipboard;
+use Codersquad\Clipboard\AClipboard;
 
 /**
  * Class ClipboardGet

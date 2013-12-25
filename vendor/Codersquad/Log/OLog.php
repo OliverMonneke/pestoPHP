@@ -4,6 +4,7 @@
  * Observer for logging
  */
 namespace codersquad\log;
+use Codersquad\Classmanagement\IObserver;
 
 /**
  * Class OLog
@@ -18,11 +19,11 @@ class OLog implements IObserver
     /**
      * Update observer
      *
-     * @param \codersquad\classmanagement\IObserver $logger Logger
+     * @param IObserver $logger
      *
      * @return void
      */
-    public function update(\codersquad\classmanagement\IObserver $logger)
+    public function update(IObserver $logger)
     {
     }
 }

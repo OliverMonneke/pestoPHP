@@ -4,6 +4,8 @@
  * Directory handling
  */
 namespace Codersquad\Filesystem;
+use Codersquad\Classmanagement\AIterator;
+use Codersquad\Classmanagement\IIterator;
 
 /**
  * Class Directory

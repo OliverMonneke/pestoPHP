@@ -29,7 +29,6 @@ abstract class ASingleton
      */
     private function __construct()
     {
-
     }
 
     /**
@@ -39,7 +38,6 @@ abstract class ASingleton
      */
     private function __clone()
     {
-
     }
 
     /**

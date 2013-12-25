@@ -4,6 +4,8 @@
  * Class for logging to file
  */
 namespace Codersquad\Log\Types;
+use Codersquad\Log\ILog;
+use Codersquad\Classmanagement\IObserveAble;
 
 /**
  * Class FileLog
@@ -152,11 +154,11 @@ class FileLog implements ILog, IObserveAble
     /**
      * Attach observer
      *
-     * @param \codersquad\classmanagement\IObserver $observer The observer
+     * @param IObserver $observer The observer
      *
      * @return void
      */
-    public function attach(\codersquad\classmanagement\IObserver $observer)
+    public function attach(IObserver $observer)
     {
         $this->_observers[] = $observer;
     }
@@ -164,11 +166,11 @@ class FileLog implements ILog, IObserveAble
     /**
      * Detach observer
      *
-     * @param \codersquad\classmanagement\IObserver $observer The observer
+     * @param IObserver $observer The observer
      *
      * @return void
      */
-    public function detach(\codersquad\classmanagement\IObserver $observer)
+    public function detach(IObserver $observer)
     {
         $this->_observers = array_diff($this->_observers, [$observer]);
     }

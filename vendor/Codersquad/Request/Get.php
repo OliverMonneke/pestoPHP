@@ -4,6 +4,8 @@
  * GET parameter handling
  */
 namespace Codersquad\Request;
+use Codersquad\Clipboard\ClipboardGet;
+use Codersquad\Classmanagement\ICommand;
 
 /**
  * Class Get

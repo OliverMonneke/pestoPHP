@@ -4,6 +4,9 @@
  * Abstract class for loading xml config files
  */
 namespace Codersquad\Configuration;
+use Codersquad\Clipboard\AClipboard;
+use Codersquad\Configuration\IConfiguration;
+use Codersquad\Classmanagement\ICommand;
 
 /**
  * Class AAppConfiguration

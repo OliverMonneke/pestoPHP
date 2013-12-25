@@ -4,6 +4,8 @@
  * Handling class management like controller loading
  */
 namespace Codersquad\Classmanagement;
+use Codersquad\Configuration\PathConfiguration;
+use Codersquad\Filesystem\Directory;
 
 /**
  * Class ClassHandler

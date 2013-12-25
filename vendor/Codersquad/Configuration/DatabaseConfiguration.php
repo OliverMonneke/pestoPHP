@@ -4,6 +4,7 @@
  * Import configuration file for database configuration
  */
 namespace Codersquad\Configuration;
+use Codersquad\Configuration\AAppConfiguration;
 
 /**
  * Class DatabaseConfiguration

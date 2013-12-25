@@ -4,6 +4,8 @@
  * Cookie handling
  */
 namespace Codersquad\Request;
+use Codersquad\Clipboard\ClipboardCookie;
+use Codersquad\Classmanagement\ICommand;
 
 /**
  * Class Cookie

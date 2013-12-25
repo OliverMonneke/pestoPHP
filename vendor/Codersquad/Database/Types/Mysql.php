@@ -4,6 +4,7 @@
  * MySQL database handling
  */
 namespace Codersquad\Database\Types;
+use Codersquad\Database\IDatabase;
 
 /**
  * Class Mysql

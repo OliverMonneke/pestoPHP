@@ -4,6 +4,7 @@
  * Exception if class does not exist
  */
 namespace Codersquad\Exception;
+use Codersquad\Exception\Exception;
 
 /**
  * Exception ClassNotFound

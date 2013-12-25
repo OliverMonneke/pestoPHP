@@ -4,6 +4,7 @@
  * Cookie clipboard
  */
 namespace Codersquad\Clipboard;
+use Codersquad\Clipboard\AClipboard;
 
 /**
  * Class ClipboardCookie

@@ -4,6 +4,7 @@
  * Abstract class for clipboards
  */
 namespace Codersquad\Clipboard;
+use Codersquad\Classmanagement\ASingleton;
 
 /**
  * Class AClipboard

@@ -4,6 +4,7 @@
  * Database handling
  */
 namespace codersquad\database;
+use Codersquad\Classmanagement\ASingleton;
 
 /**
  * Class Database

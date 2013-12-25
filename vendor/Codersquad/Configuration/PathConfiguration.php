@@ -4,11 +4,12 @@
  * Import configuration for path options
  */
 namespace Codersquad\Configuration;
+use Codersquad\Configuration\AAppConfiguration;
 
 /**
  * Class PathConfiguration
  *
- * @package Codersquad\Configuration
+ * @package CodersquadConfiguration
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

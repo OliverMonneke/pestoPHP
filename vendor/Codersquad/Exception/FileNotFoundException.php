@@ -4,6 +4,7 @@
  * Exception if file does not exist
  */
 namespace Codersquad\Exception;
+use Codersquad\Exception\Exception;
 
 /**
  * Class FileNotFoundException

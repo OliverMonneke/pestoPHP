@@ -4,6 +4,7 @@
  * Clipboard for POST parameter
  */
 namespace Codersquad\Clipboard;
+use Codersquad\Clipboard\AClipboard;
 
 /**
  * Class ClipboardPost

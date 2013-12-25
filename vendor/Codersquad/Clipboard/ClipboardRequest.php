@@ -3,7 +3,8 @@
 /**
  * Clipboard for REQUEST parameter
  */
-namespace codersquad\clipboard;
+namespace Codersquad\Clipboard;
+use Codersquad\Clipboard\AClipboard;
 
 /**
  * Class ClipboardRequest

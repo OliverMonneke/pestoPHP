@@ -4,6 +4,8 @@
  * POST parameter handling
  */
 namespace Codersquad\Request;
+use Codersquad\Clipboard\ClipboardPost;
+use Codersquad\Classmanagement\ICommand;
 
 /**
  * Class Post

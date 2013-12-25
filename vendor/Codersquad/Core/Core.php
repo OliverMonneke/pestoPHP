@@ -4,6 +4,15 @@
  * Core class for framework
  */
 namespace Codersquad\Core;
+use Codersquad\Classmanagement\ASingleton;
+use Codersquad\Classmanagement\Command;
+use Codersquad\Mvc\Router;
+use Codersquad\Configuration\DatabaseConfiguration;
+use Codersquad\Configuration\PathConfiguration;
+use Codersquad\Request\Get;
+use Codersquad\Request\Post;
+use Codersquad\Request\Cookie;
+use Codersquad\Request\Request;
 
 /**
  * Class Core

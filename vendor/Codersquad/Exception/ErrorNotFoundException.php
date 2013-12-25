@@ -4,6 +4,7 @@
  * Exception if error code does not exist
  */
 namespace Codersquad\Exception;
+use Codersquad\Exception\Exception;
 
 /**
  * Class ErrorNotFoundException
