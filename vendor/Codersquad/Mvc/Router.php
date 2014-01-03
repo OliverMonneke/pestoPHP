@@ -25,9 +25,8 @@ class Router extends ASingleton
      */
     public function init()
     {
-        $request = Request::getInstance();
-        $controller = ucfirst(strtolower($request::get('controller')));
-        $action = strtolower($request::get('action')) . 'Action';
+        $controller = ucfirst(strtolower(Request::get('controller')));
+        $action = strtolower(Request::get('action')) . 'Action';
         $controllerData = ClassHandler::loadController($controller, $action);
 
         $controller = new $controllerData['controller'];
