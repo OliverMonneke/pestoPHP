@@ -173,4 +173,30 @@ class Collection
     {
         return array_filter($array, $callback);
     }
+
+    /**
+     * Convert a string to an array
+     *
+     * @param string $string    The string
+     * @param string $delimiter The delimiter
+     *
+     * @return array
+     */
+    public static function explode($string, $delimiter)
+    {
+        return explode($delimiter, $string);
+    }
+
+    /**
+     * Convert an array to a string
+     *
+     * @param array  $array The array
+     * @param string $glue  The string to put together
+     *
+     * @return string
+     */
+    public static function implode($array, $glue = ',')
+    {
+        return implode($glue, $array);
+    }
 }
