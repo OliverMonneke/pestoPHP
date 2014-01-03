@@ -158,8 +158,27 @@ class String
         }
     }
 
+    /**
+     * Check if string is empty
+     *
+     * @param string $string The string
+     *
+     * @return bool
+     */
     public static function isEmpty($string)
     {
         return ($string === NULL || $string === '');
+    }
+
+    /**
+     * Check if string is not empty
+     *
+     * @param string $string The string
+     *
+     * @return bool
+     */
+    public static function isNotEmpty($string)
+    {
+        return (!self::isEmpty($string));
     }
 }
