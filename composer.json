@@ -9,7 +9,8 @@
         }
     ],
     "require" : {
-        "phpunit/phpunit" : "=3.7.28"
+        "php": ">=5.4",
+        "phpunit/phpunit": "=3.7.28"
     },
     "autoload": {
         "psr-0": { "Codersquad\\": [ "vendor/", "src/"] }
