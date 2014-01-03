@@ -33,7 +33,8 @@ abstract class Exception extends \Exception
         2 => 'File not found',
         3 => 'Error code does not exist',
         4 => 'Directory not found',
-        6 => 'Database not found'
+        6 => 'Database not found',
+        7 => 'Division by zero'
     ];
 
     /**
