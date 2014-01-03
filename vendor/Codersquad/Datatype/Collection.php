@@ -50,11 +50,25 @@ class Collection
         return count($array);
     }
 
+    /**
+     * Get the max value in an array
+     *
+     * @param array $array The array
+     *
+     * @return mixed
+     */
     public static function maxValue($array)
     {
         return max($array);
     }
 
+    /**
+     * Get the min value in an array
+     *
+     * @param array $array The array
+     *
+     * @return mixed
+     */
     public static function minValue($array)
     {
         return min($array);
