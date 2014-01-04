@@ -10,6 +10,7 @@ use Codersquad\Core\Core;
  */
 define('BASE_PATH', __DIR__ . '/..');
 define('NL', '<br />');
+define('ENVIRONMENT', 'production');
 
 /** @noinspection PhpIncludeInspection */
 require_once BASE_PATH.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php';

@@ -7,6 +7,7 @@ namespace Codersquad\Configuration;
 use Codersquad\Clipboard\AClipboard;
 use Codersquad\Configuration\IConfiguration;
 use Codersquad\Classmanagement\ICommand;
+use Codersquad\Debug\Debug;
 
 /**
  * Class AAppConfiguration
@@ -50,7 +51,14 @@ abstract class AAppConfiguration extends AClipboard implements IConfiguration, I
      */
     public function import()
     {
-        $config = simplexml_load_file(BASE_PATH . DIRECTORY_SEPARATOR . '/' . $this->_path . DIRECTORY_SEPARATOR . $this->_file);
+        $environment = '';
+
+        if (defined('ENVIRONMENT'))
+        {
+            $environment = ENVIRONMENT;
+        }
+
+        $config = simplexml_load_file(BASE_PATH . DIRECTORY_SEPARATOR . '/' . $this->_path . DIRECTORY_SEPARATOR . $environment.DIRECTORY_SEPARATOR.$this->_file);
 
         foreach ($config as $_key => $_value)
         {
