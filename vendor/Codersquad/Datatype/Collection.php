@@ -199,4 +199,28 @@ class Collection
     {
         return implode($glue, $array);
     }
+
+    /**
+     * Check if array is empty
+     *
+     * @param array $array The array
+     *
+     * @return bool
+     */
+    public static function isEmpty($array)
+    {
+        return (self::length($array) === 0);
+    }
+
+    /**
+     * Check if array is not empty
+     *
+     * @param array $array The array
+     *
+     * @return bool
+     */
+    public static function isNotEmpty($array)
+    {
+        return (!self::isEmpty($array));
+    }
 }
