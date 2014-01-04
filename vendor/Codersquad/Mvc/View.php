@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template handling
+ * View handling
  */
 namespace Codersquad\Mvc;
 use Codersquad\Datatype\Collection;
@@ -24,14 +24,14 @@ class View
     private $_file = NULL;
 
     /**
-     * Content of template
+     * Content of view
      *
      * @var string
      */
     private $_content = NULL;
 
     /**
-     * Array of template replacements
+     * Array of view replacements
      *
      * @var array
      */
@@ -40,7 +40,7 @@ class View
     /**
      * Default constructor
      *
-     * @param string $file The template
+     * @param string $file The view
      */
     public function __construct($file)
     {
@@ -152,11 +152,11 @@ class View
     }
 
     /**
-     * Get template content
+     * Get view content
      *
      * @return string
      */
-    public function getTemplate()
+    public function getView()
     {
         $this->_replace();
         return $this->_content;
