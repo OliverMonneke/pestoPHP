@@ -156,4 +156,14 @@ abstract class Model
 
         return $object;
     }
+
+    /**
+     * Remove primary value for copying
+     *
+     * @return void
+     */
+    public function __clone()
+    {
+        $this->_primaryValue = NULL;
+    }
 }
