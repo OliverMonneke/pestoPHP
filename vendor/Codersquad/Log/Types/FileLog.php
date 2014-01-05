@@ -4,6 +4,8 @@
  * Class for logging to file
  */
 namespace Codersquad\Log\Types;
+use Codersquad\Classmanagement\IObserver;
+use Codersquad\Filesystem\File;
 use Codersquad\Log\ILog;
 use Codersquad\Classmanagement\IObserveAble;
 
@@ -32,11 +34,9 @@ class FileLog implements ILog, IObserveAble
     private $_fileName = 'log.txt';
 
     /**
-     * FileLog handle
-     *
-     * @var resource
+     * @var File
      */
-    private $_handle = NULL;
+    private $_file = NULL;
 
     /**
      * Observers
@@ -47,22 +47,11 @@ class FileLog implements ILog, IObserveAble
 
     /**
      * Default constructor
-     *
-     * @return \Codersquad\Log\Types\FileLog
      */
     public function __construct()
     {
-        $this->_openHandle();
-    }
-
-    /**
-     * Default destructor
-     *
-     * @return void
-     */
-    public function __destruct()
-    {
-        $this->_closeHandle();
+        $file = BASE_PATH . DIRECTORY_SEPARATOR . $this->_path . DIRECTORY_SEPARATOR . $this->_fileName;
+        $this->_file = new File($file);
     }
 
     /**
@@ -74,33 +63,7 @@ class FileLog implements ILog, IObserveAble
      */
     public function write($string)
     {
-        fwrite($this->_handle, $string);
-    }
-
-    /**
-     * Open file handle
-     *
-     * @return void
-     */
-    private function _openHandle()
-    {
-        if (NULL === $this->_handle)
-        {
-            $this->_handle = fopen($this->_handle . DIRECTORY_SEPARATOR . $this->_fileName, 'a+');
-        }
-    }
-
-    /**
-     * Close file handle
-     *
-     * @return void
-     */
-    private function _closeHandle()
-    {
-        if (NULL !== $this->_handle)
-        {
-            fclose($this->_handle);
-        }
+        $this->_file->write($string);
     }
 
     /**
@@ -184,6 +147,7 @@ class FileLog implements ILog, IObserveAble
     {
         foreach ($this->_observers as $_observer)
         {
+            /** @noinspection PhpUndefinedMethodInspection */
             $_observer->update();
         }
     }

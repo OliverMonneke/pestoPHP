@@ -1,10 +1,20 @@
 <?php
 
+/**
+ * a tag
+ */
 namespace Codersquad\Element\Component;
 use Codersquad\Datatype\Collection;
 use Codersquad\Datatype\String;
 use Codersquad\Element\AContainer;
 
+/**
+ * Class Link
+ *
+ * @package Codersquad\Element\Component
+ * @author Oliver Monneke <oliver@codersquad.de>
+ * @version 0.1
+ */
 class Link extends AContainer
 {
     /**

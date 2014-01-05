@@ -19,7 +19,7 @@ class OLog implements IObserver
     /**
      * Update observer
      *
-     * @param IObserver $logger
+     * @param IObserver $logger The observer
      *
      * @return void
      */

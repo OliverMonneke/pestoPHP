@@ -8,7 +8,6 @@ use Codersquad\Datatype\Collection;
 use Codersquad\Datatype\Number;
 use Codersquad\Datatype\Resource;
 use Codersquad\Datatype\String;
-use Codersquad\Exception\FileNotFoundException;
 
 /**
  * Class File
@@ -36,9 +35,8 @@ class File
      * Default constructor
      *
      * @param string $file Filename
-     * @param string $mode Mode for file opening
      *
-     * @return void
+     * @return \Codersquad\Filesystem\File
      */
     public function __construct($file)
     {
@@ -96,6 +94,7 @@ class File
 
     /**
      * Inode
+     *
      * @return int
      */
     public function getInode()
@@ -244,6 +243,10 @@ class File
         if (!self::fileExists($this->_file))
         {
             return touch($this->_file);
+        }
+        else
+        {
+            return TRUE;
         }
     }
 

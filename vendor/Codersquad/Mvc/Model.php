@@ -4,6 +4,7 @@
  * Abstract class for model generating
  */
 namespace Codersquad\Mvc;
+use codersquad\database\Database;
 
 /**
  * Class Model

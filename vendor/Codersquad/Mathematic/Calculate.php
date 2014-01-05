@@ -26,7 +26,9 @@ class Calculate
     /**
      * Default constructor
      *
-     * @param number $number
+     * @param number $number The number
+     *
+     * @return \Codersquad\Mathematic\Calculate
      */
     public function __construct($number)
     {
@@ -61,9 +63,18 @@ class Calculate
         return $this;
     }
 
-    public function multiplicate($number)
+    /**
+     * Multiply a value
+     *
+     * @param int|float $number The number
+     *
+     * @return Calculate
+     */
+    public function multiply($number)
     {
         $this->_number *= $number;
+
+        return $this;
     }
 
     /**
@@ -112,7 +123,7 @@ class Calculate
     {
         for ($i = 1;$i <= $number; $i++)
         {
-            $this->multiplicate($this->_number);
+            $this->multiply($this->_number);
         }
 
         return $this;
@@ -182,7 +193,7 @@ class Calculate
     /**
      * Exponent expression
      *
-     * @param number $number
+     * @param number $number The number
      *
      * @return Calculate
      */

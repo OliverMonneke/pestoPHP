@@ -25,7 +25,7 @@ class Command
     /**
      * Add command
      *
-     * @param \codersquad\classmanagement\ICommand $command The command
+     * @param ICommand $command The command
      *
      * @return void
      */

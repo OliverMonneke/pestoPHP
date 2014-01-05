@@ -27,7 +27,7 @@ abstract class AElement
     /**
      * @var array
      */
-    protected $_class = array();
+    protected $_class = [];
 
     /**
      * @var string

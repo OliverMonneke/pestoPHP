@@ -4,7 +4,6 @@
  * Class for dae management
  */
 namespace Codersquad\Time;
-use Codersquad\Debug\Debug;
 
 /**
  * Class Date
@@ -90,7 +89,7 @@ class DateTime
      *
      * @param string $string The period to add
      *
-     * @return Date
+     * @return DateTime
      */
     public function add($string)
     {
@@ -104,7 +103,7 @@ class DateTime
      *
      * @param string $string The period
      *
-     * @return Date
+     * @return DateTime
      */
     public function sub($string)
     {
@@ -123,7 +122,7 @@ class DateTime
     private function _evaluateDateString($string)
     {
         $seconds = 1;
-        $matches = array();
+        $matches = [];
         preg_match('/^([0-9]*)([s|M|h|d|m|y])$/', $string, $matches);
 
         switch($matches[2])
@@ -188,7 +187,7 @@ class DateTime
      *
      * @param int $day The day
      *
-     * @return Date
+     * @return DateTime
      */
     public function setDay($day)
     {
@@ -202,7 +201,7 @@ class DateTime
      *
      * @param int $month The month
      *
-     * @return Date
+     * @return DateTime
      */
     public function setMonth($month)
     {
@@ -216,7 +215,7 @@ class DateTime
      *
      * @param int $year The year
      *
-     * @return Date
+     * @return DateTime
      */
     public function setYear($year)
     {

@@ -14,7 +14,6 @@ namespace Codersquad\Mvc;
  */
 class Controller
 {
-
     /**
      * Default action
      *

@@ -23,13 +23,13 @@ class Collection
      */
     public static function toArray($var)
     {
-        return array($var);
+        return [$var];
     }
 
     /**
      * Check if it is an array
      *
-     * @param $array The array
+     * @param array $array The array
      *
      * @return bool
      */
@@ -77,14 +77,14 @@ class Collection
     /**
      * Fill an array with specific values
      *
-     * @param array $array      The array
      * @param int   $startIndex Index of first element
      * @param int   $count      Number of elements to fill
      * @param mixed $value      Value to fill
      *
+     * @internal param array $array The array
      * @return array
      */
-    public static function fillValues($array, $startIndex, $count, $value)
+    public static function fillValues($startIndex, $count, $value)
     {
         return array_fill($startIndex, $count, $value);
     }

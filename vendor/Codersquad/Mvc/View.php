@@ -35,7 +35,7 @@ class View
      *
      * @var array
      */
-    private $_replacementArray = array();
+    private $_replacementArray = [];
 
     /**
      * Default constructor
@@ -52,11 +52,15 @@ class View
      * Assign value => placeholder
      *
      * @param string|object|array $key   Placeholder
-     * @param string $value Replacement
+     * @param string              $value Replacement
+     *
+     * @return View
      */
     public function assign($key, $value = '')
     {
         $this->_replacementArray[$key] = $value;
+
+        return $this;
     }
 
     /**
@@ -113,7 +117,7 @@ class View
      */
     private function _replaceArray($key, $array)
     {
-        $matches = array();
+        $matches = [];
         $result = '';
 
         preg_match('/{% for (.*) in '.$key.' %}(.*){% endfor %}/s', $this->_content, $matches);
@@ -160,5 +164,19 @@ class View
     {
         $this->_replace();
         return $this->_content;
+    }
+
+    /**
+     * Setter for file
+     *
+     * @param \Codersquad\Filesystem\File $file
+     *
+     * @return View
+     */
+    public function setFile($file)
+    {
+        $this->_file = $file;
+
+        return $this;
     }
 }

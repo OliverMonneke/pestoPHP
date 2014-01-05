@@ -1,14 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Oliver
- * Date: 03.01.14
- * Time: 17:57
- */
 
+/**
+ * Trigonometry handling
+ */
 namespace Codersquad\Mathematic;
 
-
+/**
+ * Class Trigonometric
+ *
+ * @package Codersquad\Mathematic
+ * @author Oliver Monneke <oliver@codersquad.de>
+ * @version 0.1
+ */
 class Trigonometric extends  Calculate
 {
     /**

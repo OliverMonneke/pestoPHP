@@ -24,16 +24,20 @@ class AContainer extends AElement
     /**
      * @var array
      */
-    protected $_elements = array();
+    protected $_elements = [];
 
     /**
      * Add an element
      *
      * @param AElement $element The element
+     *
+     * @return AContainer
      */
     public function addElement(AElement $element)
     {
         $this->_elements[] = $element;
+
+        return $this;
     }
 
     /**

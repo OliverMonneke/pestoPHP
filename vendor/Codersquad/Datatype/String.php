@@ -17,7 +17,7 @@ class String
     /**
      * Check if it is a string
      *
-     * @param $string The string
+     * @param string $string The string
      *
      * @return bool
      */
