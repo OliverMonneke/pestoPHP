@@ -12,7 +12,7 @@ namespace Codersquad\Datatype;
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-class Object
+class Object implements IDatatype
 {
     /**
      * Check if it is an object
@@ -21,7 +21,7 @@ class Object
      *
      * @return bool
      */
-    public static function isObject($object)
+    public static function isValid($object)
     {
         return is_object($object);
     }

@@ -12,7 +12,7 @@ namespace Codersquad\Datatype;
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-class Collection
+class Collection implements IDatatype
 {
     /**
      * Convert to array
@@ -33,7 +33,7 @@ class Collection
      *
      * @return bool
      */
-    public static function isArray($array)
+    public static function isValid($array)
     {
         return is_array($array);
     }

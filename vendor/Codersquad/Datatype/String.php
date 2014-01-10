@@ -12,7 +12,7 @@ namespace Codersquad\Datatype;
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-class String
+class String implements IDatatype
 {
     /**
      * Check if it is a string
@@ -21,7 +21,7 @@ class String
      *
      * @return bool
      */
-    public static function isString($string)
+    public static function isValid($string)
     {
         return is_string($string);
     }

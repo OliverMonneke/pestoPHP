@@ -12,7 +12,7 @@ namespace Codersquad\Datatype;
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-class Number
+class Number implements IDatatype
 {
     /**
      * Check if it is a number
@@ -21,7 +21,7 @@ class Number
      *
      * @return bool
      */
-    public static function isNumber($number)
+    public static function isValid($number)
     {
         return is_numeric($number);
     }

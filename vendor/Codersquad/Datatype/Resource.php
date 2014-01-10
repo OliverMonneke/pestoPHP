@@ -12,7 +12,7 @@ namespace Codersquad\Datatype;
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-class Resource
+class Resource implements IDatatype
 {
     /**
      * Check if it is a resource
@@ -21,7 +21,7 @@ class Resource
      *
      * @return bool
      */
-    public static function isResource($resource)
+    public static function isValid($resource)
     {
         return is_resource($resource);
     }
@@ -49,4 +49,4 @@ class Resource
     {
         return String::isNotEmpty($resource);
     }
-} 
+}
