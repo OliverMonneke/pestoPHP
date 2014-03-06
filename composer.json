@@ -1,12 +1,23 @@
 {
-    "name": "Codersquad/pestoPHP",
-    "description": "A delicious PHP framework for fast application bulding",
-    "minimum-stability": "dev",
-    "license": "proprietary",
+    "name": "codersquad/pestophp",
+    "type": "library",
+    "description": "Simple PHP framework for creating fast web applications",
+    "homepage": "http://github.com/Codersquad/pestoPHP",
+    "license": "MIT",
     "authors": [
         {
             "name": "Oliver Monneke",
-            "email": "oliver@codersquad.de"
+            "email": "oliver@codersquad.de",
+            "homepage": "http://codersquad.de",
+            "role": "Developer"
         }
-    ]
+    ],
+    "require": {
+        "php": ">=5.5.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Codersquad": "src"
+        }
+    }
 }
