@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pdxf="http://xml.phpdox.net/functions" xmlns:pu="http://schema.phpunit.de/coverage/1.0" lang="en">
+  <head xmlns:git="http://xml.phpdox.net/gitlog#">
+    <title>phpDox - Codersquad\Pestophp\Log\Types\FileLog</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav xmlns:git="http://xml.phpdox.net/gitlog#" class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../reports/index.xhtml">Reports</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml#Codersquad_Pestophp_Log_Types">Codersquad\Pestophp\Log\Types</a>
+          </li>
+          <li class="separator">FileLog</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>Codersquad\Pestophp\Log\Types\</small>FileLog</h1>
+        <h4>Class FileLog</h4>
+        <p/>
+        <ul>
+          <li>Author: Oliver Monneke &lt;oliver@codersquad.de&gt;</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class FileLog
+                implements
+                <a title="Codersquad\Log\ILog" href="../interfaces/Codersquad_Log_ILog.xhtml">ILog</a>,<a title="Codersquad\Pestophp\Classmanagement\IObserveAble" href="../interfaces/Codersquad_Pestophp_Classmanagement_IObserveAble.xhtml">IObserveAble</a>
+            {<br/><ul class="none"><li>// members</li><li>private
+                         <a href="#members">$_path</a>;
+                    </li><li>private
+                         <a href="#members">$_fileName</a>;
+                    </li><li>private <span title="Codersquad\Filesystem\File">File</span>
+                         <a href="#members">$_file</a>;
+                    </li><li>private
+                         <a href="#members">$_observers</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="Codersquad\Pestophp\Log\Types\FileLog" href="../classes/Codersquad_Pestophp_Log_Types_FileLog/__construct.xhtml">__construct</a>()
+                    </li><li>public void <a title="Codersquad\Pestophp\Log\Types\FileLog" href="../classes/Codersquad_Pestophp_Log_Types_FileLog/write.xhtml">write</a>()
+                    </li><li>public string <a title="Codersquad\Pestophp\Log\Types\FileLog" href="../classes/Codersquad_Pestophp_Log_Types_FileLog/getPath.xhtml">getPath</a>()
+                    </li><li>public string <a title="Codersquad\Pestophp\Log\Types\FileLog" href="../classes/Codersquad_Pestophp_Log_Types_FileLog/getFileName.xhtml">getFileName</a>()
+                    </li><li>public FileLog <a title="Codersquad\Pestophp\Log\Types\FileLog" href="../classes/Codersquad_Pestophp_Log_Types_FileLog/setPath.xhtml">setPath</a>()
+                    </li><li>public FileLog <a title="Codersquad\Pestophp\Log\Types\FileLog" href="../classes/Codersquad_Pestophp_Log_Types_FileLog/setFileName.xhtml">setFileName</a>()
+                    </li><li>public void <a title="Codersquad\Pestophp\Log\Types\FileLog" href="../classes/Codersquad_Pestophp_Log_Types_FileLog/attach.xhtml">attach</a>()
+                    </li><li>public void <a title="Codersquad\Pestophp\Log\Types\FileLog" href="../classes/Codersquad_Pestophp_Log_Types_FileLog/detach.xhtml">detach</a>()
+                    </li><li>public void <a title="Codersquad\Pestophp\Log\Types\FileLog" href="../classes/Codersquad_Pestophp_Log_Types_FileLog/notify.xhtml">notify</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div xmlns:git="http://xml.phpdox.net/gitlog#" class="styled">
+          <h4>Implements</h4>
+          <ul>
+            <li>
+              <a href="../interfaces/Codersquad_Log_ILog.xhtml">Codersquad\Log\ILog</a>
+            </li>
+            <li>
+              <a href="../interfaces/Codersquad_Pestophp_Classmanagement_IObserveAble.xhtml">Codersquad\Pestophp\Classmanagement\IObserveAble</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="members">Members</h2>
+        <div xmlns:git="http://xml.phpdox.net/gitlog#" class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="_file"><strong>$_file</strong>
+                —
+                <a href="#">Codersquad\Filesystem\File</a></li>
+            <li id="_fileName"><strong>$_fileName</strong>
+                —
+                string<br/><span class="indent">Name of log file</span></li>
+            <li id="_observers"><strong>$_observers</strong>
+                —
+                array<br/><span class="indent">Observers</span></li>
+            <li id="_path"><strong>$_path</strong>
+                —
+                string<br/><span class="indent">Path to log file</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div xmlns:git="http://xml.phpdox.net/gitlog#" class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="__construct"><a title="Codersquad\Pestophp\Log\Types\FileLog" href="../classes/Codersquad_Pestophp_Log_Types_FileLog/__construct.xhtml">__construct()</a>
+                — Default constructor</li>
+            <li id="attach"><a title="Codersquad\Pestophp\Log\Types\FileLog" href="../classes/Codersquad_Pestophp_Log_Types_FileLog/attach.xhtml">attach()</a>
+                — Attach observer</li>
+            <li id="detach"><a title="Codersquad\Pestophp\Log\Types\FileLog" href="../classes/Codersquad_Pestophp_Log_Types_FileLog/detach.xhtml">detach()</a>
+                — Detach observer</li>
+            <li id="getFileName"><a title="Codersquad\Pestophp\Log\Types\FileLog" href="../classes/Codersquad_Pestophp_Log_Types_FileLog/getFileName.xhtml">getFileName()</a>
+                — Getter for filename</li>
+            <li id="getPath"><a title="Codersquad\Pestophp\Log\Types\FileLog" href="../classes/Codersquad_Pestophp_Log_Types_FileLog/getPath.xhtml">getPath()</a>
+                — Getter for path</li>
+            <li id="notify"><a title="Codersquad\Pestophp\Log\Types\FileLog" href="../classes/Codersquad_Pestophp_Log_Types_FileLog/notify.xhtml">notify()</a>
+                — Notify observers</li>
+            <li id="setFileName"><a title="Codersquad\Pestophp\Log\Types\FileLog" href="../classes/Codersquad_Pestophp_Log_Types_FileLog/setFileName.xhtml">setFileName()</a>
+                — Setter for filename</li>
+            <li id="setPath"><a title="Codersquad\Pestophp\Log\Types\FileLog" href="../classes/Codersquad_Pestophp_Log_Types_FileLog/setPath.xhtml">setPath()</a>
+                — Setter for path</li>
+            <li id="write"><a title="Codersquad\Pestophp\Log\Types\FileLog" href="../classes/Codersquad_Pestophp_Log_Types_FileLog/write.xhtml">write()</a>
+                — Write to file</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer xmlns:git="http://xml.phpdox.net/gitlog#">
+      <span>Generated using phpDox 0.6.5 - Copyright (C) 2010 - 2014 by Arne Blankerts</span>
+    </footer>
+  </body>
+</html>
