@@ -26,14 +26,14 @@ class DateTime
      *
      * @var string
      */
-    private $_formatTime = 'H:M:s';
+    private $_formatTime = 'H:i:s';
 
     /**
      * Format of date and time
      *
      * @var string
      */
-    private $_formatDateTime = 'Y-m-d H:M:s';
+    private $_formatDateTime = 'Y-m-d H:i:s';
 
     /**
      * The year

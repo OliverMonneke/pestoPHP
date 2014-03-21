@@ -138,8 +138,7 @@ class Calculate
      */
     public function root($number)
     {
-        $rootObject = new Calculate($this->_number);
-        $this->_number = $rootObject->toTheN(1/$number)->getResult();
+        $this->_number = pow($this->_number, 1 / $number);
 
         return $this;
     }

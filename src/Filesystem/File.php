@@ -36,7 +36,7 @@ class File
      *
      * @param string $file Filename
      *
-     * @return \Codersquad\Filesystem\File
+     * @return \Codersquad\Pestophp\Filesystem\File
      */
     public function __construct($file)
     {
