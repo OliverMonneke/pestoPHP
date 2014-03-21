@@ -1,0 +1,24 @@
+{
+    "name": "codersquad/pestophp",
+    "type": "library",
+    "description": "Simple PHP framework for creating fast web applications",
+    "homepage": "http://github.com/Codersquad/pestoPHP",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Oliver Monneke",
+            "email": "oliver@codersquad.de",
+            "homepage": "http://codersquad.de",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+		"phpunit/phpunit": "~4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Codersquad\\Pestophp\\": [ "src", "tests" ]
+        }
+    }
+}
