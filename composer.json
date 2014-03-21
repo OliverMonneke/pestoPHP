@@ -18,7 +18,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Codersquad\\Pestophp\\": [ "src", "tests" ]
+            "Codersquad\\Pestophp\\": [ "src" ],
+            "Codersquad\\Tests\\": [ "tests" ]
         }
     }
 }
