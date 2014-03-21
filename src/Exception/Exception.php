@@ -3,12 +3,12 @@
 /**
  * Abstract class for exceptions
  */
-namespace Codersqad\Pestophp\Exception;
+namespace Codersquad\Pestophp\Exception;
 
 /**
  * Class Exception
  *
- * @package Codersqad\Pestophp\Exception
+ * @package Codersquad\Pestophp\Exception
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
@@ -41,7 +41,7 @@ abstract class Exception extends \Exception
      * Default constructor
      *
      * @throws ErrorNotFoundException
-     * @return \Codersqad\Pestophp\Exception\Exception
+     * @return \Codersquad\Pestophp\Exception\Exception
      */
     public function __construct()
     {

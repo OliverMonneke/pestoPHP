@@ -3,13 +3,13 @@
 /**
  * Abstract class for model generating
  */
-namespace Codersqad\Pestophp\Mvc;
+namespace Codersquad\Pestophp\Mvc;
 use Codersquad\Pestophp\Database\Database;
 
 /**
  * Class Model
  *
- * @package Codersqad\Pestophp\Mvc
+ * @package Codersquad\Pestophp\Mvc
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

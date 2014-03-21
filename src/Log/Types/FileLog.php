@@ -3,7 +3,7 @@
 /**
  * Class for logging to file
  */
-namespace Codersqad\Pestophp\Log\Types;
+namespace Codersquad\Pestophp\Log\Types;
 use Codersquad\Filesystem\File;
 use Codersquad\Log\ILog;
 use Codersquad\Pestophp\Classmanagement\IObserveAble;
@@ -12,7 +12,7 @@ use Codersquad\Pestophp\Classmanagement\IObserver;
 /**
  * Class FileLog
  *
- * @package Codersqad\Pestophp\Log\Types
+ * @package Codersquad\Pestophp\Log\Types
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

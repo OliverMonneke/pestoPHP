@@ -3,21 +3,20 @@
 /**
  * Router
  */
-namespace Codersquad\Mvc;
+namespace Codersquad\Pestophp\Mvc;
 use Codersquad\Pestophp\Classmanagement\ASingleton;
 use Codersquad\Pestophp\Classmanagement\ClassHandler;
-use Codersquad\Request\Request;
+use Codersquad\Pestophp\Request\Request;
 
 /**
  * Class Router
  *
- * @package Codersqad\Pestophp\Mvc
+ * @package Codersquad\Pestophp\Mvc
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
 class Router extends ASingleton
 {
-
     /**
      * Initializing router
      *

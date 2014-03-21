@@ -3,14 +3,14 @@
 /**
  * Handling all REQUEST data
  */
-namespace Codersquad\Request;
+namespace Codersquad\Pestophp\Request;
 use Codersquad\Pestophp\Classmanagement\ICommand;
 use Codersquad\Pestophp\Clipboard\ClipboardRequest;
 
 /**
  * Class Request
  *
- * @package Codersquad\Request
+ * @package Codersquad\Pestophp\Request
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

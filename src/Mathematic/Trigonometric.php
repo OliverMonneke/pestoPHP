@@ -3,12 +3,12 @@
 /**
  * Trigonometry handling
  */
-namespace Codersqad\Pestophp\Mathematic;
+namespace Codersquad\Pestophp\Mathematic;
 
 /**
  * Class Trigonometric
  *
- * @package Codersqad\Pestophp\Mathematic
+ * @package Codersquad\Pestophp\Mathematic
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

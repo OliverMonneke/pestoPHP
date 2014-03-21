@@ -4,8 +4,8 @@
  * Handling class management like controller loading
  */
 namespace Codersquad\Pestophp\Classmanagement;
-use Codersquad\Configuration\PathConfiguration;
-use Codersquad\Filesystem\Directory;
+use Codersquad\Pestophp\Configuration\PathConfiguration;
+use Codersquad\Pestophp\Filesystem\Directory;
 
 /**
  * Class ClassHandler
@@ -58,7 +58,7 @@ class ClassHandler
 
         if (!class_exists($className))
         {
-            $className = 'Controller';
+            $className = 'Codersquad\Pestophp\Mvc\Controller';
         }
 
         if (!method_exists($className, $action))

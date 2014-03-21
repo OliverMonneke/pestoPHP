@@ -3,7 +3,7 @@
 /**
  * File handling
  */
-namespace Codersquad\Filesystem;
+namespace Codersquad\Pestophp\Filesystem;
 use Codersquad\Pestophp\Datatype\Collection;
 use Codersquad\Pestophp\Datatype\Number;
 use Codersquad\Pestophp\Datatype\Resource;
@@ -12,7 +12,7 @@ use Codersquad\Pestophp\Datatype\String;
 /**
  * Class File
  *
- * @package Codersqad\Pestophp\Filesystem
+ * @package Codersquad\Pestophp\Filesystem
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

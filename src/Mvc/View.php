@@ -3,7 +3,7 @@
 /**
  * View handling
  */
-namespace Codersqad\Pestophp\Mvc;
+namespace Codersquad\Pestophp\Mvc;
 use Codersquad\Filesystem\File;
 use Codersquad\Pestophp\Datatype\Collection;
 use Codersquad\Pestophp\Datatype\Object;
@@ -12,7 +12,7 @@ use Codersquad\Pestophp\Datatype\String;
 /**
  * Class View
  *
- * @package Codersqad\Pestophp\Mvc
+ * @package Codersquad\Pestophp\Mvc
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

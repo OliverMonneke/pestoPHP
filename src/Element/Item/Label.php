@@ -3,13 +3,13 @@
 /**
  * Pure text
  */
-namespace Codersqad\Pestophp\Element\Item;
-use Codersqad\Pestophp\Element\AItem;
+namespace Codersquad\Pestophp\Element\Item;
+use Codersquad\Pestophp\Element\AItem;
 
 /**
  * Class Label
  *
- * @package Codersqad\Pestophp\Element\Item
+ * @package Codersquad\Pestophp\Element\Item
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

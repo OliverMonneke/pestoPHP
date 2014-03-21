@@ -3,12 +3,12 @@
 /**
  * Controller
  */
-namespace Codersquad\Mvc;
+namespace Codersquad\Pestophp\Mvc;
 
 /**
  * Class Controller
  *
- * @package Codersquad\Mvc
+ * @package Codersquad\Pestophp\Mvc
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

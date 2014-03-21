@@ -3,12 +3,12 @@
 /**
  * Exception if division by zero
  */
-namespace Codersqad\Pestophp\Exception;
+namespace Codersquad\Pestophp\Exception;
 
 /**
  * Exception DivisionByZero
  *
- * @package Codersqad\Pestophp\Exception
+ * @package Codersquad\Pestophp\Exception
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

@@ -3,14 +3,14 @@
 /**
  * Directory handling
  */
-namespace Codersqad\Pestophp\Filesystem;
+namespace Codersquad\Pestophp\Filesystem;
 use Codersquad\Pestophp\Classmanagement\AIterator;
 use Codersquad\Pestophp\Classmanagement\IIterator;
 
 /**
  * Class Directory
  *
- * @package Codersqad\Pestophp\Filesystem
+ * @package Codersquad\Pestophp\Filesystem
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
@@ -37,7 +37,7 @@ class Directory extends AIterator implements IIterator
      * @param string $startPath Start path
      * @param bool $recursive Recursive
      *
-     * @return \Codersqad\Pestophp\Filesystem\Directory
+     * @return \Codersquad\Pestophp\Filesystem\Directory
      */
     public function __construct($startPath = NULL, $recursive = FALSE)
     {

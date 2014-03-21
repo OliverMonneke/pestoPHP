@@ -6,6 +6,7 @@
 namespace Codersquad\Pestophp\Configuration;
 use Codersquad\Pestophp\Classmanagement\ICommand;
 use Codersquad\Pestophp\Clipboard\AClipboard;
+use Codersquad\Pestophp\Filesystem\File;
 
 /**
  * Class AAppConfiguration
@@ -56,7 +57,13 @@ abstract class AAppConfiguration extends AClipboard implements IConfiguration, I
             $environment = ENVIRONMENT;
         }
 
-        $config = simplexml_load_file(BASE_PATH . DIRECTORY_SEPARATOR . '/' . $this->_path . DIRECTORY_SEPARATOR . $environment.DIRECTORY_SEPARATOR.$this->_file);
+        $xmlFileName = BASE_PATH . DIRECTORY_SEPARATOR . '/' . $this->_path . DIRECTORY_SEPARATOR . $environment . DIRECTORY_SEPARATOR . $this->_file;
+        $config = [];
+
+        if (File::fileExists($xmlFileName))
+        {
+            $config = simplexml_load_file($xmlFileName);
+        }
 
         foreach ($config as $_key => $_value)
         {

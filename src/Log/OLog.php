@@ -9,7 +9,7 @@ use Codersquad\Pestophp\Classmanagement\IObserver;
 /**
  * Class OLog
  *
- * @package Codersqad\Pestophp\Log
+ * @package Codersquad\Pestophp\Log
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

@@ -3,7 +3,7 @@
 /**
  * GET parameter handling
  */
-namespace Codersqad\Pestophp\Request;
+namespace Codersquad\Pestophp\Request;
 use Codersquad\Pestophp\Classmanagement\ICommand;
 use Codersquad\Pestophp\Clipboard\ClipboardGet;
 

@@ -3,14 +3,14 @@
 /**
  * Cookie handling
  */
-namespace Codersqad\Pestophp\Request;
+namespace Codersquad\Pestophp\Request;
 use Codersquad\Pestophp\Classmanagement\ICommand;
 use Codersquad\Pestophp\Clipboard\ClipboardCookie;
 
 /**
  * Class Cookie
  *
- * @package Codersqad\Pestophp\Request
+ * @package Codersquad\Pestophp\Request
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

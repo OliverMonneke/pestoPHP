@@ -5,6 +5,16 @@
  */
 namespace Codersquad\Pestophp\Core;
 
+use Codersquad\Pestophp\Classmanagement\ASingleton;
+use Codersquad\Pestophp\Classmanagement\Command;
+use Codersquad\Pestophp\Configuration\DatabaseConfiguration;
+use Codersquad\Pestophp\Configuration\PathConfiguration;
+use Codersquad\Pestophp\Mvc\Router;
+use Codersquad\Pestophp\Request\Cookie;
+use Codersquad\Pestophp\Request\Get;
+use Codersquad\Pestophp\Request\Post;
+use Codersquad\Pestophp\Request\Request;
+
 require_once(__DIR__.'/../../vendor/autoload.php');
 
 /**
@@ -25,13 +35,6 @@ class Core extends ASingleton
     private $_useMvc = TRUE;
 
     /**
-     * Use GUI system
-     *
-     * @var bool
-     */
-    private $_useGui = FALSE;
-
-    /**
      * Run all needed things
      *
      * @return void
@@ -41,14 +44,8 @@ class Core extends ASingleton
         $this->_initConfiguration();
         $this->_initRequest();
 
-        if ($this->_useMvc)
-        {
+        if ($this->_useMvc) {
             $this->_initRouter();
-        }
-
-        if ($this->_useGui)
-        {
-            $this->_initGui();
         }
     }
 
@@ -97,19 +94,6 @@ class Core extends ASingleton
     }
 
     /**
-     * Initialize GUI system
-     *
-     * @return void
-     */
-    private function _initGui()
-    {
-        $gui = Gui::getInstance();
-        Gui::$view = Request::get('view');
-        $gui->run();
-        echo $gui;
-    }
-
-    /**
      * Setter for useMvc
      *
      * @param boolean $useMvc Use MVC
@@ -119,20 +103,6 @@ class Core extends ASingleton
     public function setUseMvc($useMvc)
     {
         $this->_useMvc = $useMvc;
-
-        return $this;
-    }
-
-    /**
-     * Setter for useGui
-     *
-     * @param boolean $useGui Use GUI system
-     *
-     * @return Core
-     */
-    public function setUseGui($useGui)
-    {
-        $this->_useGui = $useGui;
 
         return $this;
     }

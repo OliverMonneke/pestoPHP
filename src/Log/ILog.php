@@ -3,12 +3,12 @@
 /**
  * Interface for logging
  */
-namespace Codersqad\Pestophp\Log;
+namespace Codersquad\Pestophp\Log;
 
 /**
  * Interface ILog
  *
- * @package Codersqad\Pestophp\Log
+ * @package Codersquad\Pestophp\Log
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
