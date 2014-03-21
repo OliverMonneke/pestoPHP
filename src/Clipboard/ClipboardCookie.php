@@ -3,13 +3,12 @@
 /**
  * Cookie clipboard
  */
-namespace codersquad\pestophp\Clipboard;
-use Codersquad\Clipboard\AClipboard;
+namespace Codersquad\Pestophp\Clipboard;
 
 /**
  * Class ClipboardCookie
  *
- * @package codersquad\pestophp\Clipboard
+ * @package Codersquad\Pestophp\Clipboard
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

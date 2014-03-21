@@ -3,12 +3,12 @@
 /**
  * Interface for database classes
  */
-namespace codersquad\pestophp\Database;
+namespace Codersquad\Pestophp\Database;
 
 /**
  * Interface IDatabase
  *
- * @package codersquad\pestophp\Database
+ * @package Codersquad\Pestophp\Database
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

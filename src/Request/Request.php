@@ -4,8 +4,8 @@
  * Handling all REQUEST data
  */
 namespace Codersquad\Request;
-use Codersquad\Clipboard\ClipboardRequest;
-use Codersquad\Classmanagement\ICommand;
+use Codersquad\Pestophp\Classmanagement\ICommand;
+use Codersquad\Pestophp\Clipboard\ClipboardRequest;
 
 /**
  * Class Request

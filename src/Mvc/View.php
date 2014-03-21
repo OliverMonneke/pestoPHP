@@ -3,16 +3,16 @@
 /**
  * View handling
  */
-namespace Codersquad\Mvc;
-use Codersquad\Datatype\Collection;
-use Codersquad\Datatype\Object;
-use Codersquad\Datatype\String;
+namespace Codersqad\Pestophp\Mvc;
 use Codersquad\Filesystem\File;
+use Codersquad\Pestophp\Datatype\Collection;
+use Codersquad\Pestophp\Datatype\Object;
+use Codersquad\Pestophp\Datatype\String;
 
 /**
  * Class View
  *
- * @package Codersquad\Mvc
+ * @package Codersqad\Pestophp\Mvc
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
@@ -72,15 +72,15 @@ class View
     {
         foreach ($this->_replacementArray as $_key => $_value)
         {
-            if (String::isString($_value))
+            if (String::isValid($_value))
             {
                 $this->_replaceString($_key, $_value);
             }
-            elseif(Collection::isArray($_value))
+            elseif(Collection::isValid($_value))
             {
                 $this->_replaceArray($_key, $_value);
             }
-            elseif(Object::isObject($_value))
+            elseif(Object::isValid($_value))
             {
                 $this->_replaceObject($_key, $_value);
             }

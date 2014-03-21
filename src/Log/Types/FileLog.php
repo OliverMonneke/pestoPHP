@@ -3,16 +3,16 @@
 /**
  * Class for logging to file
  */
-namespace Codersquad\Log\Types;
-use Codersquad\Classmanagement\IObserver;
+namespace Codersqad\Pestophp\Log\Types;
 use Codersquad\Filesystem\File;
 use Codersquad\Log\ILog;
-use Codersquad\Classmanagement\IObserveAble;
+use Codersquad\Pestophp\Classmanagement\IObserveAble;
+use Codersquad\Pestophp\Classmanagement\IObserver;
 
 /**
  * Class FileLog
  *
- * @package Codersquad\Log\Types
+ * @package Codersqad\Pestophp\Log\Types
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
@@ -145,9 +145,9 @@ class FileLog implements ILog, IObserveAble
      */
     public function notify()
     {
+        /** @var $_observer IObserver */
         foreach ($this->_observers as $_observer)
         {
-            /** @noinspection PhpUndefinedMethodInspection */
             $_observer->update();
         }
     }

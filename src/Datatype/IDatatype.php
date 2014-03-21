@@ -3,12 +3,12 @@
 /**
  * Interface for data types
  */
-namespace codersquad\pestophp\Datatype;
+namespace Codersquad\Pestophp\Datatype;
 
 /**
  * Interface IDatatype
  *
- * @package codersquad\pestophp\Datatype
+ * @package Codersquad\Pestophp\Datatype
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

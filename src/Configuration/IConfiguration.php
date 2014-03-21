@@ -3,12 +3,12 @@
 /**
  * Interface for all configurations
  */
-namespace codersquad\pestophp\Configuration;
+namespace Codersquad\Pestophp\Configuration;
 
 /**
  * Class IConfiguration
  *
- * @package codersquad\pestophp\Configuration
+ * @package Codersquad\Pestophp\Configuration
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

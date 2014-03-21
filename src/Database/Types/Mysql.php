@@ -3,13 +3,15 @@
 /**
  * MySQL database handling
  */
-namespace codersquad\pestophp\Database\Types;
-use Codersquad\Database\IDatabase;
+namespace Codersquad\Pestophp\Database\Types;
+use Codersquad\Pestophp\Classmanagement\ASingleton;
+use Codersquad\Pestophp\Configuration\DatabaseConfiguration;
+use codersquad\pestophp\Database\IDatabase;
 
 /**
  * Class Mysql
  *
- * @package codersquad\pestophp\Database\Types
+ * @package Codersquad\Pestophp\Database\Types
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

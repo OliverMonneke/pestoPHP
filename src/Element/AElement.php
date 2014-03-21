@@ -3,12 +3,12 @@
 /**
  * Abstract base class for elements
  */
-namespace coderquad\pestophp\Element;
+namespace Codersquad\Pestophp\Element;
 
 /**
  * Class AElement
  *
- * @package codersquad\pestophp\Element
+ * @package Codersquad\Pestophp\Element
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

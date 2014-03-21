@@ -3,15 +3,15 @@
 /**
  * a tag
  */
-namespace codersquad\pestophp\Element\Component;
-use Codersquad\Datatype\Collection;
-use Codersquad\Datatype\String;
-use Codersquad\Element\AContainer;
+namespace Codersquad\Pestophp\Element\Component;
+use Codersquad\Pestophp\Datatype\Collection;
+use Codersquad\Pestophp\Datatype\String;
+use Codersquad\Pestophp\Element\AContainer;
 
 /**
  * Class Link
  *
- * @package codersquad\pestophp\Element\Component
+ * @package Codersquad\Pestophp\Element\Component
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

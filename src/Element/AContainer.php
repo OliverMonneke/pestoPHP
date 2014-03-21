@@ -3,9 +3,9 @@
 /**
  * Base class for containers
  */
-namespace Codersquad\Element;
-use Codersquad\Datatype\Collection;
-use Codersquad\Datatype\String;
+namespace Codersquad\Pestophp\Element;
+use Codersquad\Pestophp\Datatype\Collection;
+use Codersquad\Pestophp\Datatype\String;
 
 /**
  * Class AContainer

@@ -3,12 +3,12 @@
 /**
  * Class for dae management
  */
-namespace Codersquad\Time;
+namespace Codersqad\Pestophp\Time;
 
 /**
  * Class Date
  *
- * @package Codersquad\Time
+ * @package Codersqad\Pestophp\Time
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

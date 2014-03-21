@@ -3,9 +3,9 @@
 /**
  * GET parameter handling
  */
-namespace Codersquad\Request;
-use Codersquad\Clipboard\ClipboardGet;
-use Codersquad\Classmanagement\ICommand;
+namespace Codersqad\Pestophp\Request;
+use Codersquad\Pestophp\Classmanagement\ICommand;
+use Codersquad\Pestophp\Clipboard\ClipboardGet;
 
 /**
  * Class Get

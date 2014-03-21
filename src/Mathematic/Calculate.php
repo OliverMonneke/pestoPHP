@@ -3,14 +3,14 @@
 /**
  * Calculation
  */
-namespace Codersquad\Mathematic;
-use Codersquad\Datatype\Number;
-use Codersquad\Exception\DivisionByZero;
+namespace Codersqad\Pestophp\Mathematic;
+use Codersqad\Pestophp\Exception\DivisionByZero;
+use Codersquad\Pestophp\Datatype\Number;
 
 /**
  * Class Calculate
  *
- * @package Codersquad\Mathematic
+ * @package Codersqad\Pestophp\Mathematic
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
@@ -28,7 +28,7 @@ class Calculate
      *
      * @param number $number The number
      *
-     * @return \Codersquad\Mathematic\Calculate
+     * @return \Codersqad\Pestophp\Mathematic\Calculate
      */
     public function __construct($number)
     {
@@ -82,8 +82,8 @@ class Calculate
      *
      * @param int|float $number The number
      *
+     * @throws DivisionByZero
      * @return Calculate
-     * @throws \Codersquad\Exception\DivisionByZero
      */
     public function divide($number)
     {

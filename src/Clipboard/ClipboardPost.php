@@ -3,8 +3,7 @@
 /**
  * Clipboard for POST parameter
  */
-namespace codersquad\pestophp\Clipboard;
-use Codersquad\Clipboard\AClipboard;
+namespace Codersquad\Pestophp\Clipboard;
 
 /**
  * Class ClipboardPost

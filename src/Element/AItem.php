@@ -3,14 +3,15 @@
 /**
  * Abstract base class for items
  */
-namespace codersqad\pestophp\Element;
-use Codersquad\Datatype\Collection;
-use Codersquad\Datatype\String;
+namespace Codersqad\Pestophp\Element;
+use Codersquad\Pestophp\Datatype\Collection;
+use Codersquad\Pestophp\Datatype\String;
+use Codersquad\Pestophp\Element\AElement;
 
 /**
  * Class AItem
  *
- * @package codersquad\pestophp\Element
+ * @package Codersqad\Pestophp\Element
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

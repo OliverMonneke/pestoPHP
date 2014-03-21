@@ -3,12 +3,12 @@
 /**
  * Class for string manipulation
  */
-namespace codersquad\pestophp\Datatype;
+namespace Codersquad\Pestophp\Datatype;
 
 /**
  * Class String
  *
- * @package codersquad\pestophp\Datatype
+ * @package Codersquad\Pestophp\Datatype
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

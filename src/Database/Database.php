@@ -3,13 +3,14 @@
 /**
  * Database handling
  */
-namespace codersquad\pestophp\Database;
-use Codersquad\Classmanagement\ASingleton;
+namespace Codersquad\Pestophp\Database;
+use Codersquad\Pestophp\Classmanagement\ASingleton;
+use Codersquad\Pestophp\Configuration\DatabaseConfiguration;
 
 /**
  * Class Database
  *
- * @package codersquad\pestophp\Database
+ * @package Codersquad\Pestophp\Database
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

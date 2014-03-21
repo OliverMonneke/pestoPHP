@@ -4,15 +4,15 @@
  * File handling
  */
 namespace Codersquad\Filesystem;
-use Codersquad\Datatype\Collection;
-use Codersquad\Datatype\Number;
-use Codersquad\Datatype\Resource;
-use Codersquad\Datatype\String;
+use Codersquad\Pestophp\Datatype\Collection;
+use Codersquad\Pestophp\Datatype\Number;
+use Codersquad\Pestophp\Datatype\Resource;
+use Codersquad\Pestophp\Datatype\String;
 
 /**
  * Class File
  *
- * @package Codersquad\Filesystem
+ * @package Codersqad\Pestophp\Filesystem
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

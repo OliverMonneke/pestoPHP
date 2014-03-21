@@ -3,13 +3,12 @@
 /**
  * Exception if directory does not exist
  */
-namespace Codersquad\Exception;
-use Codersquad\Exception\Exception;
+namespace Codersqad\Pestophp\Exception;
 
 /**
  * Class DirectoryNotFoundException
  *
- * @package Codersquad\Exception
+ * @package Codersqad\Pestophp\Exception
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

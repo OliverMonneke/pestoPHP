@@ -4,12 +4,12 @@
  * Observer for logging
  */
 namespace codersquad\log;
-use Codersquad\Classmanagement\IObserver;
+use Codersquad\Pestophp\Classmanagement\IObserver;
 
 /**
  * Class OLog
  *
- * @package Codersquad\Log
+ * @package Codersqad\Pestophp\Log
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

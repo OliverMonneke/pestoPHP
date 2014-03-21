@@ -3,13 +3,12 @@
 /**
  * Exception if class does not exist
  */
-namespace codersquad\pestophp\Exception;
-use Codersquad\Exception\Exception;
+namespace Codersqad\Pestophp\Exception;
 
 /**
  * Exception ClassNotFound
  *
- * @package codersquad\pestophp\Exception
+ * @package Codersqad\Pestophp\Exception
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

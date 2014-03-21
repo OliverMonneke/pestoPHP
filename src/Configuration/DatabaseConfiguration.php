@@ -3,13 +3,12 @@
 /**
  * Import configuration file for database configuration
  */
-namespace codersquad\pestophp\Configuration;
-use Codersquad\Configuration\AAppConfiguration;
+namespace Codersquad\Pestophp\Configuration;
 
 /**
  * Class DatabaseConfiguration
  *
- * @package codersquad\pestophp\Configuration
+ * @package Codersquad\Pestophp\Configuration
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

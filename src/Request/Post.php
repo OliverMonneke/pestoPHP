@@ -3,9 +3,9 @@
 /**
  * POST parameter handling
  */
-namespace Codersquad\Request;
-use Codersquad\Clipboard\ClipboardPost;
-use Codersquad\Classmanagement\ICommand;
+namespace Codersqad\Pestophp\Request;
+use Codersquad\Pestophp\Classmanagement\ICommand;
+use Codersquad\Pestophp\Clipboard\ClipboardPost;
 
 /**
  * Class Post

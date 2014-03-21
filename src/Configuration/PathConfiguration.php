@@ -3,13 +3,12 @@
 /**
  * Import configuration for path options
  */
-namespace codersquad\pestophp\Configuration;
-use Codersquad\Configuration\AAppConfiguration;
+namespace Codersquad\Pestophp\Configuration;
 
 /**
  * Class PathConfiguration
  *
- * @package codersquad\pestophp\Configuration
+ * @package Codersquad\Pestophp\Configuration
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

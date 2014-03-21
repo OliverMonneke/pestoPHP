@@ -3,16 +3,14 @@
 /**
  * Abstract class for loading xml config files
  */
-namespace codersquad\pestophp\Configuration;
-use Codersquad\Clipboard\AClipboard;
-use Codersquad\Configuration\IConfiguration;
-use Codersquad\Classmanagement\ICommand;
-use Codersquad\Debug\Debug;
+namespace Codersquad\Pestophp\Configuration;
+use Codersquad\Pestophp\Classmanagement\ICommand;
+use Codersquad\Pestophp\Clipboard\AClipboard;
 
 /**
  * Class AAppConfiguration
  *
- * @package codersquad\pestophp\Configuration
+ * @package Codersquad\Pestophp\Configuration
  * @author Oliver Monneek <oliver@codersquad.de>
  * @version 0.1
  */

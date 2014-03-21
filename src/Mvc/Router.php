@@ -4,14 +4,14 @@
  * Router
  */
 namespace Codersquad\Mvc;
-use Codersquad\Classmanagement\ASingleton;
+use Codersquad\Pestophp\Classmanagement\ASingleton;
+use Codersquad\Pestophp\Classmanagement\ClassHandler;
 use Codersquad\Request\Request;
-use Codersquad\Classmanagement\ClassHandler;
 
 /**
  * Class Router
  *
- * @package Codersquad\Mvc
+ * @package Codersqad\Pestophp\Mvc
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */

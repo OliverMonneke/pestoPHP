@@ -5,16 +5,6 @@
  */
 namespace Codersquad\Pestophp\Core;
 
-use Codersquad\Mvc\Router;
-use Codersquad\Pestophp\Classmanagement\ASingleton;
-use Codersquad\Pestophp\Classmanagement\Command;
-use codersquad\pestophp\Configuration\DatabaseConfiguration;
-use codersquad\pestophp\Configuration\PathConfiguration;
-use Codersquad\Request\Cookie;
-use Codersquad\Request\Get;
-use Codersquad\Request\Post;
-use Codersquad\Request\Request;
-
 require_once(__DIR__.'/../../vendor/autoload.php');
 
 /**

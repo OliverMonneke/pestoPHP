@@ -3,13 +3,13 @@
 /**
  * IMG tag
  */
-namespace codersquad\pestophp\Element\Item;
-use Codersquad\Element\AContainer;
+namespace Codersqad\Pestophp\Element\Item;
+use Codersquad\Pestophp\Element\AContainer;
 
 /**
  * Class Image
  *
- * @package codersquad\pestophp\Element\Item
+ * @package Codersqad\Pestophp\Element\Item
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
