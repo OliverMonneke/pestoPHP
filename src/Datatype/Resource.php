@@ -35,6 +35,12 @@ class Resource implements IDatatype
      */
     public static function isEmpty($resource)
     {
+        if (!self::isValid($resource) &&
+            NULL !== $resource)
+        {
+            return false;
+        }
+
         return String::isEmpty($resource);
     }
 
@@ -47,6 +53,12 @@ class Resource implements IDatatype
      */
     public static function isNotEmpty($resource)
     {
-        return String::isNotEmpty($resource);
+        if (!self::isValid($resource) &&
+            null !== $resource)
+        {
+            return false;
+        }
+
+        return ($resource !== null && $resource !== '');
     }
 }

@@ -35,6 +35,11 @@ class String implements IDatatype
      */
     public static function lower($string)
     {
+        if (!self::isValid($string))
+        {
+            return false;
+        }
+
         return mb_strtolower($string);
     }
 
@@ -47,6 +52,11 @@ class String implements IDatatype
      */
     public static function upper($string)
     {
+        if (!self::isValid($string))
+        {
+            return false;
+        }
+
         return mb_strtoupper($string);
     }
 
@@ -61,6 +71,11 @@ class String implements IDatatype
      */
     public static function substring($string, $start = 0, $length = NULL)
     {
+        if (!self::isValid($string))
+        {
+            return false;
+        }
+
         return mb_substr($string, $start, $length);
     }
 
@@ -73,6 +88,11 @@ class String implements IDatatype
      */
     public static function length($string)
     {
+        if (!self::isValid($string))
+        {
+            return false;
+        }
+
         return mb_strlen($string);
     }
 
@@ -87,6 +107,11 @@ class String implements IDatatype
      */
     public static function startsWith($needle, $haystack, $caseSensitive = TRUE)
     {
+        if (!self::isValid($needle))
+        {
+            return false;
+        }
+
         if (!$caseSensitive)
         {
             $needle = self::lower($needle);
@@ -127,6 +152,11 @@ class String implements IDatatype
      */
     public static function contains($needle, $haystack, $caseSensitive = TRUE)
     {
+        if (!self::isValid($haystack))
+        {
+            return false;
+        }
+
         if (!$caseSensitive)
         {
             $needle = self::lower($needle);
@@ -148,6 +178,11 @@ class String implements IDatatype
      */
     public static function replace($search, $replace, $string, $caseSensitive = TRUE)
     {
+        if (!self::isValid($replace))
+        {
+            return false;
+        }
+
         if (!$caseSensitive)
         {
             return str_ireplace($search, $replace, $string);
@@ -167,6 +202,12 @@ class String implements IDatatype
      */
     public static function isEmpty($string)
     {
+        if (!self::isValid($string) &&
+            null !== $string)
+        {
+            return false;
+        }
+
         return ($string === NULL || $string === '');
     }
 
@@ -179,6 +220,12 @@ class String implements IDatatype
      */
     public static function isNotEmpty($string)
     {
+        if (!self::isValid($string) &&
+            null !== $string)
+        {
+            return false;
+        }
+
         return (!self::isEmpty($string));
     }
 }

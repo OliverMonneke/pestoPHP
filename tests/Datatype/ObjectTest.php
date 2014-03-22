@@ -10,6 +10,7 @@ namespace Datatype;
 
 
 use Codersquad\Pestophp\Datatype\Object;
+use stdClass;
 
 /**
  * Class ObjectTest
@@ -36,7 +37,16 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsValid()
     {
-        $this->assertTrue(Object::isValid($this->_object));
+        $this->assertInternalType('bool', Object::isValid(['a', 'b', 'c']));
+        $this->assertInternalType('bool', Object::isValid(''));
+        $this->assertInternalType('bool', Object::isValid(NULL));
+        /** @noinspection PhpParamsInspection */
+        $this->assertInternalType('bool', Object::isValid(new stdClass()));
+        $this->assertFalse(Object::isValid(['a', 'b', 'c']));
+        $this->assertFalse(Object::isValid('abc'));
+        $this->assertFalse(Object::isValid(NULL));
+        /** @noinspection PhpParamsInspection */
+        $this->assertTrue(Object::isValid(new stdClass()));
     }
 
     /**
@@ -44,7 +54,15 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
      */
     public function testToArray()
     {
-        $this->assertEquals(array('string1' => 'abc'), Object::toArray($this->_object));
+        $this->assertInternalType('bool', Object::toArray(['a', 'b', 'c']));
+        $this->assertInternalType('bool', Object::toArray(''));
+        $this->assertInternalType('bool', Object::toArray(NULL));
+        /** @noinspection PhpParamsInspection */
+        $this->assertInternalType('array', Object::toArray(new stdClass()));
+        $this->assertFalse(Object::toArray(['a', 'b', 'c']));
+        $this->assertFalse(Object::toArray('abc'));
+        $this->assertFalse(Object::toArray(NULL));
+        $this->assertEquals(['string1' => 'abc'], Object::toArray($this->_object));
     }
 }
  

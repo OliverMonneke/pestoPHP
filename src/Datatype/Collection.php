@@ -47,6 +47,11 @@ class Collection implements IDatatype
      */
     public static function length($array)
     {
+        if (!self::isValid($array))
+        {
+            return false;
+        }
+
         return count($array);
     }
 
@@ -59,6 +64,11 @@ class Collection implements IDatatype
      */
     public static function maxValue($array)
     {
+        if (!self::isValid($array))
+        {
+            return false;
+        }
+
         return max($array);
     }
 
@@ -71,6 +81,11 @@ class Collection implements IDatatype
      */
     public static function minValue($array)
     {
+        if (!self::isValid($array))
+        {
+            return false;
+        }
+
         return min($array);
     }
 
@@ -113,6 +128,12 @@ class Collection implements IDatatype
      */
     public static function merge($array1, $array2, $recursive = FALSE)
     {
+        if (!self::isValid($array1) ||
+            !self::isValid($array2))
+        {
+            return false;
+        }
+
         if ($recursive)
         {
             return array_merge_recursive($array1, $array2);
@@ -133,6 +154,11 @@ class Collection implements IDatatype
      */
     public static function existsKey($array, $key)
     {
+        if (!self::isValid($array))
+        {
+            return false;
+        }
+
         return array_key_exists($key, $array);
     }
 
@@ -146,12 +172,17 @@ class Collection implements IDatatype
      */
     public static function existsValue($array, $value)
     {
+        if (!self::isValid($array))
+        {
+            return false;
+        }
+
         $returnValue = FALSE;
         $length = self::length($array);
 
         for($i = 0;$i < $length; $i++)
         {
-            if ($value == $array[$i])
+            if ($value === $array[$i])
             {
                 $returnValue = TRUE;
                 break;
@@ -171,6 +202,11 @@ class Collection implements IDatatype
      */
     public static function filter($array, $callback = NULL)
     {
+        if (!self::isValid($array))
+        {
+            return false;
+        }
+
         return array_filter($array, $callback);
     }
 
@@ -184,6 +220,12 @@ class Collection implements IDatatype
      */
     public static function explode($string, $delimiter)
     {
+        if (!String::isValid($string) ||
+            String::isEmpty($string))
+        {
+            return false;
+        }
+
         return explode($delimiter, $string);
     }
 
@@ -197,6 +239,11 @@ class Collection implements IDatatype
      */
     public static function implode($array, $glue = ',')
     {
+        if (!self::isValid($array))
+        {
+            return false;
+        }
+
         return implode($glue, $array);
     }
 
@@ -209,6 +256,11 @@ class Collection implements IDatatype
      */
     public static function isEmpty($array)
     {
+        if (!self::isValid($array))
+        {
+            return false;
+        }
+
         return (self::length($array) === 0);
     }
 
@@ -221,6 +273,11 @@ class Collection implements IDatatype
      */
     public static function isNotEmpty($array)
     {
+        if (!self::isValid($array))
+        {
+            return false;
+        }
+
         return (!self::isEmpty($array));
     }
 }

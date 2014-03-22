@@ -39,6 +39,7 @@ class Database extends ASingleton
     public static function getInstance()
     {
         $className = 'codersquad\database\\'.ucfirst(strtolower(DatabaseConfiguration::get('type')));
+        /** @var $className Database */
         $instance = $className::getInstance();
         $instance->connect();
 

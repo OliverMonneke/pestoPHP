@@ -67,6 +67,7 @@ abstract class AAppConfiguration extends AClipboard implements IConfiguration, I
 
         foreach ($config as $_key => $_value)
         {
+            /** @noinspection PhpUndefinedMethodInspection */
             $this->set($_key, $_value->__toString());
         }
     }

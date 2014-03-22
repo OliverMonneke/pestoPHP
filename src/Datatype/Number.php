@@ -71,6 +71,11 @@ class Number implements IDatatype
      */
     public static function isPositive($number)
     {
+        if (!self::isValid($number))
+        {
+            return false;
+        }
+
         return ($number > 0);
     }
 
@@ -83,6 +88,11 @@ class Number implements IDatatype
      */
     public static function isNegative($number)
     {
+        if (!self::isValid($number))
+        {
+            return false;
+        }
+
         return ($number < 0);
     }
 
@@ -95,6 +105,11 @@ class Number implements IDatatype
      */
     public static function isZero($number)
     {
+        if (!self::isValid($number))
+        {
+            return false;
+        }
+
         return ($number === 0);
     }
 
@@ -107,6 +122,11 @@ class Number implements IDatatype
      */
     public static function toInteger($var)
     {
+        if (Object::isValid($var))
+        {
+            $var = 0;
+        }
+
         return intval($var);
     }
 
@@ -119,6 +139,11 @@ class Number implements IDatatype
      */
     public static function toFloat($var)
     {
+        if (Object::isValid($var))
+        {
+            $var = 0;
+        }
+
         return floatval($var);
     }
 
@@ -131,6 +156,11 @@ class Number implements IDatatype
      */
     public static function toDouble($var)
     {
+        if (Object::isValid($var))
+        {
+            $var = 0;
+        }
+
         return doubleval($var);
     }
 
@@ -158,6 +188,11 @@ class Number implements IDatatype
      */
     public static function isFinite($number)
     {
+        if (!self::isDouble($number))
+        {
+            return false;
+        }
+
         return is_finite($number);
     }
 
@@ -170,6 +205,11 @@ class Number implements IDatatype
      */
     public static function isInfinite($number)
     {
+        if (!self::isDouble($number))
+        {
+            return false;
+        }
+
         return is_infinite($number);
     }
 

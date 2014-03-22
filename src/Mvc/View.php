@@ -4,10 +4,10 @@
  * View handling
  */
 namespace Codersquad\Pestophp\Mvc;
-use Codersquad\Filesystem\File;
 use Codersquad\Pestophp\Datatype\Collection;
 use Codersquad\Pestophp\Datatype\Object;
 use Codersquad\Pestophp\Datatype\String;
+use Codersquad\Pestophp\Filesystem\File;
 
 /**
  * Class View
@@ -169,8 +169,7 @@ class View
     /**
      * Setter for file
      *
-     * @param \Codersquad\Filesystem\File $file
-     *
+     * @param $file
      * @return View
      */
     public function setFile($file)

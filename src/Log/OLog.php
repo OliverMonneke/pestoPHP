@@ -19,11 +19,11 @@ class OLog implements IObserver
     /**
      * Update observer
      *
-     * @param IObserver $logger The observer
+     * @internal param \Codersquad\Pestophp\Classmanagement\IObserver $logger The observer
      *
      * @return void
      */
-    public function update(IObserver $logger)
+    public function update()
     {
     }
 }

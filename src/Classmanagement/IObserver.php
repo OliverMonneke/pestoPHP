@@ -18,9 +18,9 @@ interface IObserver
     /**
      * Update the observer
      *
-     * @param IObserver $observer The observer
+     * @internal param \Codersquad\Pestophp\Classmanagement\IObserver $observer The observer
      *
      * @return void
      */
-    public function update(IObserver $observer);
+    public function update();
 }

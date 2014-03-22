@@ -25,6 +25,7 @@ class ControllerTest extends \PHPUnit_Framework_TestCase
     {
         $controller = new Controller();
         $this->assertEquals('This is the base controller and the default action', $controller->defaultAction());
+        $this->assertNotEquals('', $controller->defaultAction());
     }
 }
  

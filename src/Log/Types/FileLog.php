@@ -4,10 +4,10 @@
  * Class for logging to file
  */
 namespace Codersquad\Pestophp\Log\Types;
-use Codersquad\Filesystem\File;
-use Codersquad\Log\ILog;
 use Codersquad\Pestophp\Classmanagement\IObserveAble;
 use Codersquad\Pestophp\Classmanagement\IObserver;
+use Codersquad\Pestophp\Filesystem\File;
+use Codersquad\Pestophp\Log\ILog;
 
 /**
  * Class FileLog

@@ -10,6 +10,7 @@ namespace Datatype;
 
 
 use Codersquad\Pestophp\Datatype\Resource;
+use stdClass;
 
 /**
  * Class ResourceTest
@@ -35,6 +36,14 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsValid()
     {
+        $this->assertInternalType('bool', Resource::isValid(''));
+        $this->assertInternalType('bool', Resource::isValid(NULL));
+        /** @noinspection PhpParamsInspection */
+        $this->assertInternalType('bool', Resource::isValid(new stdClass()));
+        $this->assertFalse(Resource::isValid(''));
+        $this->assertFalse(Resource::isValid(NULL));
+        /** @noinspection PhpParamsInspection */
+        $this->assertFalse(Resource::isValid(new stdClass()));
         $this->assertTrue(Resource::isValid($this->_resource));
     }
 
@@ -43,7 +52,16 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsEmpty()
     {
-        $this->assertTrue(Resource::isEmpty(''));
+        $this->assertInternalType('bool', Resource::isEmpty(''));
+        $this->assertInternalType('bool', Resource::isEmpty(NULL));
+        /** @noinspection PhpParamsInspection */
+        $this->assertInternalType('bool', Resource::isEmpty(new stdClass()));
+        $this->assertFalse(Resource::isEmpty(''));
+        $this->assertTrue(Resource::isEmpty(NULL));
+        /** @noinspection PhpParamsInspection */
+        $this->assertFalse(Resource::isEmpty(new stdClass()));
+        $this->assertFalse(Resource::isEmpty(''));
+        $this->assertFalse(Resource::isEmpty($this->_resource));
     }
 
     /**
@@ -51,7 +69,16 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsNotEmpty()
     {
-        $this->assertTrue(Resource::isNotEmpty('abc'));
+        $this->assertInternalType('bool', Resource::isNotEmpty(''));
+        $this->assertInternalType('bool', Resource::isNotEmpty(NULL));
+        /** @noinspection PhpParamsInspection */
+        $this->assertInternalType('bool', Resource::isNotEmpty(new stdClass()));
+        $this->assertFalse(Resource::isNotEmpty(''));
+        $this->assertFalse(Resource::isNotEmpty(NULL));
+        /** @noinspection PhpParamsInspection */
+        $this->assertFalse(Resource::isNotEmpty(new stdClass()));
+        $this->assertFalse(Resource::isNotEmpty(''));
+        $this->assertTrue(Resource::isNotEmpty($this->_resource));
     }
 
     /**

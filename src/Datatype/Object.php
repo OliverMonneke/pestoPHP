@@ -35,6 +35,11 @@ class Object implements IDatatype
      */
     public static function toArray($object)
     {
+        if (!self::isValid($object))
+        {
+            return false;
+        }
+
         return (array) $object;
     }
 }
