@@ -12,7 +12,7 @@ namespace Codersquad\Pestophp\Exception;
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-class DivisionByZero extends Exception
+class DivisionByZeroException extends Exception
 {
 
     /**

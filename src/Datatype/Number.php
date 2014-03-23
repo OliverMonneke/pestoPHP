@@ -221,7 +221,7 @@ class Number implements IDatatype
      *
      * @return int
      */
-    public static function random($min, $max)
+    public static function random($min, $max = NULL)
     {
         if (String::isEmpty($max) ||
             $max > getrandmax())

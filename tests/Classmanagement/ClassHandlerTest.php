@@ -9,13 +9,18 @@
 namespace Classmanagement;
 
 
-use Codersquad\Pestophp\Classmanagement\ClassHandler;
-
+/**
+ * Class ClassHandlerTest
+ * @package Classmanagement
+ */
 class ClassHandlerTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     *
+     */
     public function testLoadController()
     {
-        // @todo implement test for ClassHandler::loadController
+        $this->markTestIncomplete('test for ClassHandler::loadController not yet implemented');
 //        $classData = ClassHandler::loadController('', '');
 //        $this->assertEquals(array('Codersquad\\Pestophp\\Mvc\\Controller', 'default'), $classData);
     }

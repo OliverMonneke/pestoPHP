@@ -9,17 +9,27 @@
 namespace Classmanagement;
 
 
+/**
+ * Class CommandTest
+ * @package Classmanagement
+ */
 class CommandTest extends \PHPUnit_Framework_TestCase
 {
 
+    /**
+     *
+     */
     public function testAdd()
     {
-        // @todo implement test for Command->add
+        $this->markTestIncomplete('test for Command->add not yet implemented');
     }
 
+    /**
+     *
+     */
     public function testRun()
     {
-        // @todo implement test for Command->run
+        $this->markTestIncomplete('test for Command->run not yet implemented');
     }
 
 

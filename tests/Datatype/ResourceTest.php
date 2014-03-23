@@ -52,14 +52,6 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsEmpty()
     {
-        $this->assertInternalType('bool', Resource::isEmpty(''));
-        $this->assertInternalType('bool', Resource::isEmpty(NULL));
-        /** @noinspection PhpParamsInspection */
-        $this->assertInternalType('bool', Resource::isEmpty(new stdClass()));
-        $this->assertFalse(Resource::isEmpty(''));
-        $this->assertTrue(Resource::isEmpty(NULL));
-        /** @noinspection PhpParamsInspection */
-        $this->assertFalse(Resource::isEmpty(new stdClass()));
         $this->assertFalse(Resource::isEmpty(''));
         $this->assertFalse(Resource::isEmpty($this->_resource));
     }
@@ -69,15 +61,6 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsNotEmpty()
     {
-        $this->assertInternalType('bool', Resource::isNotEmpty(''));
-        $this->assertInternalType('bool', Resource::isNotEmpty(NULL));
-        /** @noinspection PhpParamsInspection */
-        $this->assertInternalType('bool', Resource::isNotEmpty(new stdClass()));
-        $this->assertFalse(Resource::isNotEmpty(''));
-        $this->assertFalse(Resource::isNotEmpty(NULL));
-        /** @noinspection PhpParamsInspection */
-        $this->assertFalse(Resource::isNotEmpty(new stdClass()));
-        $this->assertFalse(Resource::isNotEmpty(''));
         $this->assertTrue(Resource::isNotEmpty($this->_resource));
     }
 

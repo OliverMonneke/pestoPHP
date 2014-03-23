@@ -5,7 +5,7 @@
  */
 namespace Codersquad\Pestophp\Mathematic;
 use Codersquad\Pestophp\Datatype\Number;
-use Codersquad\Pestophp\Exception\DivisionByZero;
+use Codersquad\Pestophp\Exception\DivisionByZeroException;
 
 /**
  * Class Calculate
@@ -82,14 +82,14 @@ class Calculate
      *
      * @param int|float $number The number
      *
-     * @throws DivisionByZero
+     * @throws \Codersquad\Pestophp\Exception\DivisionByZeroException
      * @return Calculate
      */
     public function divide($number)
     {
         if (Number::isZero($number))
         {
-            throw new DivisionByZero;
+            throw new DivisionByZeroException;
         }
 
         $this->_number = $this->_number / $number;

@@ -28,7 +28,7 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->_object = new \stdClass();
+        $this->_object = new stdClass();
         $this->_object->string1 = 'abc';
     }
 
@@ -54,14 +54,6 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
      */
     public function testToArray()
     {
-        $this->assertInternalType('bool', Object::toArray(['a', 'b', 'c']));
-        $this->assertInternalType('bool', Object::toArray(''));
-        $this->assertInternalType('bool', Object::toArray(NULL));
-        /** @noinspection PhpParamsInspection */
-        $this->assertInternalType('array', Object::toArray(new stdClass()));
-        $this->assertFalse(Object::toArray(['a', 'b', 'c']));
-        $this->assertFalse(Object::toArray('abc'));
-        $this->assertFalse(Object::toArray(NULL));
         $this->assertEquals(['string1' => 'abc'], Object::toArray($this->_object));
     }
 }
