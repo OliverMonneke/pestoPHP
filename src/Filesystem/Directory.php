@@ -59,6 +59,7 @@ class Directory extends AIterator implements IIterator
             $directory = $this->_startPath;
         }
 
+        /** @noinspection PhpAssignmentInConditionInspection */
         if ($dh = opendir($directory))
         {
             while (($file = readdir($dh)) !== FALSE)

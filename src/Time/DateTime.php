@@ -145,8 +145,6 @@ class DateTime
             case 'y':
                 $seconds = $this->_evaluateDateString(12*$matches[1].'m');
                 break;
-            default:
-                break;
         }
 
         return $seconds;

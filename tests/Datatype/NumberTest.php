@@ -99,7 +99,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testToInteger()
     {
-        $this->markTestIncomplete('test Number::toInteger not yet implemented');
+        $this->assertEquals(3, Number::toInteger('3'));
     }
 
     /**
@@ -107,7 +107,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testToFloat()
     {
-        $this->markTestIncomplete('test Number::toFloat not yet implemented');
+        $this->assertEquals(3212.0, Number::toFloat(3212));
     }
 
     /**
@@ -115,7 +115,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testToDouble()
     {
-        $this->markTestIncomplete('test Number::toDouble not yet implemented');
+        $this->assertEquals(3212.0, Number::toDouble(3212));
     }
 
     /**
@@ -123,7 +123,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testFormat()
     {
-        $this->markTestIncomplete('test for Number:format($number, $decimals, $decimalPoint, $thousandSeparator) not implemented yet');
+        $this->assertEquals('3.212,000', Number::format(3212, 3, ',', '.'));
     }
 
     /**
@@ -147,7 +147,9 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testRandomWithoutMax()
     {
-        $this->markTestIncomplete('test for Number:random($min, $max) not implemented yet');
+        $randomNumber = Number::random(1, 3212);
+        $this->assertGreaterThanOrEqual(1, $randomNumber);
+        $this->assertLessThanOrEqual(3212, $randomNumber);
     }
 
     /**
@@ -155,6 +157,74 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testRandomWithMax()
     {
-        $this->markTestIncomplete('test for Number:random($min, $max) not implemented yet');
+        $randomNumber = Number::random(1);
+        $this->assertGreaterThanOrEqual(1, $randomNumber);
+    }
+
+    /**
+     *
+     */
+    public function testIsPositiveWithWrongDatatype()
+    {
+        /** @noinspection PhpParamsInspection */
+        $this->assertFalse(Number::isPositive('abc'));
+    }
+
+    /**
+     *
+     */
+    public function testIsNegativeWithWrongDatatype()
+    {
+        /** @noinspection PhpParamsInspection */
+        $this->assertFalse(Number::isNegative('abc'));
+    }
+
+    /**
+     *
+     */
+    public function testIsZeroWithWrongDatatype()
+    {
+        /** @noinspection PhpParamsInspection */
+        $this->assertFalse(Number::isZero('abc'));
+    }
+
+    /**
+     *
+     */
+    public function testToIntegerWithObjectDatatype()
+    {
+        $this->assertEquals(0, Number::toInteger(new stdClass()));
+    }
+
+    /**
+     *
+     */
+    public function testToFloatWithObjectDatatype()
+    {
+        $this->assertEquals(0.0, Number::toFloat(new stdClass()));
+    }
+
+    /**
+     *
+     */
+    public function testToDoubleWithObjectDatatype()
+    {
+        $this->assertEquals(0.0, Number::toDouble(new stdClass()));
+    }
+
+    /**
+     *
+     */
+    public function testIsFiniteWithWrongDatatype()
+    {
+        $this->assertFalse(Number::isFinite(0));
+    }
+
+    /**
+     *
+     */
+    public function testIsInfiniteWithWrongDatatype()
+    {
+        $this->assertFalse(Number::isInfinite(0));
     }
 }

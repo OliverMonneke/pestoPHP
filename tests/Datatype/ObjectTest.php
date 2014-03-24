@@ -23,6 +23,12 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
      */
     private $_object;
 
+    public function testToArrayWithWrongDatatype()
+    {
+        /** @noinspection PhpParamsInspection */
+        $this->assertFalse(Object::toArray('abc'));
+    }
+
     /**
      *
      */
@@ -56,5 +62,7 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals(['string1' => 'abc'], Object::toArray($this->_object));
     }
+
+
 }
  

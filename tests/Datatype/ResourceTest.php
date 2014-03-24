@@ -23,6 +23,12 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
      */
     private $_resource;
 
+    public function testIsNotEmptyWithWrongDatatype()
+    {
+        /** @noinspection PhpParamsInspection */
+        $this->assertFalse(Resource::isNotEmpty('abc'));
+    }
+
     /**
      *
      */

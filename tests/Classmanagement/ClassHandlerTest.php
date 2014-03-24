@@ -7,6 +7,8 @@
  */
 
 namespace Classmanagement;
+use Codersquad\Pestophp\Classmanagement\ClassHandler;
+use Codersquad\Pestophp\Configuration\PathConfiguration;
 
 
 /**
@@ -15,14 +17,23 @@ namespace Classmanagement;
  */
 class ClassHandlerTest extends \PHPUnit_Framework_TestCase
 {
+    protected function setUp()
+    {
+        PathConfiguration::set('src', '');
+
+        if(!defined('BASE_PATH'))
+        {
+            define('BASE_PATH', __DIR__.'/../../');
+        }
+    }
+
     /**
      *
      */
     public function testLoadController()
     {
-        $this->markTestIncomplete('test for ClassHandler::loadController not yet implemented');
-//        $classData = ClassHandler::loadController('', '');
-//        $this->assertEquals(array('Codersquad\\Pestophp\\Mvc\\Controller', 'default'), $classData);
+        $classData = ClassHandler::loadController('', '');
+        $this->assertEquals(['controller' => 'Codersquad\\Pestophp\\Mvc\\Controller', 'action' => 'defaultAction'], $classData);
     }
 }
  

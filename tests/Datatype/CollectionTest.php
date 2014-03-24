@@ -56,6 +56,11 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
         $this->assertNotEquals(4, Collection::length(['a', 'b', 'c']));
     }
 
+    public function testLengthWithWrongDatatype()
+    {
+        $this->assertFalse(Collection::length('abc'));
+    }
+
     /**
      *
      */
@@ -67,9 +72,27 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
+    public function testMaxWithWrongDataType()
+    {
+        $this->assertFalse(Collection::maxValue('abc'));
+    }
+
+    /**
+     *
+     */
     public function testMin()
     {
         $this->assertEquals(min(['a', 'b', 'c']), Collection::minValue(['a', 'b', 'c']));
+    }
+
+
+
+    /**
+     *
+     */
+    public function testMinWithWrongDataType()
+    {
+        $this->assertFalse(Collection::minValue('abc'));
     }
 
     /**
@@ -133,7 +156,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
      */
     public function testFilter()
     {
-        $this->markTestIncomplete('test for Collection::filter($array, $callback) not implemented yet');
+        $this->assertEquals(['a', 'b'], Collection::filter(['a', 'b', 2], ['Codersquad\Pestophp\Datatype\String', 'isValid']));
     }
 
     /**
@@ -169,4 +192,49 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(Collection::isNotEmpty(['a', 'b', 'c']));
         $this->assertFalse(Collection::isNotEmpty([]));
     }
+
+    public function testMergeWithWrongDatatype()
+    {
+        /** @noinspection PhpParamsInspection */
+        $this->assertFalse(Collection::merge(['a', 'b', 'c'], 'abc'));
+    }
+
+    public function testExistKeyWithWrongDatatype()
+    {
+        $this->assertFalse(Collection::existsKey('abc', 'a'));
+    }
+
+    public function testExistValueWithWrongDatatype()
+    {
+        $this->assertFalse(Collection::existsValue('abc', 'a'));
+    }
+
+    public function testFilterWithWrongDatatype()
+    {
+        /** @noinspection PhpParamsInspection */
+        $this->assertFalse(Collection::filter('abc', 'a'));
+    }
+
+    public function testExplodeWithWrongDataType()
+    {
+        /** @noinspection PhpParamsInspection */
+        $this->assertFalse(Collection::explode(['a', 'b', 'c'], 'b'));
+    }
+
+    public function testIsEmptyWithWrongDatatype()
+    {
+        $this->assertFalse(Collection::isEmpty('abc'));
+    }
+
+    public function testIsNotEmptyWithWrongDatatype()
+    {
+        $this->assertFalse(Collection::isNotEmpty('abc'));
+    }
+
+    public function testImplodeWithWrongDatatype()
+    {
+        $this->assertFalse(Collection::implode('abc', 'b'));
+    }
+
+
 }
