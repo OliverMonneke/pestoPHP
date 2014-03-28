@@ -69,7 +69,7 @@ class Directory extends AIterator implements IIterator
                     $this->_array[] = $directory . DIRECTORY_SEPARATOR . $file;
 
                     if (is_dir($directory . DIRECTORY_SEPARATOR . $file) &&
-                            $this->getRecursive())
+                            $this->isRecursive())
                     {
                         $this->_walkDirectory($directory . DIRECTORY_SEPARATOR . $file);
                     }
@@ -113,7 +113,7 @@ class Directory extends AIterator implements IIterator
      *
      * @return bool
      */
-    public function getRecursive()
+    public function isRecursive()
     {
         return $this->_recursive;
     }
