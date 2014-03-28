@@ -15,6 +15,13 @@ namespace Codersquad\Pestophp\Mvc;
 class Controller
 {
     /**
+     *
+     */
+    public function init()
+    {
+    }
+
+    /**
      * Default action
      *
      * @return mixed

@@ -7,6 +7,7 @@ namespace Codersquad\Pestophp\Mvc;
 use Codersquad\Pestophp\Datatype\Collection;
 use Codersquad\Pestophp\Datatype\Object;
 use Codersquad\Pestophp\Datatype\String;
+use Codersquad\Pestophp\Exception\FileNotFoundException;
 use Codersquad\Pestophp\Filesystem\File;
 
 /**
@@ -38,13 +39,21 @@ class View
     private $_replacementArray = [];
 
     /**
+     * Check if already replaced
+     *
+     * @var bool
+     */
+    private $_replaced = false;
+
+    /**
      * Default constructor
      *
      * @param string $file The view
+     * @throws \Codersquad\Pestophp\Exception\FileNotFoundException
      */
     public function __construct($file)
     {
-        $this->_file = new File($file);
+        $this->setFile($file);
         $this->_content = $this->_file->read();
     }
 
@@ -58,6 +67,7 @@ class View
      */
     public function assign($key, $value = '')
     {
+        $this->_replaced = false;
         $this->_replacementArray[$key] = $value;
 
         return $this;
@@ -153,6 +163,7 @@ class View
     private function _cleanup()
     {
         $this->_content = preg_replace('/{ .* }/', '', $this->_content);
+        $this->_content = preg_replace('/{% .* %}/', '', $this->_content);
     }
 
     /**
@@ -162,7 +173,12 @@ class View
      */
     public function getView()
     {
-        $this->_replace();
+        if (!$this->_replaced)
+        {
+            $this->_replace();
+            $this->_replaced = true;
+        }
+
         return $this->_content;
     }
 
@@ -170,12 +186,26 @@ class View
      * Setter for file
      *
      * @param $file
+     * @throws \Codersquad\Pestophp\Exception\FileNotFoundException
      * @return View
      */
     public function setFile($file)
     {
-        $this->_file = $file;
+        $this->_checkViewExists($file);
+
+        $this->_file = new File($file);
 
         return $this;
+    }
+
+    /**
+     * @param $file
+     * @throws \Codersquad\Pestophp\Exception\FileNotFoundException
+     */
+    private function _checkViewExists($file)
+    {
+        if (!File::fileExists($file)) {
+            throw new FileNotFoundException;
+        }
     }
 }

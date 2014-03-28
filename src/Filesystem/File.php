@@ -253,13 +253,17 @@ class File
     /**
      * Default destructor
      *
-     * @return void
+     * @return bool
      */
     public function __destruct()
     {
-        if (String::isNotEmpty($this->_handle))
+        if (Resource::isNotEmpty($this->_handle))
         {
-            fclose($this->_handle);
+            return fclose($this->_handle);
+        }
+        else
+        {
+            return true;
         }
     }
 }
