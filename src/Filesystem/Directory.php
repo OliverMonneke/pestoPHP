@@ -165,11 +165,11 @@ class Directory extends AIterator implements IIterator
 
     /**
      * @param $directory
-     * @param $dh
+     * @param $directoryHandle
      */
-    private function _walkDirectory($directory, $dh)
+    private function _walkDirectory($directory, $directoryHandle)
     {
-        while (($file = readdir($dh)) !== FALSE) {
+        while (($file = readdir($directoryHandle)) !== FALSE) {
             $this->_handleDirectory($directory, $file);
         }
     }
@@ -180,8 +180,8 @@ class Directory extends AIterator implements IIterator
     private function _run($directory)
     {
         /** @noinspection PhpAssignmentInConditionInspection */
-        if ($dh = opendir($directory)) {
-            $this->_walkDirectory($directory, $dh);
+        if ($directoryHandle = opendir($directory)) {
+            $this->_walkDirectory($directory, $directoryHandle);
         }
     }
 }
