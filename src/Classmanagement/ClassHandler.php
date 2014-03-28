@@ -5,6 +5,7 @@
  */
 namespace Codersquad\Pestophp\Classmanagement;
 use Codersquad\Pestophp\Configuration\PathConfiguration;
+use Codersquad\Pestophp\Datatype\String;
 use Codersquad\Pestophp\Filesystem\Directory;
 
 /**
@@ -37,7 +38,7 @@ class ClassHandler
             if (is_file($_file) &&
                     preg_match('/^.*' . $controller . 'Controller.php$/', $_file))
             {
-                $fileName = $_file;
+                $fileName = String::replace('\\', DIRECTORY_SEPARATOR, $_file);
                 break;
             }
         }
