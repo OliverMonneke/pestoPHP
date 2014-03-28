@@ -90,7 +90,7 @@ class Core extends ASingleton
     private function _initRouter()
     {
         $router = Router::getInstance();
-        $router->init();
+        echo $router->init();
     }
 
     /**

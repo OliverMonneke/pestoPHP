@@ -20,7 +20,7 @@ class Router extends ASingleton
     /**
      * Initializing router
      *
-     * @return void
+     * @return mixed
      */
     public function init()
     {
@@ -35,6 +35,6 @@ class Router extends ASingleton
             call_user_method('init', $controller);
         }
 
-        echo call_user_method($controllerData['action'], $controller);
+        return call_user_method($controllerData['action'], $controller);
     }
 }
