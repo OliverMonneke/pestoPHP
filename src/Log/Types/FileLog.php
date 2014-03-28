@@ -50,8 +50,7 @@ class FileLog implements ILog, IObserveAble
      */
     public function __construct()
     {
-        $file = BASE_PATH . DIRECTORY_SEPARATOR . $this->_path . DIRECTORY_SEPARATOR . $this->_fileName;
-        $this->_file = new File($file);
+        $this->_file = new File(BASE_PATH . DIRECTORY_SEPARATOR . $this->_path . DIRECTORY_SEPARATOR . $this->_fileName);
     }
 
     /**

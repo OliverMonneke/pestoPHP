@@ -4,6 +4,7 @@
  * Abstract class for exceptions
  */
 namespace Codersquad\Pestophp\Exception;
+use Codersquad\Pestophp\Datatype\Collection;
 
 /**
  * Class Exception
@@ -45,7 +46,7 @@ abstract class Exception extends \Exception
      */
     public function __construct()
     {
-        if (!array_key_exists($this->_errorCode, self::$_errorCodes))
+        if (!Collection::existsKey(self::$_errorCodes, $this->_errorCode))
         {
             throw new ErrorNotFoundException;
         }
@@ -53,6 +54,6 @@ abstract class Exception extends \Exception
         $errorMessage = [];
         $errorMessage[] = 'Error '.$this->_errorCode.' occured: '.self::$_errorCodes[$this->_errorCode];
 
-        $this->message = implode('<br />', $errorMessage);
+        $this->message = Collection::implode('<br />', $errorMessage);
     }
 }

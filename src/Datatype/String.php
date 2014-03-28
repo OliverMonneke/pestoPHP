@@ -228,4 +228,23 @@ class String implements IDatatype
 
         return (!self::isEmpty($string));
     }
+
+    /**
+     * @param $string
+     * @return string
+     */
+    public static function lowerFirst($string)
+    {
+        return self::lower(self::substring($string, 0, 1)).self::substring($string, 1);
+
+    }
+
+    /**
+     * @param $string
+     * @return string
+     */
+    public static function upperFirst($string)
+    {
+        return self::upper(self::substring($string, 0, 1)).self::substring($string, 1);
+    }
 }

@@ -6,6 +6,7 @@
 namespace Codersquad\Pestophp\Database;
 use Codersquad\Pestophp\Classmanagement\ASingleton;
 use Codersquad\Pestophp\Configuration\DatabaseConfiguration;
+use Codersquad\Pestophp\Datatype\String;
 
 /**
  * Class Database
@@ -38,7 +39,7 @@ class Database extends ASingleton
      */
     public static function getInstance()
     {
-        $className = 'codersquad\database\\'.ucfirst(strtolower(DatabaseConfiguration::get('type')));
+        $className = 'Codersquad\Database\\'.String::upperFirst(strtolower(DatabaseConfiguration::get('type')));
         /** @var $className Database */
         $instance = $className::getInstance();
         $instance->connect();

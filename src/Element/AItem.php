@@ -25,27 +25,72 @@ abstract class AItem extends AElement
     {
         $source = '<'.$this->_tag;
 
-        if (String::isNotEmpty($this->_name))
-        {
-            $source .= ' name="'.$this->_name.'" ';
-        }
+        $source = $this->_addName($source);
 
-        if (Collection::isNotEmpty($this->_class))
-        {
-            $source .= ' class="'.Collection::implode($this->_class, ' ').'" ';
-        }
+        $source = $this->_addClass($source);
 
-        if (String::isNotEmpty($this->_id))
-        {
-            $source .= ' id="'.$this->_id.'" ';
-        }
+        $source = $this->_addId($source);
 
-        if (NULL !== $this->_value)
-        {
-            $source .= ' value="'.$this->_value.'" ';
-        }
+        $source = $this->_addValue($source);
 
         $source .= ' />';
+
+        return $source;
+    }
+
+    /**
+     * @param $source
+     * @return string
+     */
+    private function _addName($source)
+    {
+        if (String::isNotEmpty($this->_name))
+        {
+            $source .= ' name="' . $this->_name . '" ';
+            return $source;
+        }
+
+        return $source;
+    }
+
+    /**
+     * @param $source
+     * @return string
+     */
+    private function _addClass($source)
+    {
+        if (Collection::isNotEmpty($this->_class)) {
+            $source .= ' class="' . Collection::implode($this->_class, ' ') . '" ';
+            return $source;
+        }
+
+        return $source;
+    }
+
+    /**
+     * @param $source
+     * @return string
+     */
+    private function _addId($source)
+    {
+        if (String::isNotEmpty($this->_id)) {
+            $source .= ' id="' . $this->_id . '" ';
+            return $source;
+        }
+
+        return $source;
+    }
+
+    /**
+     * @param $source
+     * @return string
+     */
+    private function _addValue($source)
+    {
+        if (NULL !== $this->_value) {
+            $source .= ' value="' . $this->_value . '" ';
+            return $source;
+        }
 
         return $source;
     }

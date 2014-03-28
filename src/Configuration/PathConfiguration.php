@@ -31,11 +31,18 @@ class PathConfiguration extends AAppConfiguration
     {
         $instance = parent::getInstance();
 
-        if (array_key_exists('REDIRECT_BASE', $_SERVER))
-        {
-            self::set('base', $_SERVER['DOCUMENT_ROOT'] . $_SERVER['REDIRECT_BASE'] . DIRECTORY_SEPARATOR . '..');
-        }
+        self::_setRedirectBase();
 
         return $instance;
+    }
+
+    /**
+     *
+     */
+    private static function _setRedirectBase()
+    {
+        if (array_key_exists('REDIRECT_BASE', $_SERVER)) {
+            self::set('base', $_SERVER['DOCUMENT_ROOT'] . $_SERVER['REDIRECT_BASE'] . DIRECTORY_SEPARATOR . '..');
+        }
     }
 }

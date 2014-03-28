@@ -4,6 +4,7 @@
  * Abstract class for singleton implementation
  */
 namespace Codersquad\Pestophp\Classmanagement;
+use Codersquad\Pestophp\Datatype\Collection;
 
 /**
  * Class ASingleton
@@ -32,6 +33,16 @@ abstract class ASingleton
     }
 
     /**
+     * @param $className
+     */
+    private static function _createInstance($className)
+    {
+        if (!Collection::existsKey(self::$_instances, $className)) {
+            self::$_instances[$className] = new $className();
+        }
+    }
+
+    /**
      * No cloning allowerd
      *
      * @return void
@@ -49,10 +60,7 @@ abstract class ASingleton
     {
         $className = get_called_class();
 
-        if (!array_key_exists($className, self::$_instances))
-        {
-            self::$_instances[$className] = new $className();
-        }
+        self::_createInstance($className);
 
         return self::$_instances[$className];
     }

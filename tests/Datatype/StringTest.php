@@ -245,6 +245,14 @@ class StringTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse(String::isNotEmpty(['a', 'b', 'c']));
     }
 
+    public function testLowerFirst()
+    {
+        $this->assertEquals('aBc', String::lowerFirst('ABc'));
+    }
 
+    public function testUpperFirst()
+    {
+        $this->assertEquals('ABc', String::upperFirst('aBc'));
+    }
 }
  

@@ -7,6 +7,7 @@ namespace Codersquad\Pestophp\Database\Types;
 use Codersquad\Pestophp\Classmanagement\ASingleton;
 use Codersquad\Pestophp\Configuration\DatabaseConfiguration;
 use codersquad\pestophp\Database\IDatabase;
+use Codersquad\Pestophp\Datatype\Resource;
 
 /**
  * Class Mysql
@@ -63,7 +64,7 @@ class Mysql extends ASingleton implements IDatabase
      */
     public function connect()
     {
-        if (NULL === $this->_connection)
+        if (Resource::isEmpty($this->_connection))
         {
             $this->_connection = mysqli_connect(DatabaseConfiguration::get('host'), DatabaseConfiguration::get('user'), DatabaseConfiguration::get('password'), DatabaseConfiguration::get('database'), NULL, DatabaseConfiguration::get('socket'));
         }

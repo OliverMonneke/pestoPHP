@@ -52,30 +52,12 @@ class Directory extends AIterator implements IIterator
      *
      * @return void
      */
-    private function _walkDirectory($directory = NULL)
+    private function _evaluateDirectory($directory = NULL)
     {
-        if (NULL === $directory)
-        {
-            $directory = $this->_startPath;
-        }
+        $directory = $this->_setDirectoryFallback($directory);
 
         /** @noinspection PhpAssignmentInConditionInspection */
-        if ($dh = opendir($directory))
-        {
-            while (($file = readdir($dh)) !== FALSE)
-            {
-                if (!preg_match('/^\.{1,2}$/', $file))
-                {
-                    $this->_array[] = $directory . DIRECTORY_SEPARATOR . $file;
-
-                    if (is_dir($directory . DIRECTORY_SEPARATOR . $file) &&
-                            $this->isRecursive())
-                    {
-                        $this->_walkDirectory($directory . DIRECTORY_SEPARATOR . $file);
-                    }
-                }
-            }
-        }
+        $this->_run($directory);
     }
 
     /**
@@ -85,7 +67,7 @@ class Directory extends AIterator implements IIterator
      */
     public function setArray()
     {
-        $this->_walkDirectory();
+        $this->_evaluateDirectory();
     }
 
     /**
@@ -140,5 +122,66 @@ class Directory extends AIterator implements IIterator
     public function setRecursive($_recursive)
     {
         $this->_recursive = $_recursive;
+    }
+
+    /**
+     * @param $directory
+     * @return string
+     */
+    private function _setDirectoryFallback($directory)
+    {
+        if (NULL === $directory) {
+            $directory = $this->_startPath;
+            return $directory;
+        }
+        return $directory;
+    }
+
+    /**
+     * @param $directory
+     * @param $file
+     */
+    private function _walkDirectoryRecursive($directory, $file)
+    {
+        if (is_dir($directory . DIRECTORY_SEPARATOR . $file) &&
+            $this->isRecursive()
+        ) {
+            $this->_evaluateDirectory($directory . DIRECTORY_SEPARATOR . $file);
+        }
+    }
+
+    /**
+     * @param $directory
+     * @param $file
+     */
+    private function _handleDirectory($directory, $file)
+    {
+        if (!preg_match('/^\.{1,2}$/', $file)) {
+            $this->_array[] = $directory . DIRECTORY_SEPARATOR . $file;
+
+            $this->_walkDirectoryRecursive($directory, $file);
+        }
+    }
+
+    /**
+     * @param $directory
+     * @param $dh
+     */
+    private function _walkDirectory($directory, $dh)
+    {
+        while (($file = readdir($dh)) !== FALSE) {
+            $this->_handleDirectory($directory, $file);
+        }
+    }
+
+    /**
+     * @param $directory
+     */
+    private function _run($directory)
+    {
+        /** @noinspection PhpAssignmentInConditionInspection */
+        if ($dh = opendir($directory)) {
+            $this->_walkDirectory($directory, $dh);
+        }
     }
 }

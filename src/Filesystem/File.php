@@ -52,10 +52,7 @@ class File
      */
     private function _setHandle($mode)
     {
-        if (Resource::isNotEmpty($this->_handle))
-        {
-            fclose($this->_handle);
-        }
+        $this->_closeExistingHandle();
 
         $this->_handle = fopen($this->_file, $mode);
 
@@ -182,14 +179,7 @@ class File
      */
     public function write($string, $append = TRUE)
     {
-        if ($append)
-        {
-            $mode = 'a';
-        }
-        else
-        {
-            $mode = 'w';
-        }
+        $mode = $this->_getMode($append);
 
         $this->_setHandle($mode);
         return fwrite($this->_handle, $string);
@@ -244,10 +234,8 @@ class File
         {
             return touch($this->_file);
         }
-        else
-        {
-            return TRUE;
-        }
+
+        return true;
     }
 
     /**
@@ -261,9 +249,29 @@ class File
         {
             return fclose($this->_handle);
         }
-        else
-        {
-            return true;
+
+        return true;
+    }
+
+    private function _closeExistingHandle()
+    {
+        if (Resource::isNotEmpty($this->_handle)) {
+            fclose($this->_handle);
+        }
+    }
+
+    /**
+     * @param $append
+     * @return string
+     */
+    private function _getMode($append)
+    {
+        if ($append) {
+            $mode = 'a';
+            return $mode;
+        } else {
+            $mode = 'w';
+            return $mode;
         }
     }
 }

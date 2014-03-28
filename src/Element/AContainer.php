@@ -49,34 +49,89 @@ class AContainer extends AElement
     {
         $source = '<'.$this->_tag;
 
-        if (String::isNotEmpty($this->_dataTag))
-        {
-            $source .= ' '.$this->_dataTag.'="'.$this->_value.'" ';
-        }
+        $source = $this->_addDataTag($source);
 
-        if (String::isNotEmpty($this->_name))
-        {
-            $source .= ' name="'.$this->_name.'" ';
-        }
+        $source = $this->_addName($source);
 
-        if (Collection::isNotEmpty($this->_class))
-        {
-            $source .= ' class="'.Collection::implode($this->_class, ' ').'" ';
-        }
+        $source = $this->_addClass($source);
 
-        if (String::isNotEmpty($this->_id))
-        {
-            $source .= ' id="'.$this->_id.'" ';
-        }
+        $source = $this->_addId($source);
 
         $source .= '>';
 
+        $source = $this->_addChildElements($source);
+
+        $source .= '</'.$this->_tag.'>';
+
+        return $source;
+    }
+
+    /**
+     * @param $source
+     * @return string
+     */
+    private function _addDataTag($source)
+    {
+        if (String::isNotEmpty($this->_dataTag)) {
+            $source .= ' ' . $this->_dataTag . '="' . $this->_value . '" ';
+            return $source;
+        }
+
+        return $source;
+    }
+
+    /**
+     * @param $source
+     * @return string
+     */
+    private function _addName($source)
+    {
+        if (String::isNotEmpty($this->_name)) {
+            $source .= ' name="' . $this->_name . '" ';
+            return $source;
+        }
+
+        return $source;
+    }
+
+    /**
+     * @param $source
+     * @return string
+     */
+    private function _addClass($source)
+    {
+        if (Collection::isNotEmpty($this->_class)) {
+            $source .= ' class="' . Collection::implode($this->_class, ' ') . '" ';
+            return $source;
+        }
+
+        return $source;
+    }
+
+    /**
+     * @param $source
+     * @return string
+     */
+    private function _addId($source)
+    {
+        if (String::isNotEmpty($this->_id)) {
+            $source .= ' id="' . $this->_id . '" ';
+            return $source;
+        }
+
+        return $source;
+    }
+
+    /**
+     * @param $source
+     * @return string
+     */
+    private function _addChildElements($source)
+    {
         foreach ($this->_elements as $_element)
         {
             $source .= $_element;
         }
-
-        $source .= '</'.$this->_tag.'>';
 
         return $source;
     }

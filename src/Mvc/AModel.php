@@ -5,6 +5,8 @@
  */
 namespace Codersquad\Pestophp\Mvc;
 use Codersquad\Pestophp\Database\Database;
+use Codersquad\Pestophp\Datatype\Collection;
+use Codersquad\Pestophp\Datatype\String;
 
 /**
  * Class Model
@@ -13,7 +15,7 @@ use Codersquad\Pestophp\Database\Database;
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-abstract class Model
+abstract class AModel
 {
     /**
      * Database object
@@ -55,14 +57,17 @@ abstract class Model
     {
         $returnValue = '';
 
-        if (substr($method, 0, 3) === 'set')
+        $magicMethod = $this->_evaluateMagicMethod($method);
+
+        switch($magicMethod)
         {
-            $this->set(lcfirst(substr($method, 3)), $arguments[0]);
-            $returnValue = TRUE;
-        }
-        elseif (substr($method, 0, 3) === 'get')
-        {
-            $returnValue = $this->get(lcfirst(substr($method, 3)));
+            case 'set':
+                $this->set(String::lowerFirst(String::substring($method, 3)), $arguments[0]);
+                $returnValue = $this->_model;
+                break;
+            case 'get':
+                $returnValue = $this->get(String::lowerFirst(substr($method, 3)));
+                break;
         }
 
         return $returnValue;
@@ -74,7 +79,7 @@ abstract class Model
      * @param mixed $key   The key
      * @param mixed $value The value
      *
-     * @return Model
+     * @return AModel
      */
     public function set($key, $value)
     {
@@ -108,24 +113,16 @@ abstract class Model
         $query = [];
         $query[] = 'SELECT * FROM '.$model::TABLE;
 
-        if (NULL !== $primaryValue)
-        {
-            $this->_primaryValue = $primaryValue;
-            $query[] = ' WHERE '.$model::PRIMARY.' = '.$this->_primaryValue;
-        }
+        $query = $this->_loadWithPrimaryKey($primaryValue, $model, $query);
 
-        $dataCollection = $this->_databaseObject->getInstance()->setQuery(implode('', $query))->execute()->fetch();
+        $dataCollection = $this->_databaseObject->getInstance()->setQuery(Collection::implode($query, ''))->execute()->fetch();
 
-        if (count($dataCollection) > 1 ||
+        if (Collection::length($dataCollection) > 1 ||
                 $primaryValue === NULL)
         {
-            foreach($dataCollection as $_data)
-            {
-                $model = $this->_setProperties($_data, new $model());
-                $this->_dataCollection[] = $model;
-            }
+            $this->_loadSingleEntry($dataCollection, $model);
         }
-        elseif (count($dataCollection) > 2)
+        elseif (Collection::length($dataCollection) > 2)
         {
             $this->_setProperties($dataCollection[0], $this);
         }
@@ -166,5 +163,43 @@ abstract class Model
     public function __clone()
     {
         $this->_primaryValue = NULL;
+    }
+
+    /**
+     * @param $method
+     * @return string
+     */
+    private function _evaluateMagicMethod($method)
+    {
+        return String::substring($method, 0, 3);
+    }
+
+    /**
+     * @param $primaryValue
+     * @param $model
+     * @param $query
+     * @return array
+     */
+    private function _loadWithPrimaryKey($primaryValue, $model, $query)
+    {
+        if (NULL !== $primaryValue) {
+            $this->_primaryValue = $primaryValue;
+            $query[] = ' WHERE ' . $model::PRIMARY . ' = ' . $this->_primaryValue;
+            return $query;
+        }
+
+        return $query;
+    }
+
+    /**
+     * @param $dataCollection
+     * @param $model
+     */
+    private function _loadSingleEntry($dataCollection, $model)
+    {
+        foreach ($dataCollection as $_data) {
+            $model = $this->_setProperties($_data, new $model());
+            $this->_dataCollection[] = $model;
+        }
     }
 }
