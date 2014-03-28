@@ -37,7 +37,7 @@ class Core extends ASingleton
     /**
      * Run all needed things
      *
-     * @return void
+     * @return bool
      */
     public function run()
     {
@@ -45,8 +45,10 @@ class Core extends ASingleton
         $this->_initRequest();
 
         if ($this->_useMvc) {
-            $this->_initRouter();
+            return $this->_initRouter();
         }
+
+        return true;
     }
 
     /**
@@ -85,12 +87,13 @@ class Core extends ASingleton
     /**
      * Initialize router
      *
-     * @return void
+     * @return bool
      */
     private function _initRouter()
     {
         $router = Router::getInstance();
         echo $router->init();
+        return true;
     }
 
     /**

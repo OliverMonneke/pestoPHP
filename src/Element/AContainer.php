@@ -14,7 +14,7 @@ use Codersquad\Pestophp\Datatype\String;
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-class AContainer extends AElement
+abstract class AContainer extends AElement
 {
     /**
      * @var string
@@ -73,7 +73,7 @@ class AContainer extends AElement
     private function _addDataTag($source)
     {
         if (String::isNotEmpty($this->_dataTag)) {
-            $source .= ' ' . $this->_dataTag . '="' . $this->_value . '" ';
+            $source .= ' ' . $this->_dataTag . '="' . $this->_value . '"';
             return $source;
         }
 
@@ -87,7 +87,7 @@ class AContainer extends AElement
     private function _addName($source)
     {
         if (String::isNotEmpty($this->_name)) {
-            $source .= ' name="' . $this->_name . '" ';
+            $source .= ' name="' . $this->_name . '"';
             return $source;
         }
 
@@ -101,7 +101,7 @@ class AContainer extends AElement
     private function _addClass($source)
     {
         if (Collection::isNotEmpty($this->_class)) {
-            $source .= ' class="' . Collection::implode($this->_class, ' ') . '" ';
+            $source .= ' class="' . Collection::implode($this->_class, ' ') . '"';
             return $source;
         }
 
@@ -115,7 +115,7 @@ class AContainer extends AElement
     private function _addId($source)
     {
         if (String::isNotEmpty($this->_id)) {
-            $source .= ' id="' . $this->_id . '" ';
+            $source .= ' id="' . $this->_id . '"';
             return $source;
         }
 

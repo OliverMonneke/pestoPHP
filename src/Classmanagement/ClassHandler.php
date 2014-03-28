@@ -59,7 +59,7 @@ class ClassHandler
                 $className[] = $exploded[$i];
             }
 
-            $className = str_replace('.php', '', implode('\\', $className));
+            $className = String::replace('.php', '', implode('\\', $className));
         }
 
         if (!class_exists($className))

@@ -93,41 +93,71 @@ class Link extends AContainer
     public function __toString()
     {
         $source = '<'.$this->_tag;
+        $source .= ' '.$this->_dataTag.'="'.$this->_href.'"';
 
-        if (String::isNotEmpty($this->_dataTag))
-        {
-            $source .= ' '.$this->_dataTag.'="'.$this->_href.'" ';
-        }
+        $source = $this->_addTarget($source);
 
-        if (String::isNotEmpty($this->_target))
-        {
-            $source .= ' target="'.$this->_target.'" ';
-        }
+        $source = $this->_addClass($source);
 
-        if (String::isNotEmpty($this->_name))
-        {
-            $source .= ' name="'.$this->_name.'" ';
-        }
-
-        if (Collection::isNotEmpty($this->_class))
-        {
-            $source .= ' class="'.Collection::implode($this->_class, ' ').'" ';
-        }
-
-        if (String::isNotEmpty($this->_id))
-        {
-            $source .= ' id="'.$this->_id.'" ';
-        }
+        $source = $this->_addId($source);
 
         $source .= '>'.$this->_value;
 
-        foreach ($this->_elements as $_element)
-        {
-            $source .= $_element;
-        }
+        $source = $this->_addChildElements($source);
 
         $source .= '</'.$this->_tag.'>';
 
+        return $source;
+    }
+
+    /**
+     * @param $source
+     * @return string
+     */
+    private function _addTarget($source)
+    {
+        if (String::isNotEmpty($this->getTarget())) {
+            $source .= ' target="' . $this->_target . '"';
+            return $source;
+        }
+        return $source;
+    }
+
+    /**
+     * @param $source
+     * @return string
+     */
+    private function _addClass($source)
+    {
+        if (Collection::isNotEmpty($this->getClass())) {
+            $source .= ' class="' . Collection::implode($this->_class, ' ') . '"';
+            return $source;
+        }
+        return $source;
+    }
+
+    /**
+     * @param $source
+     * @return string
+     */
+    private function _addId($source)
+    {
+        if (String::isNotEmpty($this->getId())) {
+            $source .= ' id="' . $this->_id . '"';
+            return $source;
+        }
+        return $source;
+    }
+
+    /**
+     * @param $source
+     * @return string
+     */
+    private function _addChildElements($source)
+    {
+        foreach ($this->_elements as $_element) {
+            $source .= $_element;
+        }
         return $source;
     }
 }

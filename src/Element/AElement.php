@@ -40,20 +40,6 @@ abstract class AElement
     protected $_name = NULL;
 
     /**
-     * Setter for class
-     *
-     * @param array $class The classes
-     *
-     * @return AElement
-     */
-    public function setClass($class)
-    {
-        $this->_class = $class;
-
-        return $this;
-    }
-
-    /**
      * Add a single class
      *
      * @param string $class The class

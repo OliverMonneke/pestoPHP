@@ -19,4 +19,4 @@ class Body extends AContainer
      * @var string
      */
     protected $_tag = 'body';
-} 
+}
