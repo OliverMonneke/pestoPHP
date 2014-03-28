@@ -32,7 +32,6 @@ class ClassHandlerTest extends \PHPUnit_Framework_TestCase
      */
     public function testLoadController()
     {
-        $this->markTestSkipped('Error on teamcity server');
         $classData = ClassHandler::loadController('', '');
         $this->assertEquals(['controller' => 'Codersquad\Pestophp\Mvc\Controller', 'action' => 'defaultAction'], $classData);
     }
