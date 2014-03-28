@@ -20,7 +20,7 @@ interface IConfiguration
      *
      * @return void
      */
-    public function import();
+    public function execute();
 
     /**
      * Export configuration
