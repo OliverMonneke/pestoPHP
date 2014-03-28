@@ -82,14 +82,14 @@ class Trigonometric extends  Calculate
     /**
      * Calculate hypotenuse
      *
-     * @param number $x Length of first line
-     * @param number $y Length of second line
+     * @param number $xValue Length of first line
+     * @param number $yValue Length of second line
      *
      * @return float
      */
-    public static function hypotenuse($x, $y)
+    public static function hypotenuse($xValue, $yValue)
     {
-        return hypot($x, $y);
+        return hypot($xValue, $yValue);
     }
 
     /**

@@ -19,9 +19,9 @@ abstract class AParse
     protected $configurationArray = [];
 
     /**
-     * @param $source
+     * @internal param $source
      */
-    public function __construct($source)
+    public function __construct()
     {
 
     }

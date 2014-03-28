@@ -80,13 +80,13 @@ abstract class AElement
     /**
      * Setter for id
      *
-     * @param string $id The id
+     * @param string $cssId The id
      *
      * @return AElement
      */
-    public function setId($id)
+    public function setId($cssId)
     {
-        $this->_id = $id;
+        $this->_id = $cssId;
 
         return $this;
     }
