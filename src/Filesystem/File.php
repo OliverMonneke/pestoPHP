@@ -7,7 +7,6 @@ namespace Codersquad\Pestophp\Filesystem;
 use Codersquad\Pestophp\Datatype\Collection;
 use Codersquad\Pestophp\Datatype\Number;
 use Codersquad\Pestophp\Datatype\Resource;
-use Codersquad\Pestophp\Datatype\String;
 
 /**
  * Class File
