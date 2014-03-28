@@ -4,6 +4,7 @@
  * Base class for containers
  */
 namespace Codersquad\Pestophp\Element;
+
 use Codersquad\Pestophp\Datatype\Collection;
 use Codersquad\Pestophp\Datatype\String;
 
@@ -47,7 +48,7 @@ abstract class AContainer extends AElement
      */
     public function __toString()
     {
-        $source = '<'.$this->_tag;
+        $source = '<' . $this->_tag;
 
         $source = $this->_addDataTag($source);
 
@@ -61,7 +62,7 @@ abstract class AContainer extends AElement
 
         $source = $this->_addChildElements($source);
 
-        $source .= '</'.$this->_tag.'>';
+        $source .= '</' . $this->_tag . '>';
 
         return $source;
     }
@@ -70,7 +71,7 @@ abstract class AContainer extends AElement
      * @param $source
      * @return string
      */
-    private function _addDataTag($source)
+    protected function _addDataTag($source)
     {
         if (String::isNotEmpty($this->_dataTag)) {
             $source .= ' ' . $this->_dataTag . '="' . $this->_value . '"';
@@ -84,7 +85,7 @@ abstract class AContainer extends AElement
      * @param $source
      * @return string
      */
-    private function _addName($source)
+    protected function _addName($source)
     {
         if (String::isNotEmpty($this->_name)) {
             $source .= ' name="' . $this->_name . '"';
@@ -98,10 +99,10 @@ abstract class AContainer extends AElement
      * @param $source
      * @return string
      */
-    private function _addClass($source)
+    protected function _addClass($source)
     {
-        if (Collection::isNotEmpty($this->_class)) {
-            $source .= ' class="' . Collection::implode($this->_class, ' ') . '"';
+        if (Collection::isNotEmpty($this->getClass())) {
+            $source .= ' class="' . Collection::implode($this->getClass(), ' ') . '"';
             return $source;
         }
 
@@ -112,10 +113,10 @@ abstract class AContainer extends AElement
      * @param $source
      * @return string
      */
-    private function _addId($source)
+    protected function _addId($source)
     {
-        if (String::isNotEmpty($this->_id)) {
-            $source .= ' id="' . $this->_id . '"';
+        if (String::isNotEmpty($this->getId())) {
+            $source .= ' id="' . $this->getId() . '"';
             return $source;
         }
 
@@ -126,10 +127,9 @@ abstract class AContainer extends AElement
      * @param $source
      * @return string
      */
-    private function _addChildElements($source)
+    protected function _addChildElements($source)
     {
-        foreach ($this->_elements as $_element)
-        {
+        foreach ($this->_elements as $_element) {
             $source .= $_element;
         }
 

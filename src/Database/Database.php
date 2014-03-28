@@ -39,12 +39,22 @@ class Database extends ASingleton
      */
     public static function getInstance()
     {
-        $className = 'Codersquad\Database\\'.String::upperFirst(strtolower(DatabaseConfiguration::get('type')));
+        $className = 'Codersquad\Database\\Types\\' . String::upperFirst(strtolower(DatabaseConfiguration::get('type')));
         /** @var $className Database */
         $instance = $className::getInstance();
         $instance->connect();
 
         return $instance;
+    }
+
+    /**
+     * Getter for type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->_type;
     }
 
     /**
@@ -59,15 +69,5 @@ class Database extends ASingleton
         $this->_type = $type;
 
         return $this;
-    }
-
-    /**
-     * Getter for type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->_type;
     }
 }

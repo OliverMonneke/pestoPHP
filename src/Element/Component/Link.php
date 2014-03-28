@@ -4,7 +4,6 @@
  * a tag
  */
 namespace Codersquad\Pestophp\Element\Component;
-use Codersquad\Pestophp\Datatype\Collection;
 use Codersquad\Pestophp\Datatype\String;
 use Codersquad\Pestophp\Element\AContainer;
 
@@ -38,6 +37,16 @@ class Link extends AContainer
     protected $_target = NULL;
 
     /**
+     * Getter for href
+     *
+     * @return string
+     */
+    public function getHref()
+    {
+        return $this->_href;
+    }
+
+    /**
      * Setter for href
      *
      * @param string $href The href
@@ -52,48 +61,14 @@ class Link extends AContainer
     }
 
     /**
-     * Getter for href
-     *
-     * @return string
-     */
-    public function getHref()
-    {
-        return $this->_href;
-    }
-
-    /**
-     * Setter for target
-     *
-     * @param string $target The target
-     *
-     * @return Link
-     */
-    public function setTarget($target)
-    {
-        $this->_target = $target;
-
-        return $this;
-    }
-
-    /**
-     * Getter for target
-     *
-     * @return string
-     */
-    public function getTarget()
-    {
-        return $this->_target;
-    }
-
-    /**
      * Render container
      *
      * @return string
      */
     public function __toString()
     {
-        $source = '<'.$this->_tag;
-        $source .= ' '.$this->_dataTag.'="'.$this->_href.'"';
+        $source = '<' . $this->_tag;
+        $source .= ' ' . $this->_dataTag . '="' . $this->_href . '"';
 
         $source = $this->_addTarget($source);
 
@@ -101,11 +76,11 @@ class Link extends AContainer
 
         $source = $this->_addId($source);
 
-        $source .= '>'.$this->_value;
+        $source .= '>' . $this->_value;
 
         $source = $this->_addChildElements($source);
 
-        $source .= '</'.$this->_tag.'>';
+        $source .= '</' . $this->_tag . '>';
 
         return $source;
     }
@@ -124,40 +99,26 @@ class Link extends AContainer
     }
 
     /**
-     * @param $source
+     * Getter for target
+     *
      * @return string
      */
-    private function _addClass($source)
+    public function getTarget()
     {
-        if (Collection::isNotEmpty($this->getClass())) {
-            $source .= ' class="' . Collection::implode($this->_class, ' ') . '"';
-            return $source;
-        }
-        return $source;
+        return $this->_target;
     }
 
     /**
-     * @param $source
-     * @return string
+     * Setter for target
+     *
+     * @param string $target The target
+     *
+     * @return Link
      */
-    private function _addId($source)
+    public function setTarget($target)
     {
-        if (String::isNotEmpty($this->getId())) {
-            $source .= ' id="' . $this->_id . '"';
-            return $source;
-        }
-        return $source;
-    }
+        $this->_target = $target;
 
-    /**
-     * @param $source
-     * @return string
-     */
-    private function _addChildElements($source)
-    {
-        foreach ($this->_elements as $_element) {
-            $source .= $_element;
-        }
-        return $source;
+        return $this;
     }
 }
