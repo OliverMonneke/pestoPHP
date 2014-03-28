@@ -7,6 +7,7 @@ namespace Codersquad\Pestophp\Classmanagement;
 use Codersquad\Pestophp\Configuration\PathConfiguration;
 use Codersquad\Pestophp\Datatype\String;
 use Codersquad\Pestophp\Filesystem\Directory;
+use Codersquad\Pestophp\Filesystem\File;
 
 /**
  * Class ClassHandler
@@ -34,18 +35,18 @@ class ClassHandler
         $directory = new Directory($path, TRUE);
         $directory->setArray();
 
-        foreach ($directory->getArray() as $_file)
+        if (String::isNotEmpty($controller))
         {
-            if (is_file($_file) &&
-                    preg_match('/^.*' . $controller . 'Controller.php$/', $_file))
+            foreach ($directory->getArray() as $_file)
             {
-                $fileName = $_file;
-                break;
+                if (File::fileExists($_file) &&
+                    preg_match('/^.*' . $controller . 'Controller.php$/', $_file))
+                {
+                    $fileName = $_file;
+                    break;
+                }
             }
-        }
 
-        if (String::isNotEmpty($fileName))
-        {
             /** @noinspection PhpIncludeInspection */
             include_once $fileName;
 
