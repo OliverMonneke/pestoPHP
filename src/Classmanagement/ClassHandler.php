@@ -5,6 +5,7 @@
  */
 namespace Codersquad\Pestophp\Classmanagement;
 use Codersquad\Pestophp\Configuration\PathConfiguration;
+use Codersquad\Pestophp\Datatype\String;
 use Codersquad\Pestophp\Filesystem\Directory;
 
 /**
@@ -28,6 +29,7 @@ class ClassHandler
     {
         $path = BASE_PATH.DIRECTORY_SEPARATOR.PathConfiguration::get('src');
         $fileName = '';
+        $className = '';
 
         $directory = new Directory($path, TRUE);
         $directory->setArray();
@@ -42,19 +44,22 @@ class ClassHandler
             }
         }
 
-        /** @noinspection PhpIncludeInspection */
-        include_once $fileName;
-
-        $exploded = explode('\\', $fileName);
-        $className = [];
-        $countExploded = count($exploded);
-
-        for ($i = $countExploded - 5; $i < $countExploded; $i++)
+        if (String::isNotEmpty($fileName))
         {
-            $className[] = $exploded[$i];
-        }
+            /** @noinspection PhpIncludeInspection */
+            include_once $fileName;
 
-        $className = str_replace('.php', '', implode('\\', $className));
+            $exploded = explode('\\', $fileName);
+            $className = [];
+            $countExploded = count($exploded);
+
+            for ($i = $countExploded - 5; $i < $countExploded; $i++)
+            {
+                $className[] = $exploded[$i];
+            }
+
+            $className = str_replace('.php', '', implode('\\', $className));
+        }
 
         if (!class_exists($className))
         {

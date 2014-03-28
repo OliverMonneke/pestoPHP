@@ -6,6 +6,7 @@
 namespace Codersquad\Pestophp\Mvc;
 use Codersquad\Pestophp\Classmanagement\ASingleton;
 use Codersquad\Pestophp\Classmanagement\ClassHandler;
+use Codersquad\Pestophp\Datatype\String;
 use Codersquad\Pestophp\Request\Request;
 
 /**
@@ -24,8 +25,8 @@ class Router extends ASingleton
      */
     public function init()
     {
-        $controller = ucfirst(strtolower(Request::get('controller')));
-        $action = strtolower(Request::get('action')) . 'Action';
+        $controller = String::upperFirst(strtolower(Request::get('controller')));
+        $action = String::lower(Request::get('action')) . 'Action';
         $controllerData = ClassHandler::loadController($controller, $action);
 
         $controller = new $controllerData['controller'];

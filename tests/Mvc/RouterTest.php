@@ -21,7 +21,6 @@ class RouterTest extends \PHPUnit_Framework_TestCase
 
     public function testInit()
     {
-        $this->markTestSkipped('Same problem as in class Classhandler');
         Request::set('controller', '');
         Request::set('action', '');
         $router = Router::getInstance();
