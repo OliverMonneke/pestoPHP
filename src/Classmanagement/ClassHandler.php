@@ -29,38 +29,11 @@ class ClassHandler
     public static function loadController($controller, $action)
     {
         $path = BASE_PATH.DIRECTORY_SEPARATOR.PathConfiguration::get('src');
-        $fileName = '';
-        $className = '';
 
         $directory = new Directory($path, TRUE);
         $directory->setArray();
 
-        if (String::isNotEmpty($controller))
-        {
-            foreach ($directory->getArray() as $_file)
-            {
-                if (File::fileExists($_file) &&
-                    preg_match('/^.*' . $controller . 'Controller.php$/', $_file))
-                {
-                    $fileName = $_file;
-                    break;
-                }
-            }
-
-            /** @noinspection PhpIncludeInspection */
-            include_once $fileName;
-
-            $exploded = explode('\\', $fileName);
-            $className = [];
-            $countExploded = count($exploded);
-
-            for ($i = $countExploded - 5; $i < $countExploded; $i++)
-            {
-                $className[] = $exploded[$i];
-            }
-
-            $className = String::replace('.php', '', implode('\\', $className));
-        }
+        $className = self::_loadSpecificController($controller, $directory);
 
         if (!class_exists($className))
         {
@@ -73,5 +46,65 @@ class ClassHandler
         }
 
         return ['controller' => $className, 'action' => $action];
+    }
+
+    /**
+     * @param $controller
+     * @param $directory
+     * @return array|string
+     */
+    private static function _loadSpecificController($controller, Directory $directory)
+    {
+        $className = '';
+
+        if (String::isNotEmpty($controller)) {
+
+            $fileName = self::_findControllerFilename($controller, $directory);
+
+            /** @noinspection PhpIncludeInspection */
+            include_once $fileName;
+
+            $className = self::_generateClassName($fileName);
+
+            $className = String::replace('.php', '', implode('\\', $className));
+            return $className;
+        }
+        return $className;
+    }
+
+    /**
+     * @param $controller
+     * @param Directory $directory
+     * @return mixed
+     */
+    private static function _findControllerFilename($controller, Directory $directory)
+    {
+        $fileName = '';
+
+        foreach ($directory->getArray() as $_file) {
+            if (File::fileExists($_file) &&
+                preg_match('/^.*' . $controller . 'Controller.php$/', $_file)
+            ) {
+                $fileName = $_file;
+                break;
+            }
+        }
+        return $fileName;
+    }
+
+    /**
+     * @param $fileName
+     * @return array
+     */
+    private static function _generateClassName($fileName)
+    {
+        $exploded = explode('\\', $fileName);
+        $className = [];
+        $countExploded = count($exploded);
+
+        for ($i = $countExploded - 5; $i < $countExploded; $i++) {
+            $className[] = $exploded[$i];
+        }
+        return $className;
     }
 }
