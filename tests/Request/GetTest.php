@@ -21,14 +21,6 @@ class GetTest extends PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function testGetAll()
-    {
-        $this->assertEquals(['abc' => 'xyz', 'def' => 'uvw'], Get::getAll());
-    }
-
-    /**
-     *
-     */
     public function testExecute()
     {
         $get = Get::getInstance();
