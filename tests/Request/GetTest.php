@@ -47,7 +47,5 @@ class GetTest extends PHPUnit_Framework_TestCase
         $_GET['abc'] = 'xyz';
         $_GET['def'] = 'uvw';
     }
-
-
 }
  
