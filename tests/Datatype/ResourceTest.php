@@ -6,7 +6,7 @@
  * Time: 14:11
  */
 
-namespace Datatype;
+namespace Codersquad\Pestophp\Tests\Datatype;
 
 
 use Codersquad\Pestophp\Datatype\Resource;
@@ -27,14 +27,6 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
     {
         /** @noinspection PhpParamsInspection */
         $this->assertFalse(Resource::isNotEmpty('abc'));
-    }
-
-    /**
-     *
-     */
-    protected function setUp()
-    {
-        $this->_resource = fopen($_SERVER['SCRIPT_NAME'], 'r');
     }
 
     /**
@@ -68,6 +60,14 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
     public function testIsNotEmpty()
     {
         $this->assertTrue(Resource::isNotEmpty($this->_resource));
+    }
+
+    /**
+     *
+     */
+    protected function setUp()
+    {
+        $this->_resource = fopen($_SERVER['SCRIPT_NAME'], 'r');
     }
 
     /**

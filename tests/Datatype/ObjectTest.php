@@ -6,7 +6,7 @@
  * Time: 14:06
  */
 
-namespace Datatype;
+namespace Codersquad\Pestophp\Tests\Datatype;
 
 
 use Codersquad\Pestophp\Datatype\Object;
@@ -32,15 +32,6 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    protected function setUp()
-    {
-        $this->_object = new stdClass();
-        $this->_object->string1 = 'abc';
-    }
-
-    /**
-     *
-     */
     public function testIsValid()
     {
         $this->assertInternalType('bool', Object::isValid(['a', 'b', 'c']));
@@ -61,6 +52,15 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
     public function testToArray()
     {
         $this->assertEquals(['string1' => 'abc'], Object::toArray($this->_object));
+    }
+
+    /**
+     *
+     */
+    protected function setUp()
+    {
+        $this->_object = new stdClass();
+        $this->_object->string1 = 'abc';
     }
 
 

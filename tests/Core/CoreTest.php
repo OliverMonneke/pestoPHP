@@ -1,5 +1,9 @@
 <?php
+
+namespace Codersquad\Pestophp\Tests\Core;
+
 use Codersquad\Pestophp\Core\Core;
+use PHPUnit_Framework_TestCase;
 
 /**
  * Created by PhpStorm.
@@ -7,7 +11,6 @@ use Codersquad\Pestophp\Core\Core;
  * Date: 28.03.2014
  * Time: 22:11
  */
-
 class CoreTest extends PHPUnit_Framework_TestCase
 {
     /**
@@ -38,9 +41,8 @@ class CoreTest extends PHPUnit_Framework_TestCase
     {
         parent::setUp();
 
-        if(!defined('BASE_PATH'))
-        {
-            define('BASE_PATH', __DIR__.'/../../');
+        if (!defined('BASE_PATH')) {
+            define('BASE_PATH', __DIR__ . '/../../');
         }
     }
 

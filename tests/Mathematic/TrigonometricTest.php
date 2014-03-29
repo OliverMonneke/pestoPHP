@@ -6,16 +6,16 @@
  * Time: 21:51
  */
 
-namespace Mathematic;
-
+namespace Codersquad\Pestophp\Tests\Mathematic;
 
 use Codersquad\Pestophp\Mathematic\Trigonometric;
+use PHPUnit_Framework_TestCase;
 
 /**
  * Class TrigonometricTest
  * @package Mathematic
  */
-class TrigonometricTest extends \PHPUnit_Framework_TestCase
+class TrigonometricTest extends PHPUnit_Framework_TestCase
 {
 
     /**

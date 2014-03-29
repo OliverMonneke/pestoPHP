@@ -6,17 +6,17 @@
  * Time: 13:05
  */
 
-namespace Mvc;
-
+namespace Codersquad\Pestophp\Tests\Mvc;
 
 use Codersquad\Pestophp\Mvc\Router;
 use Codersquad\Pestophp\Request\Request;
+use PHPUnit_Framework_TestCase;
 
 /**
  * Class RouterTest
  * @package Mvc
  */
-class RouterTest extends \PHPUnit_Framework_TestCase
+class RouterTest extends PHPUnit_Framework_TestCase
 {
 
     public function testInit()

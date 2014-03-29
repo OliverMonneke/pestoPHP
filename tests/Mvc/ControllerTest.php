@@ -6,16 +6,16 @@
  * Time: 15:28
  */
 
-namespace Mvc;
-
+namespace Codersquad\Pestophp\Tests\Mvc;
 
 use Codersquad\Pestophp\Mvc\Controller;
+use PHPUnit_Framework_TestCase;
 
 /**
  * Class ControllerTest
  * @package Mvc
  */
-class ControllerTest extends \PHPUnit_Framework_TestCase
+class ControllerTest extends PHPUnit_Framework_TestCase
 {
 
     /**

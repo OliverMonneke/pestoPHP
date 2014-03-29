@@ -6,8 +6,7 @@
  * Time: 15:05
  */
 
-namespace Mathematic;
-
+namespace Codersquad\Pestophp\Tests\Mathematic;
 
 use Codersquad\Pestophp\Mathematic\Calculate;
 

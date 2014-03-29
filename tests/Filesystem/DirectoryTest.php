@@ -1,5 +1,9 @@
 <?php
+
+namespace Codersquad\Pestophp\Tests\Filesystem;
+
 use Codersquad\Pestophp\Filesystem\Directory;
+use PHPUnit_Framework_TestCase;
 
 /**
  * Created by PhpStorm.
@@ -7,8 +11,7 @@ use Codersquad\Pestophp\Filesystem\Directory;
  * Date: 24.03.2014
  * Time: 16:27
  */
-
-class DirectoryTest extends \PHPUnit_Framework_TestCase
+class DirectoryTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Directory
@@ -31,7 +34,7 @@ class DirectoryTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetStartPath()
     {
-        $this->assertEquals(__DIR__.'/../resources', $this->_directory->getStartPath());
+        $this->assertEquals(__DIR__ . '/../resources', $this->_directory->getStartPath());
     }
 
 
@@ -41,7 +44,7 @@ class DirectoryTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->_directory = new Directory();
-        $this->_directory->setStartPath(__DIR__.'/../resources');
+        $this->_directory->setStartPath(__DIR__ . '/../resources');
     }
 
 

@@ -6,7 +6,7 @@
  * Time: 13:47
  */
 
-namespace Datatype;
+namespace Codersquad\Pestophp\Tests\Datatype;
 
 
 use Codersquad\Pestophp\Datatype\Number;

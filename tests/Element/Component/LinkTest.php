@@ -6,7 +6,7 @@
  * Time: 21:21
  */
 
-namespace Element\Component;
+namespace Codersquad\Pestophp\Tests\Element\Component;
 
 use Codersquad\Pestophp\Element\Component\Link;
 use Codersquad\Pestophp\Element\Item\Label;

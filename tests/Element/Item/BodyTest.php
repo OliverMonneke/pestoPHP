@@ -1,5 +1,9 @@
 <?php
+
+namespace Codersquad\Pestophp\Tests\Element\Item;
+
 use Codersquad\Pestophp\Element\Item\Body;
+use PHPUnit_Framework_TestCase;
 
 /**
  * Created by PhpStorm.
@@ -7,7 +11,6 @@ use Codersquad\Pestophp\Element\Item\Body;
  * Date: 28.03.2014
  * Time: 21:41
  */
-
 class BodyTest extends PHPUnit_Framework_TestCase
 {
 

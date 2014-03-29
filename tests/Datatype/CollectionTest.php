@@ -6,16 +6,17 @@
  * Time: 09:15
  */
 
-namespace Datatype;
+namespace Codersquad\Pestophp\Tests\Datatype;
 
 use Codersquad\Pestophp\Datatype\Collection;
+use PHPUnit_Framework_TestCase;
 use stdClass;
 
 /**
  * Class CollectionTest
  * @package Datatype
  */
-class CollectionTest extends \PHPUnit_Framework_TestCase
+class CollectionTest extends PHPUnit_Framework_TestCase
 {
     /**
      *
@@ -84,7 +85,6 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals(min(['a', 'b', 'c']), Collection::minValue(['a', 'b', 'c']));
     }
-
 
 
     /**

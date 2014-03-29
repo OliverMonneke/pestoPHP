@@ -6,19 +6,21 @@
  * Time: 18:04
  */
 
-namespace Mvc;
+namespace Codersquad\Pestophp\Tests\Mvc;
+
 use Codersquad\Pestophp\Mvc\View;
+use PHPUnit_Framework_TestCase;
 use stdClass;
 
 /**
  * Class ViewTest
  * @package Mvc
  */
-class ViewTest extends \PHPUnit_Framework_TestCase
+class ViewTest extends PHPUnit_Framework_TestCase
 {
     public function testAssignString()
     {
-        $view = new View(__DIR__.'/../resources/template.html');
+        $view = new View(__DIR__ . '/../resources/template.html');
         $view->assign('thirsty', 'white coffee mocha');
         $this->assertContains('white coffee mocha', $view->getView());
         $this->assertNotContains('thirsty', $view->getView());
@@ -27,7 +29,7 @@ class ViewTest extends \PHPUnit_Framework_TestCase
     public function testAssignArray()
     {
         $array = ['var1' => 'dummy var 1', 'var2' => 'dummy var 2'];
-        $view = new View(__DIR__.'/../resources/template.html');
+        $view = new View(__DIR__ . '/../resources/template.html');
         $view->assign('elements', $array);
         $this->assertContains('dummy var 1', $view->getView());
         $this->assertContains('dummy var 2', $view->getView());
@@ -41,7 +43,7 @@ class ViewTest extends \PHPUnit_Framework_TestCase
         $object = new stdClass();
         $object->var1 = 'dummy var 1';
         $object->var2 = 'dummy var 2';
-        $view = new View(__DIR__.'/../resources/template.html');
+        $view = new View(__DIR__ . '/../resources/template.html');
         $view->assign('object', $object);
         $this->assertContains('dummy var 1', $view->getView());
         $this->assertContains('dummy var 2', $view->getView());
@@ -52,7 +54,7 @@ class ViewTest extends \PHPUnit_Framework_TestCase
 
     public function testGetView()
     {
-        $view = new View(__DIR__.'/../resources/template.html');
+        $view = new View(__DIR__ . '/../resources/template.html');
 
         $this->assertContains('dummy text', $view->getView());
         $this->assertNotContains('{ ', $view->getView());

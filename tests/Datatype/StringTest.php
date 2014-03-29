@@ -6,8 +6,7 @@
  * Time: 14:22
  */
 
-namespace Datatype;
-
+namespace Codersquad\Pestophp\Tests\Datatype;
 
 use Codersquad\Pestophp\Datatype\String;
 use stdClass;

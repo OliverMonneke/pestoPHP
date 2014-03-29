@@ -6,16 +6,16 @@
  * Time: 15:31
  */
 
-namespace Time;
-
+namespace Codersquad\Pestophp\Tests\Time;
 
 use Codersquad\Pestophp\Time\DateTime;
+use PHPUnit_Framework_TestCase;
 
 /**
  * Class DateTimeTest
  * @package Time
  */
-class DateTimeTest extends \PHPUnit_Framework_TestCase
+class DateTimeTest extends PHPUnit_Framework_TestCase
 {
 
     public function testAdd()
@@ -62,6 +62,7 @@ class DateTimeTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals('15:36:12', $dateTime->getTime());
     }
+
     public function testGetDateTime()
     {
         $dateTime = new DateTime();

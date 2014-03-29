@@ -1,5 +1,9 @@
 <?php
+
+namespace Codersquad\Pestophp\Tests\Configuration;
+
 use Codersquad\Pestophp\Configuration\DatabaseConfiguration;
+use PHPUnit_Framework_TestCase;
 
 /**
  * Created by PhpStorm.

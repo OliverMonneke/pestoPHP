@@ -6,7 +6,8 @@
  * Time: 14:41
  */
 
-namespace Classmanagement;
+namespace Codersquad\Pestophp\Tests\Classmanagement;
+
 use Codersquad\Pestophp\Classmanagement\ClassHandler;
 use Codersquad\Pestophp\Configuration\PathConfiguration;
 
@@ -17,16 +18,6 @@ use Codersquad\Pestophp\Configuration\PathConfiguration;
  */
 class ClassHandlerTest extends \PHPUnit_Framework_TestCase
 {
-    protected function setUp()
-    {
-        PathConfiguration::set('src', '');
-
-        if(!defined('BASE_PATH'))
-        {
-            define('BASE_PATH', __DIR__.'/../../');
-        }
-    }
-
     /**
      *
      */
@@ -34,6 +25,15 @@ class ClassHandlerTest extends \PHPUnit_Framework_TestCase
     {
         $classData = ClassHandler::loadController('', '');
         $this->assertEquals(['controller' => 'Codersquad\Pestophp\Mvc\Controller', 'action' => 'defaultAction'], $classData);
+    }
+
+    protected function setUp()
+    {
+        PathConfiguration::set('src', '');
+
+        if (!defined('BASE_PATH')) {
+            define('BASE_PATH', __DIR__ . '/../../');
+        }
     }
 }
  

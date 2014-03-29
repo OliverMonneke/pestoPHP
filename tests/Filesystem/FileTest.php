@@ -1,5 +1,9 @@
 <?php
+
+namespace Codersquad\Pestophp\Tests\Filesystem;
+
 use Codersquad\Pestophp\Filesystem\File;
+use PHPUnit_Framework_TestCase;
 
 /**
  * Created by PhpStorm.
@@ -7,7 +11,6 @@ use Codersquad\Pestophp\Filesystem\File;
  * Date: 28.03.2014
  * Time: 17:35
  */
-
 class FileTest extends PHPUnit_Framework_TestCase
 {
     /**
@@ -28,7 +31,7 @@ class FileTest extends PHPUnit_Framework_TestCase
 
     public function testCreateFileNotExisting()
     {
-        $file = new File(__DIR__.'/../dummy.txt');
+        $file = new File(__DIR__ . '/../dummy.txt');
         $this->assertTrue($file->create());
         $file->remove();
     }
@@ -93,12 +96,12 @@ class FileTest extends PHPUnit_Framework_TestCase
 
     public function testFileExistsWithExistingFile()
     {
-        $this->assertTrue(File::fileExists(__DIR__.'/../resources/file.txt'));
+        $this->assertTrue(File::fileExists(__DIR__ . '/../resources/file.txt'));
     }
 
     public function testFileExistsWithNotExistingFile()
     {
-        $this->assertFalse(File::fileExists(__DIR__.'/../resources/notExisting.txt'));
+        $this->assertFalse(File::fileExists(__DIR__ . '/../resources/notExisting.txt'));
     }
 
     public function testReadWithLength()
@@ -110,16 +113,15 @@ class FileTest extends PHPUnit_Framework_TestCase
 
     public function testCloseHandle()
     {
-        $file = new File(__DIR__.'/../resources/file.txt');
+        $file = new File(__DIR__ . '/../resources/file.txt');
         $this->assertTrue($file->__destruct());
     }
 
     protected function setUp()
     {
         parent::setUp();
-        $this->_file = new File(__DIR__.'/../resources/file.txt');
+        $this->_file = new File(__DIR__ . '/../resources/file.txt');
     }
-
 
 
     protected function tearDown()
