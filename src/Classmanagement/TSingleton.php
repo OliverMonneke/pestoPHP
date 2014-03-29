@@ -39,6 +39,14 @@ trait TSingleton
      */
     public static function getInstance()
     {
+        return self::_getInstance();
+    }
+
+    /**
+     * @return mixed
+     */
+    protected static function _getInstance()
+    {
         $className = get_called_class();
 
         self::_createInstance($className);

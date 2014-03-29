@@ -4,7 +4,8 @@
  * Abstract class for clipboards
  */
 namespace Codersquad\Pestophp\Clipboard;
-use Codersquad\Pestophp\Classmanagement\ASingleton;
+
+use Codersquad\Pestophp\Classmanagement\TSingleton;
 
 /**
  * Class AClipboard
@@ -13,9 +14,9 @@ use Codersquad\Pestophp\Classmanagement\ASingleton;
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-abstract class AClipboard extends ASingleton
+abstract class AClipboard
 {
-
+    use TSingleton;
     /**
      * Collection of all configuration types
      *
@@ -35,7 +36,7 @@ abstract class AClipboard extends ASingleton
             self::$_registry[get_called_class()] = [];
         }
 
-        return parent::getInstance();
+        return self::_getInstance();
     }
 
     /**
@@ -58,6 +59,18 @@ abstract class AClipboard extends ASingleton
     }
 
     /**
+     * Check if property exists
+     *
+     * @param string $key The key
+     *
+     * @return bool
+     */
+    public static function has($key)
+    {
+        return array_key_exists($key, self::$_registry[get_called_class()]);
+    }
+
+    /**
      * Get all configuration
      *
      * @return array
@@ -70,7 +83,7 @@ abstract class AClipboard extends ASingleton
     /**
      * Set configuration property
      *
-     * @param string $key   The key
+     * @param string $key The key
      * @param string $value The value
      *
      * @return void
@@ -100,17 +113,5 @@ abstract class AClipboard extends ASingleton
     public function removeAll()
     {
         self::$_registry[get_called_class()] = [];
-    }
-
-    /**
-     * Check if property exists
-     *
-     * @param string $key The key
-     *
-     * @return bool
-     */
-    public static function has($key)
-    {
-        return array_key_exists($key, self::$_registry[get_called_class()]);
     }
 }
