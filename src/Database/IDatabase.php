@@ -43,4 +43,11 @@ interface IDatabase
      * @return mixed
      */
     public function getQuery();
+
+    /**
+     * Get loaded Records
+     *
+     * @return mixed
+     */
+    public function fetch();
 }

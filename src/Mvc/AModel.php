@@ -4,6 +4,7 @@
  * Abstract class for model generating
  */
 namespace Codersquad\Pestophp\Mvc;
+
 use Codersquad\Pestophp\Database\Database;
 use Codersquad\Pestophp\Datatype\Collection;
 use Codersquad\Pestophp\Datatype\String;
@@ -46,10 +47,19 @@ abstract class AModel
     private $_model = NULL;
 
     /**
+     * Default constructor
+     */
+    public function __construct()
+    {
+        $this->_databaseObject = Database::getInstance();
+        $this->_model = get_called_class();
+    }
+
+    /**
      * Magic methods for getter and setter
      *
-     * @param string $method    The method to call
-     * @param array  $arguments The arguments to call
+     * @param string $method The method to call
+     * @param array $arguments The arguments to call
      *
      * @return mixed|bool
      */
@@ -59,8 +69,7 @@ abstract class AModel
 
         $magicMethod = $this->_evaluateMagicMethod($method);
 
-        switch($magicMethod)
-        {
+        switch ($magicMethod) {
             case 'set':
                 $this->set(String::lowerFirst(String::substring($method, 3)), $arguments[0]);
                 $returnValue = $this->_model;
@@ -74,9 +83,18 @@ abstract class AModel
     }
 
     /**
+     * @param $method
+     * @return string
+     */
+    private function _evaluateMagicMethod($method)
+    {
+        return String::substring($method, 0, 3);
+    }
+
+    /**
      * Setter
      *
-     * @param mixed $key   The key
+     * @param mixed $key The key
      * @param mixed $value The value
      *
      * @return AModel
@@ -111,67 +129,19 @@ abstract class AModel
     {
         $model = $this->_model;
         $query = [];
-        $query[] = 'SELECT * FROM '.$model::TABLE;
+        $query[] = 'SELECT * FROM ' . $model::TABLE;
 
         $query = $this->_loadWithPrimaryKey($primaryValue, $model, $query);
 
-        $dataCollection = $this->_databaseObject->getInstance()->setQuery(Collection::implode($query, ''))->execute()->fetch();
+        $dataCollection = $this->_databaseObject->getInstance()->setQuery(Collection::implode($query, ''))->fetch();
 
-        if (Collection::length($dataCollection) > 1 ||
-                $primaryValue === NULL)
-        {
+        if (Collection::length($dataCollection) === 1 ||
+            $primaryValue === NULL
+        ) {
             $this->_loadSingleEntry($dataCollection, $model);
-        }
-        elseif (Collection::length($dataCollection) > 2)
-        {
+        } elseif (Collection::length($dataCollection) > 2) {
             $this->_setProperties($dataCollection[0], $this);
         }
-    }
-
-    /**
-     * Default constructor
-     */
-    public function __construct()
-    {
-        $this->_databaseObject = Database::getInstance();
-        $this->_model = get_called_class();
-    }
-
-    /**
-     * Set class property
-     *
-     * @param array  $data   The data
-     * @param object $object Object to set the property in
-     *
-     * @return object
-     */
-    private function _setProperties($data, $object)
-    {
-        foreach ($data as $_key => $_value)
-        {
-            $object->set($_key, $_value);
-        }
-
-        return $object;
-    }
-
-    /**
-     * Remove primary value for copying
-     *
-     * @return void
-     */
-    public function __clone()
-    {
-        $this->_primaryValue = NULL;
-    }
-
-    /**
-     * @param $method
-     * @return string
-     */
-    private function _evaluateMagicMethod($method)
-    {
-        return String::substring($method, 0, 3);
     }
 
     /**
@@ -201,5 +171,32 @@ abstract class AModel
             $model = $this->_setProperties($_data, new $model());
             $this->_dataCollection[] = $model;
         }
+    }
+
+    /**
+     * Set class property
+     *
+     * @param array $data The data
+     * @param object $object Object to set the property in
+     *
+     * @return object
+     */
+    private function _setProperties($data, $object)
+    {
+        foreach ($data as $_key => $_value) {
+            $object->set($_key, $_value);
+        }
+
+        return $object;
+    }
+
+    /**
+     * Remove primary value for copying
+     *
+     * @return void
+     */
+    public function __clone()
+    {
+        $this->_primaryValue = NULL;
     }
 }

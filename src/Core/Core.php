@@ -5,8 +5,8 @@
  */
 namespace Codersquad\Pestophp\Core;
 
-use Codersquad\Pestophp\Classmanagement\ASingleton;
 use Codersquad\Pestophp\Classmanagement\Command;
+use Codersquad\Pestophp\Classmanagement\TSingleton;
 use Codersquad\Pestophp\Configuration\DatabaseConfiguration;
 use Codersquad\Pestophp\Configuration\PathConfiguration;
 use Codersquad\Pestophp\Mvc\Router;
@@ -24,9 +24,9 @@ require_once(__DIR__.'/../../vendor/autoload.php');
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-class Core extends ASingleton
+class Core
 {
-
+    use TSingleton;
     /**
      * Use MVC structure
      *

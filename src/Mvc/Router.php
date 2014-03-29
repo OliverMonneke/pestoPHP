@@ -4,8 +4,8 @@
  * Router
  */
 namespace Codersquad\Pestophp\Mvc;
-use Codersquad\Pestophp\Classmanagement\ASingleton;
 use Codersquad\Pestophp\Classmanagement\ClassHandler;
+use Codersquad\Pestophp\Classmanagement\TSingleton;
 use Codersquad\Pestophp\Datatype\String;
 use Codersquad\Pestophp\Request\Request;
 
@@ -16,8 +16,9 @@ use Codersquad\Pestophp\Request\Request;
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-class Router extends ASingleton
+class Router
 {
+    use TSingleton;
     /**
      * Initializing router
      *

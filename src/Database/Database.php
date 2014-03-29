@@ -4,7 +4,8 @@
  * Database handling
  */
 namespace Codersquad\Pestophp\Database;
-use Codersquad\Pestophp\Classmanagement\ASingleton;
+
+use Codersquad\Pestophp\Classmanagement\TSingleton;
 use Codersquad\Pestophp\Configuration\DatabaseConfiguration;
 use Codersquad\Pestophp\Datatype\String;
 
@@ -15,9 +16,9 @@ use Codersquad\Pestophp\Datatype\String;
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-class Database extends ASingleton
+class Database
 {
-
+    use TSingleton;
     /**
      * Database type
      *
@@ -39,7 +40,7 @@ class Database extends ASingleton
      */
     public static function getInstance()
     {
-        $className = 'Codersquad\Database\\Types\\' . String::upperFirst(strtolower(DatabaseConfiguration::get('type')));
+        $className = 'Codersquad\Pestophp\\Database\\Types\\' . String::upperFirst(strtolower(DatabaseConfiguration::get('type')));
         /** @var $className Database */
         $instance = $className::getInstance();
         $instance->connect();

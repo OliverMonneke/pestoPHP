@@ -4,9 +4,10 @@
  * MySQL database handling
  */
 namespace Codersquad\Pestophp\Database\Types;
-use Codersquad\Pestophp\Classmanagement\ASingleton;
+
+use Codersquad\Pestophp\Classmanagement\TSingleton;
 use Codersquad\Pestophp\Configuration\DatabaseConfiguration;
-use codersquad\pestophp\Database\IDatabase;
+use Codersquad\Pestophp\Database\IDatabase;
 
 /**
  * Class Mysql
@@ -15,9 +16,9 @@ use codersquad\pestophp\Database\IDatabase;
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-class Mysql extends ASingleton implements IDatabase
+class Mysql implements IDatabase
 {
-
+    use TSingleton;
     /**
      * Database connection
      *
@@ -33,17 +34,43 @@ class Mysql extends ASingleton implements IDatabase
     private $_query = NULL;
 
     /**
-     * Setter for query
-     *
-     * @param string $query Database query
+     * Connect to database
      *
      * @return Mysql
      */
-    public function setQuery($query)
+    public function connect()
     {
-        $this->_query = $query;
+        if (NULL === $this->_connection) {
+            $this->_connection = mysqli_connect(DatabaseConfiguration::get('host'), DatabaseConfiguration::get('user'), DatabaseConfiguration::get('password'), DatabaseConfiguration::get('database'), NULL, DatabaseConfiguration::get('socket'));
+        }
+    }
 
-        return $this;
+    /**
+     * Get loaded Records
+     *
+     * @return mixed
+     */
+    public function fetch()
+    {
+        $returnArray = [];
+        $result = $this->execute();
+
+        /** @noinspection PhpAssignmentInConditionInspection */
+        while ($row = mysqli_fetch_assoc($result)) {
+            $returnArray[] = $row;
+        }
+
+        return $returnArray;
+    }
+
+    /**
+     * Execute database query
+     *
+     * @return bool|\mysqli_result
+     */
+    public function execute()
+    {
+        return mysqli_query($this->_connection, $this->getQuery());
     }
 
     /**
@@ -57,25 +84,16 @@ class Mysql extends ASingleton implements IDatabase
     }
 
     /**
-     * Connect to database
+     * Setter for query
      *
-     * @return void
+     * @param string $query Database query
+     *
+     * @return Mysql
      */
-    public function connect()
+    public function setQuery($query)
     {
-        if (NULL === $this->_connection)
-        {
-            $this->_connection = mysqli_connect(DatabaseConfiguration::get('host'), DatabaseConfiguration::get('user'), DatabaseConfiguration::get('password'), DatabaseConfiguration::get('database'), NULL, DatabaseConfiguration::get('socket'));
-        }
-    }
+        $this->_query = $query;
 
-    /**
-     * Execute database query
-     *
-     * @return bool|\mysqli_result
-     */
-    public function execute()
-    {
-        return mysqli_query($this->_connection, $this->getQuery());
+        return $this;
     }
 }
