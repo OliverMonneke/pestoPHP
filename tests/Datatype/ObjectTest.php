@@ -58,7 +58,4 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
         $this->_object = new stdClass();
         $this->_object->string1 = 'abc';
     }
-
-
 }
- 

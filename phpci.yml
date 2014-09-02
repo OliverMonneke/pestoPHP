@@ -2,7 +2,8 @@ build_settings:
   verbose: false
   ignore:
     - "vendor"
-    
+    - "tests"
+
 setup:
     composer:
         action: "install"

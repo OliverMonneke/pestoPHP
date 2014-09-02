@@ -12,7 +12,6 @@ use PHPUnit_Framework_TestCase;
  */
 class LinkTest extends PHPUnit_Framework_TestCase
 {
-
     /**
      *
      */

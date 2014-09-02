@@ -73,7 +73,4 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
     {
         fclose($this->_resource);
     }
-
-
 }
- 

@@ -278,4 +278,3 @@ class StringTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('ABc', String::upperFirst('aBc'));
     }
 }
- 
