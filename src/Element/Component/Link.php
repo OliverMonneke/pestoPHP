@@ -77,7 +77,7 @@ class Link extends AContainer
 
         $source = $this->addId($source);
 
-        $source .= '>' . $this->_value;
+        $source .= '>' . $this->value;
 
         $source = $this->addChildElements($source);
 

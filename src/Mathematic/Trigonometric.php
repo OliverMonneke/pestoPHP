@@ -12,7 +12,7 @@ namespace Codersquad\Pestophp\Mathematic;
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-class Trigonometric extends  Calculate
+class Trigonometric extends Calculate
 {
     /**
      * Constant for PI
@@ -26,7 +26,7 @@ class Trigonometric extends  Calculate
      */
     public function arcCosine()
     {
-        $this->_number = acos($this->_number);
+        $this->number = acos($this->number);
 
         return $this;
     }
@@ -38,7 +38,7 @@ class Trigonometric extends  Calculate
      */
     public function arcSine()
     {
-        $this->_number = asin($this->_number);
+        $this->number = asin($this->number);
 
         return $this;
     }
@@ -50,7 +50,7 @@ class Trigonometric extends  Calculate
      */
     public function arcTangent()
     {
-        $this->_number = atan($this->_number);
+        $this->number = atan($this->number);
 
         return $this;
     }
@@ -62,7 +62,7 @@ class Trigonometric extends  Calculate
      */
     public function cosine()
     {
-        $this->_number = cos($this->_number);
+        $this->number = cos($this->number);
 
         return $this;
     }
@@ -74,7 +74,7 @@ class Trigonometric extends  Calculate
      */
     public function toRadian()
     {
-        $this->_number = deg2rad($this->_number);
+        $this->number = deg2rad($this->number);
 
         return $this;
     }
@@ -99,7 +99,7 @@ class Trigonometric extends  Calculate
      */
     public function logarithm()
     {
-        $this->_number = log($this->_number);
+        $this->number = log($this->number);
 
         return $this;
     }
@@ -111,7 +111,7 @@ class Trigonometric extends  Calculate
      */
     public function toDegreee()
     {
-        $this->_number = rad2deg($this->_number);
+        $this->number = rad2deg($this->number);
 
         return $this;
     }
@@ -123,7 +123,7 @@ class Trigonometric extends  Calculate
      */
     public function sine()
     {
-        $this->_number = sin($this->_number);
+        $this->number = sin($this->number);
 
         return $this;
     }
@@ -135,7 +135,7 @@ class Trigonometric extends  Calculate
      */
     public function tangent()
     {
-        $this->_number = tan($this->_number);
+        $this->number = tan($this->number);
 
         return $this;
     }

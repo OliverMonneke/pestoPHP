@@ -25,4 +25,4 @@ class Image extends AContainer
      * @var string
      */
     protected $dataTag = 'src';
-} 
+}

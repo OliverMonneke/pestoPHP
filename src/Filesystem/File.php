@@ -212,7 +212,7 @@ class File
             Number::isZero($length)) {
 
             return file($this->file);
-        } elseif(Number::isPositive($length)) {
+        } elseif (Number::isPositive($length)) {
             $this->setHandle('r');
 
             return fread($this->handle, $length);

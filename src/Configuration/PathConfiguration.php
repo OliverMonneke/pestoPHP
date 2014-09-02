@@ -30,8 +30,7 @@ class PathConfiguration extends AAppConfiguration
     public static function getInstance()
     {
         $instance = parent::getInstance();
-
-        self::_setRedirectBase();
+        self::setRedirectBase();
 
         return $instance;
     }
@@ -39,7 +38,7 @@ class PathConfiguration extends AAppConfiguration
     /**
      *
      */
-    private static function _setRedirectBase()
+    private static function setRedirectBase()
     {
         if (array_key_exists('REDIRECT_BASE', $_SERVER)) {
             self::set('base', $_SERVER['DOCUMENT_ROOT'] . $_SERVER['REDIRECT_BASE'] . DIRECTORY_SEPARATOR . '..');

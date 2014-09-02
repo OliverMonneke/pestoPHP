@@ -28,6 +28,6 @@ class Label extends AItem
      */
     public function __toString()
     {
-        return $this->_value;
+        return $this->value;
     }
 }

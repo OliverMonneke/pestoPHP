@@ -42,7 +42,14 @@ class Mysql implements IDatabase
     public function connect()
     {
         if (null === $this->connection) {
-            $this->connection = mysqli_connect(DatabaseConfiguration::get('host'), DatabaseConfiguration::get('user'), DatabaseConfiguration::get('password'), DatabaseConfiguration::get('database'), null, DatabaseConfiguration::get('socket'));
+            $this->connection = mysqli_connect(
+                DatabaseConfiguration::get('host'),
+                DatabaseConfiguration::get('user'),
+                DatabaseConfiguration::get('password'),
+                DatabaseConfiguration::get('database'),
+                null,
+                DatabaseConfiguration::get('socket')
+            );
         }
     }
 

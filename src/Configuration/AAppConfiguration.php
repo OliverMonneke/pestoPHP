@@ -31,7 +31,7 @@ abstract class AAppConfiguration extends AClipboard implements IConfiguration, I
      *
      * @var string
      */
-    protected $file = NULL;
+    protected $file = null;
 
     /**
      * Save configuration file
@@ -64,7 +64,14 @@ abstract class AAppConfiguration extends AClipboard implements IConfiguration, I
     {
         $environment = $this->determineEnvironment();
 
-        $xmlFileName = BASE_PATH . DIRECTORY_SEPARATOR . '/' . $this->path . DIRECTORY_SEPARATOR . $environment . DIRECTORY_SEPARATOR . $this->file;
+        $xmlFileName = BASE_PATH
+            . DIRECTORY_SEPARATOR
+            . '/'
+            . $this->path
+            . DIRECTORY_SEPARATOR
+            . $environment
+            . DIRECTORY_SEPARATOR
+            . $this->file;
 
         $config = $this->importFile($xmlFileName);
 

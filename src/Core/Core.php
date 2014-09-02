@@ -1,5 +1,7 @@
 <?php
 
+require_once(__DIR__.'/../../vendor/autoload.php');
+
 /**
  * Core class for framework
  */
@@ -14,8 +16,6 @@ use Codersquad\Pestophp\Request\Cookie;
 use Codersquad\Pestophp\Request\Get;
 use Codersquad\Pestophp\Request\Post;
 use Codersquad\Pestophp\Request\Request;
-
-require_once(__DIR__.'/../../vendor/autoload.php');
 
 /**
  * Class Core
@@ -33,7 +33,7 @@ class Core
      *
      * @var bool
      */
-    private $_useMvc = TRUE;
+    private $useMvc = true;
 
     /**
      * Run all needed things
@@ -45,7 +45,7 @@ class Core
         $this->initConfiguration();
         $this->initRequest();
 
-        if ($this->_useMvc) {
+        if ($this->useMvc) {
             return $this->initRouter();
         }
 
@@ -107,7 +107,7 @@ class Core
      */
     public function setUseMvc($useMvc)
     {
-        $this->_useMvc = $useMvc;
+        $this->useMvc = $useMvc;
 
         return $this;
     }

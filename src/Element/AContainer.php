@@ -74,7 +74,7 @@ abstract class AContainer extends AElement
     protected function _addDataTag($source)
     {
         if (String::isNotEmpty($this->dataTag)) {
-            $source .= ' ' . $this->dataTag . '="' . $this->_value . '"';
+            $source .= ' ' . $this->dataTag . '="' . $this->value . '"';
             return $source;
         }
 
@@ -87,8 +87,8 @@ abstract class AContainer extends AElement
      */
     protected function _addName($source)
     {
-        if (String::isNotEmpty($this->_name)) {
-            $source .= ' name="' . $this->_name . '"';
+        if (String::isNotEmpty($this->name)) {
+            $source .= ' name="' . $this->name . '"';
             return $source;
         }
 

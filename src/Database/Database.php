@@ -41,7 +41,12 @@ class Database
      */
     public static function getInstance()
     {
-        $className = 'Codersquad\Pestophp\\Database\\Types\\' . String::upperFirst(strtolower(DatabaseConfiguration::get('type')));
+        $className = 'Codersquad\Pestophp\\Database\\Types\\'
+            . String::upperFirst(
+                strtolower(
+                    DatabaseConfiguration::get('type')
+                )
+            );
         /** @var $className Database */
         $instance = $className::getInstance();
         $instance->connect();

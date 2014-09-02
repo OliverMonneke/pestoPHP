@@ -84,9 +84,9 @@ class View
         foreach ($this->replacementArray as $_key => $_value) {
             if (String::isValid($_value)) {
                 $this->replaceString($_key, $_value);
-            } elseif(Collection::isValid($_value)) {
+            } elseif (Collection::isValid($_value)) {
                 $this->replaceArray($_key, $_value);
-            } elseif(Object::isValid($_value)) {
+            } elseif (Object::isValid($_value)) {
                 $this->replaceObject($_key, $_value);
             }
         }
@@ -183,7 +183,7 @@ class View
      */
     public function setFile($file)
     {
-        $this->_checkViewExists($file);
+        $this->checkViewExists($file);
         $this->file = new File($file);
 
         return $this;
@@ -193,7 +193,7 @@ class View
      * @param $file
      * @throws \Codersquad\Pestophp\Exception\FileNotFoundException
      */
-    private function _checkViewExists($file)
+    private function checkViewExists($file)
     {
         if (!File::fileExists($file)) {
             throw new FileNotFoundException;

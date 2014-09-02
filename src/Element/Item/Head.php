@@ -21,4 +21,4 @@ class Head extends AContainer
      * @var string
      */
     protected $tag = 'head';
-} 
+}
