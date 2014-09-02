@@ -121,7 +121,7 @@ class Calculate
      */
     public function toTheN($number)
     {
-        for ($i = 1;$i <= $number; $i++) {
+        for ($i = 1; $i <= $number; $i++) {
             $this->multiply($this->number);
         }
 
