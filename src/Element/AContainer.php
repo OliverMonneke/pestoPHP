@@ -20,7 +20,7 @@ abstract class AContainer extends AElement
     /**
      * @var string
      */
-    protected $_dataTag = NULL;
+    protected $dataTag = NULL;
 
     /**
      * @var array
@@ -48,21 +48,21 @@ abstract class AContainer extends AElement
      */
     public function __toString()
     {
-        $source = '<' . $this->_tag;
+        $source = '<' . $this->tag;
 
         $source = $this->_addDataTag($source);
 
         $source = $this->_addName($source);
 
-        $source = $this->_addClass($source);
+        $source = $this->addClass($source);
 
-        $source = $this->_addId($source);
+        $source = $this->addId($source);
 
         $source .= '>';
 
-        $source = $this->_addChildElements($source);
+        $source = $this->addChildElements($source);
 
-        $source .= '</' . $this->_tag . '>';
+        $source .= '</' . $this->tag . '>';
 
         return $source;
     }
@@ -73,8 +73,8 @@ abstract class AContainer extends AElement
      */
     protected function _addDataTag($source)
     {
-        if (String::isNotEmpty($this->_dataTag)) {
-            $source .= ' ' . $this->_dataTag . '="' . $this->_value . '"';
+        if (String::isNotEmpty($this->dataTag)) {
+            $source .= ' ' . $this->dataTag . '="' . $this->_value . '"';
             return $source;
         }
 
@@ -99,7 +99,7 @@ abstract class AContainer extends AElement
      * @param $source
      * @return string
      */
-    protected function _addClass($source)
+    protected function addClass($source)
     {
         if (Collection::isNotEmpty($this->getClass())) {
             $source .= ' class="' . Collection::implode($this->getClass(), ' ') . '"';
@@ -113,7 +113,7 @@ abstract class AContainer extends AElement
      * @param $source
      * @return string
      */
-    protected function _addId($source)
+    protected function addId($source)
     {
         if (String::isNotEmpty($this->getId())) {
             $source .= ' id="' . $this->getId() . '"';
@@ -127,7 +127,7 @@ abstract class AContainer extends AElement
      * @param $source
      * @return string
      */
-    protected function _addChildElements($source)
+    protected function addChildElements($source)
     {
         foreach ($this->_elements as $_element) {
             $source .= $_element;

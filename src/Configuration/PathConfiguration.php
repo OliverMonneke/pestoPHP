@@ -20,7 +20,7 @@ class PathConfiguration extends AAppConfiguration
      *
      * @var string
      */
-    protected $_file = 'path.xml';
+    protected $file = 'path.xml';
 
     /**
      * Get instance

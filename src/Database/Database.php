@@ -19,19 +19,20 @@ use Codersquad\Pestophp\Datatype\String;
 class Database
 {
     use TSingleton;
+
     /**
      * Database type
      *
      * @var string
      */
-    protected $_type = 'mysql';
+    protected $type = 'mysql';
 
     /**
      * Mysql result
      *
      * @var \mysqli_result
      */
-    protected $_connection = NULL;
+    protected $connection = NULL;
 
     /**
      * Get instance
@@ -55,7 +56,7 @@ class Database
      */
     public function getType()
     {
-        return $this->_type;
+        return $this->type;
     }
 
     /**
@@ -67,7 +68,7 @@ class Database
      */
     public function setType($type)
     {
-        $this->_type = $type;
+        $this->type = $type;
 
         return $this;
     }

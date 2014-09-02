@@ -23,14 +23,14 @@ class View
     /**
      * @var File
      */
-    private $file = NULL;
+    private $file = null;
 
     /**
      * Content of view
      *
      * @var string
      */
-    private $content = NULL;
+    private $content = null;
 
     /**
      * Array of view replacements
@@ -84,11 +84,9 @@ class View
         foreach ($this->replacementArray as $_key => $_value) {
             if (String::isValid($_value)) {
                 $this->replaceString($_key, $_value);
-            }
-            elseif(Collection::isValid($_value)) {
+            } elseif(Collection::isValid($_value)) {
                 $this->replaceArray($_key, $_value);
-            }
-            elseif(Object::isValid($_value)) {
+            } elseif(Object::isValid($_value)) {
                 $this->replaceObject($_key, $_value);
             }
         }

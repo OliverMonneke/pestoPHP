@@ -20,5 +20,5 @@ class DatabaseConfiguration extends AAppConfiguration
      *
      * @var string
      */
-    protected $_file = 'database.xml';
+    protected $file = 'database.xml';
 }

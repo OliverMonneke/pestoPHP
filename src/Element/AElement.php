@@ -17,7 +17,7 @@ abstract class AElement
     /**
      * @var string
      */
-    protected $_tag = NULL;
+    protected $tag = NULL;
 
     /**
      * @var string

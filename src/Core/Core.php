@@ -27,6 +27,7 @@ require_once(__DIR__.'/../../vendor/autoload.php');
 class Core
 {
     use TSingleton;
+
     /**
      * Use MVC structure
      *
@@ -41,11 +42,11 @@ class Core
      */
     public function run()
     {
-        $this->_initConfiguration();
-        $this->_initRequest();
+        $this->initConfiguration();
+        $this->initRequest();
 
         if ($this->_useMvc) {
-            return $this->_initRouter();
+            return $this->initRouter();
         }
 
         return true;
@@ -56,7 +57,7 @@ class Core
      *
      * @return void
      */
-    private function _initConfiguration()
+    private function initConfiguration()
     {
         $configurationCommand = new Command();
         /** @noinspection PhpParamsInspection */
@@ -70,7 +71,7 @@ class Core
      *
      * @return void
      */
-    private function _initRequest()
+    private function initRequest()
     {
         $request = new Command();
         /** @noinspection PhpParamsInspection */
@@ -89,10 +90,11 @@ class Core
      *
      * @return bool
      */
-    private function _initRouter()
+    private function initRouter()
     {
         $router = Router::getInstance();
         echo $router->init();
+
         return true;
     }
 

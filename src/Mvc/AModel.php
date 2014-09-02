@@ -37,14 +37,14 @@ abstract class AModel
      *
      * @var int|string
      */
-    private $primaryValue = NULL;
+    private $primaryValue = null;
 
     /**
      * Name of model
      *
      * @var object
      */
-    private $model = NULL;
+    private $model = null;
 
     /**
      * Default constructor
@@ -125,7 +125,7 @@ abstract class AModel
      *
      * @return void
      */
-    public function load($primaryValue = NULL)
+    public function load($primaryValue = null)
     {
         $model = $this->model;
         $query = [];
@@ -136,7 +136,7 @@ abstract class AModel
         $dataCollection = $this->databaseObject->getInstance()->setQuery(Collection::implode($query, ''))->fetch();
 
         if (Collection::length($dataCollection) === 1 ||
-            $primaryValue === NULL
+            $primaryValue === null
         ) {
             $this->loadSingleEntry($dataCollection, $model);
         } elseif (Collection::length($dataCollection) > 2) {
