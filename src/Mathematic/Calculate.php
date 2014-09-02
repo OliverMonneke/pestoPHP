@@ -88,8 +88,7 @@ class Calculate
      */
     public function divide($number)
     {
-        if (Number::isZero($number))
-        {
+        if (Number::isZero($number)) {
             throw new DivisionByZeroException;
         }
 

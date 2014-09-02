@@ -25,7 +25,7 @@ abstract class AContainer extends AElement
     /**
      * @var array
      */
-    protected $_elements = [];
+    protected $elements = [];
 
     /**
      * Add an element
@@ -36,7 +36,7 @@ abstract class AContainer extends AElement
      */
     public function addElement(AElement $element)
     {
-        $this->_elements[] = $element;
+        $this->elements[] = $element;
 
         return $this;
     }
@@ -117,8 +117,8 @@ abstract class AContainer extends AElement
      */
     protected function addId($source)
     {
-        if (String::isNotEmpty($this->getId())) {
-            $source .= ' id="' . $this->getId() . '"';
+        if (String::isNotEmpty($this->getCssId())) {
+            $source .= ' id="' . $this->getCssId() . '"';
             return $source;
         }
 
@@ -131,7 +131,7 @@ abstract class AContainer extends AElement
      */
     protected function addChildElements($source)
     {
-        foreach ($this->_elements as $_element) {
+        foreach ($this->elements as $_element) {
             $source .= $_element;
         }
 

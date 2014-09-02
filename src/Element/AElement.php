@@ -32,7 +32,7 @@ abstract class AElement
     /**
      * @var string
      */
-    protected $id = null;
+    protected $cssId = null;
 
     /**
      * @var string
@@ -70,9 +70,9 @@ abstract class AElement
      *
      * @return AElement
      */
-    public function setId($cssId)
+    public function setCssId($cssId)
     {
-        $this->id = $cssId;
+        $this->cssId = $cssId;
 
         return $this;
     }
@@ -82,9 +82,9 @@ abstract class AElement
      *
      * @return string
      */
-    public function getId()
+    public function getCssId()
     {
-        return $this->id;
+        return $this->cssId;
     }
 
     /**

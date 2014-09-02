@@ -67,7 +67,7 @@ class LinkTest extends PHPUnit_Framework_TestCase
     public function testToStringWithId()
     {
         $link = new Link();
-        $link->setId('abc');
+        $link->setCssId('abc');
         $this->assertEquals('<a href="" id="abc"></a>', $link->__toString());
     }
 

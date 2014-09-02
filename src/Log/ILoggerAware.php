@@ -12,4 +12,4 @@ interface ILoggerAware
      * @param ILogger $logger
      */
     public function setLogger(ILogger $logger);
-} 
+}

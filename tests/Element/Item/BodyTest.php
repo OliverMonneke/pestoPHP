@@ -28,7 +28,7 @@ class BodyTest extends PHPUnit_Framework_TestCase
     {
         $body = new Body();
         $body->addClass('abc');
-        $body->setId('abc');
+        $body->setCssId('abc');
         $this->assertEquals('<body class="abc" id="abc"></body>', $body->__toString());
     }
 }
