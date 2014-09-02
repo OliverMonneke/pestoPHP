@@ -15,10 +15,10 @@ test:
         coverage: "coverage"
         args: "--stderr"
     php_mess_detector:
-        allow_failures: true
+        allow_failures: false
     php_code_sniffer:
         standard: "PSR2"
-        allow_failures: true
+        allow_failures: false
     php_cpd:
         allow_failures: true
     php_docblock_checker:
