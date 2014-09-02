@@ -216,3 +216,4 @@ pip-log.txt
 .idea
 /vendor
 /test.php
+atlassian-ide-plugin.xml
