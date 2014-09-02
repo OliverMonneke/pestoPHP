@@ -123,7 +123,7 @@ class Collection implements IDatatype
      *
      * @return array
      */
-    public static function merge($array1, $array2, $recursive = FALSE)
+    public static function merge($array1, $array2, $recursive = false)
     {
         if (!self::isValid($array1) ||
             !self::isValid($array2)) {
@@ -168,12 +168,12 @@ class Collection implements IDatatype
             return false;
         }
 
-        $returnValue = FALSE;
+        $returnValue = false;
         $length = self::length($array);
 
         for($i = 0;$i < $length; $i++) {
             if ($value === $array[$i]) {
-                $returnValue = TRUE;
+                $returnValue = true;
                 break;
             }
         }
@@ -189,7 +189,7 @@ class Collection implements IDatatype
      *
      * @return array
      */
-    public static function filter($array, $callback = NULL)
+    public static function filter($array, $callback = null)
     {
         if (!self::isValid($array)) {
             return false;

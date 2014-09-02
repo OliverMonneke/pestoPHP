@@ -67,7 +67,7 @@ class String implements IDatatype
      *
      * @return string
      */
-    public static function substring($string, $start = 0, $length = NULL)
+    public static function substring($string, $start = 0, $length = null)
     {
         if (!self::isValid($string)) {
             return false;
@@ -101,7 +101,7 @@ class String implements IDatatype
      *
      * @return bool
      */
-    public static function startsWith($needle, $haystack, $caseSensitive = TRUE)
+    public static function startsWith($needle, $haystack, $caseSensitive = true)
     {
         if (!self::isValid($needle)) {
             return false;
@@ -124,7 +124,7 @@ class String implements IDatatype
      *
      * @return bool
      */
-    public static function endsWith($needle, $haystack, $caseSensitive = TRUE)
+    public static function endsWith($needle, $haystack, $caseSensitive = true)
     {
         if (!$caseSensitive) {
             $needle = self::lower($needle);
@@ -143,7 +143,7 @@ class String implements IDatatype
      *
      * @return bool
      */
-    public static function contains($needle, $haystack, $caseSensitive = TRUE)
+    public static function contains($needle, $haystack, $caseSensitive = true)
     {
         if (!self::isValid($haystack)) {
             return false;
@@ -154,7 +154,7 @@ class String implements IDatatype
             $haystack = self::lower($haystack);
         }
 
-        return (mb_strpos($haystack, $needle) !== FALSE);
+        return (mb_strpos($haystack, $needle) !== false);
     }
 
     /**
@@ -167,7 +167,7 @@ class String implements IDatatype
      *
      * @return string
      */
-    public static function replace($search, $replace, $string, $caseSensitive = TRUE)
+    public static function replace($search, $replace, $string, $caseSensitive = true)
     {
         if (!self::isValid($replace)) {
             return false;
@@ -194,7 +194,7 @@ class String implements IDatatype
             return false;
         }
 
-        return ($string === NULL || $string === '');
+        return ($string === null || $string === '');
     }
 
     /**
