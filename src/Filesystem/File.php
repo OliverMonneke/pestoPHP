@@ -23,13 +23,14 @@ class File
      *
      * @var string
      */
-    private $_file = NULL;
+    private $file = null;
+
     /**
      * File handle
      *
      * @var resource
      */
-    private $_handle = NULL;
+    private $handle = null;
 
     /**
      * Default constructor
@@ -40,7 +41,7 @@ class File
      */
     public function __construct($file)
     {
-        $this->_file = $file;
+        $this->file = $file;
     }
 
     /**
@@ -50,13 +51,13 @@ class File
      *
      * @return resource
      */
-    private function _setHandle($mode)
+    private function setHandle($mode)
     {
-        $this->_closeExistingHandle();
+        $this->closeExistingHandle();
 
-        $this->_handle = fopen($this->_file, $mode);
+        $this->handle = fopen($this->file, $mode);
 
-        return $this->_handle;
+        return $this->handle;
     }
 
     /**
@@ -66,7 +67,7 @@ class File
      */
     public function getAccessTime()
     {
-        return fileatime($this->_file);
+        return fileatime($this->file);
     }
 
     /**
@@ -76,7 +77,7 @@ class File
      */
     public function getCreationTime()
     {
-        return filectime($this->_file);
+        return filectime($this->file);
     }
 
     /**
@@ -86,7 +87,7 @@ class File
      */
     public function getGroup()
     {
-        return filegroup($this->_file);
+        return filegroup($this->file);
     }
 
     /**
@@ -96,7 +97,7 @@ class File
      */
     public function getInode()
     {
-        return fileinode($this->_file);
+        return fileinode($this->file);
     }
 
     /**
@@ -106,7 +107,7 @@ class File
      */
     public function getModificationTime()
     {
-        return filemtime($this->_file);
+        return filemtime($this->file);
     }
 
     /**
@@ -116,7 +117,7 @@ class File
      */
     public function getPerms()
     {
-        return fileperms($this->_file);
+        return fileperms($this->file);
     }
 
     /**
@@ -126,7 +127,7 @@ class File
      */
     public function getSize()
     {
-        return filesize($this->_file);
+        return filesize($this->file);
     }
 
     /**
@@ -136,7 +137,7 @@ class File
      */
     public function getType()
     {
-        return filetype($this->_file);
+        return filetype($this->file);
     }
 
     /**
@@ -146,7 +147,7 @@ class File
      */
     public function getOwner()
     {
-        return fileowner($this->_file);
+        return fileowner($this->file);
     }
 
     /**
@@ -156,7 +157,7 @@ class File
      */
     public function remove()
     {
-        return unlink($this->_file);
+        return unlink($this->file);
     }
 
     /**
@@ -166,7 +167,7 @@ class File
      */
     public function emptyFile()
     {
-        return $this->write('', FALSE);
+        return $this->write('', false);
     }
 
     /**
@@ -177,12 +178,12 @@ class File
      *
      * @return int
      */
-    public function write($string, $append = TRUE)
+    public function write($string, $append = true)
     {
-        $mode = $this->_getMode($append);
+        $mode = $this->getMode($append);
+        $this->setHandle($mode);
 
-        $this->_setHandle($mode);
-        return fwrite($this->_handle, $string);
+        return fwrite($this->handle, $string);
     }
 
     /**
@@ -205,21 +206,19 @@ class File
      *
      * @return array|string
      */
-    public function read($length = 0, $asArray = FALSE)
+    public function read($length = 0, $asArray = false)
     {
         if ($asArray &&
-            Number::isZero($length))
-        {
-            return file($this->_file);
+            Number::isZero($length)) {
+
+            return file($this->file);
         }
-        elseif(Number::isPositive($length))
-        {
-            $this->_setHandle('r');
-            return fread($this->_handle, $length);
-        }
-        else
-        {
-            return Collection::implode($this->read(0, TRUE), '');
+        elseif(Number::isPositive($length)) {
+            $this->setHandle('r');
+
+            return fread($this->handle, $length);
+        } else {
+            return Collection::implode($this->read(0, true), '');
         }
     }
 
@@ -230,9 +229,8 @@ class File
      */
     public function create()
     {
-        if (!self::fileExists($this->_file))
-        {
-            return touch($this->_file);
+        if (!self::fileExists($this->file)) {
+            return touch($this->file);
         }
 
         return true;
@@ -245,9 +243,8 @@ class File
      */
     public function __destruct()
     {
-        if (Resource::isNotEmpty($this->_handle))
-        {
-            return fclose($this->_handle);
+        if (Resource::isNotEmpty($this->handle)) {
+            return fclose($this->handle);
         }
 
         return true;
@@ -256,10 +253,10 @@ class File
     /**
      *
      */
-    private function _closeExistingHandle()
+    private function closeExistingHandle()
     {
-        if (Resource::isNotEmpty($this->_handle)) {
-            fclose($this->_handle);
+        if (Resource::isNotEmpty($this->handle)) {
+            fclose($this->handle);
         }
     }
 
@@ -267,13 +264,15 @@ class File
      * @param $append
      * @return string
      */
-    private function _getMode($append)
+    private function getMode($append)
     {
         if ($append) {
             $mode = 'a';
+
             return $mode;
         } else {
             $mode = 'w';
+
             return $mode;
         }
     }

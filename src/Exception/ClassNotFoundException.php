@@ -20,5 +20,5 @@ class ClassNotFoundException extends Exception
      *
      * @var int
      */
-    protected $_errorCode = 1;
+    protected $errorCode = 1;
 }

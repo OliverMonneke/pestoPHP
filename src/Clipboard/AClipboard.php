@@ -22,7 +22,7 @@ abstract class AClipboard
      *
      * @var array
      */
-    private static $_registry = [];
+    private static $registry = [];
 
     /**
      * Get instance and initialze array
@@ -31,9 +31,8 @@ abstract class AClipboard
      */
     public static function getInstance()
     {
-        if (!array_key_exists(get_called_class(), self::$_registry))
-        {
-            self::$_registry[get_called_class()] = [];
+        if (!array_key_exists(get_called_class(), self::$registry)) {
+            self::$registry[get_called_class()] = [];
         }
 
         return self::_getInstance();
@@ -48,13 +47,10 @@ abstract class AClipboard
      */
     public static function get($key)
     {
-        if (self::has($key))
-        {
-            return self::$_registry[get_called_class()][$key];
-        }
-        else
-        {
-            return NULL;
+        if (self::has($key)) {
+            return self::$registry[get_called_class()][$key];
+        } else {
+            return null;
         }
     }
 
@@ -67,7 +63,7 @@ abstract class AClipboard
      */
     public static function has($key)
     {
-        return array_key_exists($key, self::$_registry[get_called_class()]);
+        return array_key_exists($key, self::$registry[get_called_class()]);
     }
 
     /**
@@ -77,7 +73,7 @@ abstract class AClipboard
      */
     public static function getAll()
     {
-        return self::$_registry[get_called_class()];
+        return self::$registry[get_called_class()];
     }
 
     /**
@@ -90,7 +86,7 @@ abstract class AClipboard
      */
     public static function set($key, $value)
     {
-        self::$_registry[get_called_class()][$key] = $value;
+        self::$registry[get_called_class()][$key] = $value;
     }
 
     /**
@@ -102,7 +98,7 @@ abstract class AClipboard
      */
     public function remove($key)
     {
-        unset(self::$_registry[get_called_class()][$key]);
+        unset(self::$registry[get_called_class()][$key]);
     }
 
     /**
@@ -112,6 +108,6 @@ abstract class AClipboard
      */
     public function removeAll()
     {
-        self::$_registry[get_called_class()] = [];
+        self::$registry[get_called_class()] = [];
     }
 }

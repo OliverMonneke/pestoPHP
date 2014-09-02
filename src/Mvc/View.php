@@ -4,6 +4,7 @@
  * View handling
  */
 namespace Codersquad\Pestophp\Mvc;
+
 use Codersquad\Pestophp\Datatype\Collection;
 use Codersquad\Pestophp\Datatype\Object;
 use Codersquad\Pestophp\Datatype\String;
@@ -22,28 +23,28 @@ class View
     /**
      * @var File
      */
-    private $_file = NULL;
+    private $file = NULL;
 
     /**
      * Content of view
      *
      * @var string
      */
-    private $_content = NULL;
+    private $content = NULL;
 
     /**
      * Array of view replacements
      *
      * @var array
      */
-    private $_replacementArray = [];
+    private $replacementArray = [];
 
     /**
      * Check if already replaced
      *
      * @var bool
      */
-    private $_replaced = false;
+    private $replaced = false;
 
     /**
      * Default constructor
@@ -54,7 +55,7 @@ class View
     public function __construct($file)
     {
         $this->setFile($file);
-        $this->_content = $this->_file->read();
+        $this->content = $this->file->read();
     }
 
     /**
@@ -67,8 +68,8 @@ class View
      */
     public function assign($key, $value = '')
     {
-        $this->_replaced = false;
-        $this->_replacementArray[$key] = $value;
+        $this->replaced = false;
+        $this->replacementArray[$key] = $value;
 
         return $this;
     }
@@ -78,25 +79,21 @@ class View
      *
      * @return void
      */
-    private function _replace()
+    private function replace()
     {
-        foreach ($this->_replacementArray as $_key => $_value)
-        {
-            if (String::isValid($_value))
-            {
-                $this->_replaceString($_key, $_value);
+        foreach ($this->replacementArray as $_key => $_value) {
+            if (String::isValid($_value)) {
+                $this->replaceString($_key, $_value);
             }
-            elseif(Collection::isValid($_value))
-            {
-                $this->_replaceArray($_key, $_value);
+            elseif(Collection::isValid($_value)) {
+                $this->replaceArray($_key, $_value);
             }
-            elseif(Object::isValid($_value))
-            {
-                $this->_replaceObject($_key, $_value);
+            elseif(Object::isValid($_value)) {
+                $this->replaceObject($_key, $_value);
             }
         }
 
-        $this->_cleanup();
+        $this->cleanup();
     }
 
     /**
@@ -107,13 +104,12 @@ class View
      *
      * @return void
      */
-    private function _replaceObject($key, $value)
+    private function replaceObject($key, $value)
     {
         $array = Object::toArray($value);
 
-        foreach ($array as $_key => $_value)
-        {
-            $this->_replaceString($key.'.'.$_key, $_value);
+        foreach ($array as $_key => $_value) {
+            $this->replaceString($key.'.'.$_key, $_value);
         }
     }
 
@@ -125,21 +121,20 @@ class View
      *
      * @return void
      */
-    private function _replaceArray($key, $array)
+    private function replaceArray($key, $array)
     {
         $matches = [];
         $result = '';
 
-        preg_match('/{% for (.*) in '.$key.' %}(.*){% endfor %}/s', $this->_content, $matches);
+        preg_match('/{% for (.*) in '.$key.' %}(.*){% endfor %}/s', $this->content, $matches);
         $variableName = $matches[1];
         $blockContent = $matches[2];
 
-        foreach ($array as $_item)
-        {
+        foreach ($array as $_item) {
             $result .= String::replace('{ '.$variableName.' }', $_item, $blockContent);
         }
 
-        $this->_content = String::replace($matches[0], $result, $this->_content);
+        $this->content = String::replace($matches[0], $result, $this->content);
     }
 
     /**
@@ -150,9 +145,9 @@ class View
      *
      * @return void
      */
-    private function _replaceString($key, $value)
+    private function replaceString($key, $value)
     {
-        $this->_content = String::replace('{ '.$key.' }', $value, $this->_content);
+        $this->content = String::replace('{ '.$key.' }', $value, $this->content);
     }
 
     /**
@@ -160,10 +155,10 @@ class View
      *
      * @return void
      */
-    private function _cleanup()
+    private function cleanup()
     {
-        $this->_content = preg_replace('/{ .* }/', '', $this->_content);
-        $this->_content = preg_replace('/{% .* %}/', '', $this->_content);
+        $this->content = preg_replace('/{ .* }/', '', $this->content);
+        $this->content = preg_replace('/{% .* %}/', '', $this->content);
     }
 
     /**
@@ -173,13 +168,12 @@ class View
      */
     public function getView()
     {
-        if (!$this->_replaced)
-        {
-            $this->_replace();
-            $this->_replaced = true;
+        if (!$this->replaced) {
+            $this->replace();
+            $this->replaced = true;
         }
 
-        return $this->_content;
+        return $this->content;
     }
 
     /**
@@ -192,8 +186,7 @@ class View
     public function setFile($file)
     {
         $this->_checkViewExists($file);
-
-        $this->_file = new File($file);
+        $this->file = new File($file);
 
         return $this;
     }
