@@ -171,7 +171,7 @@ class Collection implements IDatatype
         $returnValue = false;
         $length = self::length($array);
 
-        for($i = 0;$i < $length; $i++) {
+        for ($i = 0; $i < $length; $i++) {
             if ($value === $array[$i]) {
                 $returnValue = true;
                 break;
