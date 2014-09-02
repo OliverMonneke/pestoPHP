@@ -35,8 +35,7 @@ class String implements IDatatype
      */
     public static function lower($string)
     {
-        if (!self::isValid($string))
-        {
+        if (!self::isValid($string)) {
             return false;
         }
 
@@ -52,8 +51,7 @@ class String implements IDatatype
      */
     public static function upper($string)
     {
-        if (!self::isValid($string))
-        {
+        if (!self::isValid($string)) {
             return false;
         }
 
@@ -71,8 +69,7 @@ class String implements IDatatype
      */
     public static function substring($string, $start = 0, $length = NULL)
     {
-        if (!self::isValid($string))
-        {
+        if (!self::isValid($string)) {
             return false;
         }
 
@@ -88,8 +85,7 @@ class String implements IDatatype
      */
     public static function length($string)
     {
-        if (!self::isValid($string))
-        {
+        if (!self::isValid($string)) {
             return false;
         }
 
@@ -107,13 +103,11 @@ class String implements IDatatype
      */
     public static function startsWith($needle, $haystack, $caseSensitive = TRUE)
     {
-        if (!self::isValid($needle))
-        {
+        if (!self::isValid($needle)) {
             return false;
         }
 
-        if (!$caseSensitive)
-        {
+        if (!$caseSensitive) {
             $needle = self::lower($needle);
             $haystack = self::lower($haystack);
         }
@@ -132,8 +126,7 @@ class String implements IDatatype
      */
     public static function endsWith($needle, $haystack, $caseSensitive = TRUE)
     {
-        if (!$caseSensitive)
-        {
+        if (!$caseSensitive) {
             $needle = self::lower($needle);
             $haystack = self::lower($haystack);
         }
@@ -152,13 +145,11 @@ class String implements IDatatype
      */
     public static function contains($needle, $haystack, $caseSensitive = TRUE)
     {
-        if (!self::isValid($haystack))
-        {
+        if (!self::isValid($haystack)) {
             return false;
         }
 
-        if (!$caseSensitive)
-        {
+        if (!$caseSensitive) {
             $needle = self::lower($needle);
             $haystack = self::lower($haystack);
         }
@@ -178,17 +169,13 @@ class String implements IDatatype
      */
     public static function replace($search, $replace, $string, $caseSensitive = TRUE)
     {
-        if (!self::isValid($replace))
-        {
+        if (!self::isValid($replace)) {
             return false;
         }
 
-        if (!$caseSensitive)
-        {
+        if (!$caseSensitive) {
             return str_ireplace($search, $replace, $string);
-        }
-        else
-        {
+        } else {
             return str_replace($search, $replace, $string);
         }
     }
@@ -203,8 +190,7 @@ class String implements IDatatype
     public static function isEmpty($string)
     {
         if (!self::isValid($string) &&
-            null !== $string)
-        {
+            null !== $string) {
             return false;
         }
 
@@ -221,8 +207,7 @@ class String implements IDatatype
     public static function isNotEmpty($string)
     {
         if (!self::isValid($string) &&
-            null !== $string)
-        {
+            null !== $string) {
             return false;
         }
 
