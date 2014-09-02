@@ -4,6 +4,7 @@
  * File handling
  */
 namespace Codersquad\Pestophp\Filesystem;
+
 use Codersquad\Pestophp\Datatype\Collection;
 use Codersquad\Pestophp\Datatype\Number;
 use Codersquad\Pestophp\Datatype\Resource;
@@ -252,6 +253,9 @@ class File
         return true;
     }
 
+    /**
+     *
+     */
     private function _closeExistingHandle()
     {
         if (Resource::isNotEmpty($this->_handle)) {
