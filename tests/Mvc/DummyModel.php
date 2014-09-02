@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Oliver
- * Date: 29.03.2014
- * Time: 07:33
- */
 
 namespace Codersquad\Pestophp\Tests\Mvc;
-
 
 use Codersquad\Pestophp\Mvc\AModel;
 
@@ -17,6 +10,12 @@ use Codersquad\Pestophp\Mvc\AModel;
  */
 class DummyModel extends AModel
 {
+    /**
+     *
+     */
     const TABLE = 'user';
+    /**
+     *
+     */
     const PRIMARY = 'id';
 } 

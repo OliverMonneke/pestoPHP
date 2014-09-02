@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Oliver
- * Date: 28.03.2014
- * Time: 13:05
- */
 
 namespace Codersquad\Pestophp\Tests\Mvc;
 
@@ -19,6 +13,9 @@ use PHPUnit_Framework_TestCase;
 class RouterTest extends PHPUnit_Framework_TestCase
 {
 
+    /**
+     *
+     */
     public function testInit()
     {
         Request::set('controller', '');

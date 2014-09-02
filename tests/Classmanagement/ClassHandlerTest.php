@@ -1,16 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Oliver
- * Date: 21.03.2014
- * Time: 14:41
- */
 
 namespace Codersquad\Pestophp\Tests\Classmanagement;
 
 use Codersquad\Pestophp\Classmanagement\ClassHandler;
 use Codersquad\Pestophp\Configuration\PathConfiguration;
-
 
 /**
  * Class ClassHandlerTest
@@ -27,6 +20,9 @@ class ClassHandlerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(['controller' => 'Codersquad\Pestophp\Mvc\Controller', 'action' => 'defaultAction'], $classData);
     }
 
+    /**
+     *
+     */
     protected function setUp()
     {
         PathConfiguration::set('src', '');

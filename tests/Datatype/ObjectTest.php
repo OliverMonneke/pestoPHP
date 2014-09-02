@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Oliver
- * Date: 21.03.2014
- * Time: 14:06
- */
 
 namespace Codersquad\Pestophp\Tests\Datatype;
-
 
 use Codersquad\Pestophp\Datatype\Object;
 use stdClass;
@@ -23,6 +16,9 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
      */
     private $_object;
 
+    /**
+     *
+     */
     public function testToArrayWithWrongDatatype()
     {
         /** @noinspection PhpParamsInspection */

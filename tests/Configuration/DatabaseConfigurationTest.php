@@ -18,11 +18,17 @@ class DatabaseConfigurationTest extends PHPUnit_Framework_TestCase
      */
     private $_config;
 
+    /**
+     *
+     */
     public function testExport()
     {
         $this->assertFalse($this->_config->export());
     }
 
+    /**
+     *
+     */
     protected function setUp()
     {
 

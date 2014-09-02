@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Oliver
- * Date: 28.03.2014
- * Time: 18:04
- */
 
 namespace Codersquad\Pestophp\Tests\Mvc;
 
@@ -18,6 +12,9 @@ use stdClass;
  */
 class ViewTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     *
+     */
     public function testAssignString()
     {
         $view = new View(__DIR__ . '/../resources/template.html');
@@ -26,6 +23,9 @@ class ViewTest extends PHPUnit_Framework_TestCase
         $this->assertNotContains('thirsty', $view->getView());
     }
 
+    /**
+     *
+     */
     public function testAssignArray()
     {
         $array = ['var1' => 'dummy var 1', 'var2' => 'dummy var 2'];
@@ -38,6 +38,9 @@ class ViewTest extends PHPUnit_Framework_TestCase
         $this->assertNotContains('foreach', $view->getView());
     }
 
+    /**
+     *
+     */
     public function testAssignObject()
     {
         $object = new stdClass();
@@ -52,6 +55,9 @@ class ViewTest extends PHPUnit_Framework_TestCase
         $this->assertNotContains('foreach', $view->getView());
     }
 
+    /**
+     *
+     */
     public function testGetView()
     {
         $view = new View(__DIR__ . '/../resources/template.html');
@@ -63,6 +69,9 @@ class ViewTest extends PHPUnit_Framework_TestCase
         $this->assertNotContains(' %}', $view->getView());
     }
 
+    /**
+     *
+     */
     public function testViewNotExists()
     {
         $this->setExpectedException('Codersquad\Pestophp\Exception\FileNotFoundException');

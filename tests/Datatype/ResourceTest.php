@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Oliver
- * Date: 21.03.2014
- * Time: 14:11
- */
 
 namespace Codersquad\Pestophp\Tests\Datatype;
-
 
 use Codersquad\Pestophp\Datatype\Resource;
 use stdClass;
@@ -23,6 +16,9 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
      */
     private $_resource;
 
+    /**
+     *
+     */
     public function testIsNotEmptyWithWrongDatatype()
     {
         /** @noinspection PhpParamsInspection */
