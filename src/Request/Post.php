@@ -24,8 +24,7 @@ class Post extends ClipboardPost implements ICommand
      */
     public function execute()
     {
-        foreach ($_POST as $_key => $_value)
-        {
+        foreach ($_POST as $_key => $_value) {
             self::set($_key, $_value);
         }
     }

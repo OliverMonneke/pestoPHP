@@ -35,7 +35,7 @@ class Link extends AContainer
     /**
      * @var string
      */
-    protected $target = NULL;
+    protected $target = null;
 
     /**
      * Getter for href

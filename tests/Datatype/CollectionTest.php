@@ -153,7 +153,13 @@ class CollectionTest extends PHPUnit_Framework_TestCase
      */
     public function testFilter()
     {
-        $this->assertEquals(['a', 'b'], Collection::filter(['a', 'b', 2], ['Codersquad\Pestophp\Datatype\String', 'isValid']));
+        $this->assertEquals(
+            ['a', 'b'],
+            Collection::filter(
+                ['a', 'b', 2],
+                ['Codersquad\Pestophp\Datatype\String', 'isValid']
+            )
+        );
     }
 
     /**

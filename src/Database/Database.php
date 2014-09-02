@@ -32,7 +32,7 @@ class Database
      *
      * @var \mysqli_result
      */
-    protected $connection = NULL;
+    protected $connection = null;
 
     /**
      * Get instance

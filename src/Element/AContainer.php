@@ -20,7 +20,7 @@ abstract class AContainer extends AElement
     /**
      * @var string
      */
-    protected $dataTag = NULL;
+    protected $dataTag = null;
 
     /**
      * @var array
@@ -50,9 +50,9 @@ abstract class AContainer extends AElement
     {
         $source = '<' . $this->tag;
 
-        $source = $this->_addDataTag($source);
+        $source = $this->addDataTag($source);
 
-        $source = $this->_addName($source);
+        $source = $this->addName($source);
 
         $source = $this->addClass($source);
 
@@ -71,10 +71,11 @@ abstract class AContainer extends AElement
      * @param $source
      * @return string
      */
-    protected function _addDataTag($source)
+    protected function addDataTag($source)
     {
         if (String::isNotEmpty($this->dataTag)) {
             $source .= ' ' . $this->dataTag . '="' . $this->value . '"';
+
             return $source;
         }
 
@@ -85,10 +86,11 @@ abstract class AContainer extends AElement
      * @param $source
      * @return string
      */
-    protected function _addName($source)
+    protected function addName($source)
     {
         if (String::isNotEmpty($this->name)) {
             $source .= ' name="' . $this->name . '"';
+
             return $source;
         }
 
@@ -99,7 +101,7 @@ abstract class AContainer extends AElement
      * @param $source
      * @return string
      */
-    protected function addClass($source)
+    public function addClass($source)
     {
         if (Collection::isNotEmpty($this->getClass())) {
             $source .= ' class="' . Collection::implode($this->getClass(), ' ') . '"';
