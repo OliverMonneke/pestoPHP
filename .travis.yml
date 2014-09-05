@@ -3,7 +3,9 @@ language: php
 php:
   - 5.5
 
-script:
+before_script:
   - composer update
-  - vendors/bin/phpunit --configuration phpunit.xml.dist
+
+script:
+  - vendor/bin/phpunit --configuration phpunit.xml.dist
 
