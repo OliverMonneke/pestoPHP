@@ -1,7 +1,5 @@
 <?php
 
-require_once(__DIR__.'/../../vendor/autoload.php');
-
 /**
  * Core class for framework
  */
@@ -16,6 +14,8 @@ use Codersquad\Pestophp\Request\Cookie;
 use Codersquad\Pestophp\Request\Get;
 use Codersquad\Pestophp\Request\Post;
 use Codersquad\Pestophp\Request\Request;
+
+require_once(__DIR__.'/../../vendor/autoload.php');
 
 /**
  * Class Core
