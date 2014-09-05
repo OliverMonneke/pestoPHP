@@ -4,6 +4,7 @@
  * Pure text
  */
 namespace Codersquad\Pestophp\Element\Item;
+
 use Codersquad\Pestophp\Element\AItem;
 
 /**
@@ -18,7 +19,7 @@ class Label extends AItem
     /**
      * @var string
      */
-    protected $_tag = '';
+    protected $tag = '';
 
     /**
      * Render element
@@ -27,6 +28,6 @@ class Label extends AItem
      */
     public function __toString()
     {
-        return $this->_value;
+        return $this->value;
     }
 }

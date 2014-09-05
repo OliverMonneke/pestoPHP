@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Oliver
- * Date: 21.03.2014
- * Time: 14:22
- */
 
 namespace Codersquad\Pestophp\Tests\Datatype;
 
@@ -204,54 +198,83 @@ class StringTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(String::isNotEmpty('abc'));
     }
 
+    /**
+     *
+     */
     public function testLowerWithWrongDatatype()
     {
         $this->assertFalse(String::lower(['a', 'b', 'c']));
     }
 
+    /**
+     *
+     */
     public function testUpperWithWrongDatatype()
     {
         $this->assertFalse(String::upper(['a', 'b', 'c']));
     }
 
+    /**
+     *
+     */
     public function testSubstringWithWrongDatatype()
     {
         $this->assertFalse(String::substring(['a', 'b', 'c']));
     }
 
+    /**
+     *
+     */
     public function testLengthWithWrongDatatype()
     {
         $this->assertFalse(String::length(['a', 'b', 'c']));
     }
 
+    /**
+     *
+     */
     public function testStartsWithWithWrongDatatype()
     {
         $this->assertFalse(String::startsWith(['a', 'b', 'c'], 'a'));
     }
 
+    /**
+     *
+     */
     public function testContainsWithWrongDatatype()
     {
         $this->assertFalse(String::contains('b', ['a', 'b', 'c']));
     }
 
+    /**
+     *
+     */
     public function testReplaceWithWrongDatatype()
     {
         $this->assertFalse(String::replace('b', ['a', 'b', 'c'], 'abc'));
     }
 
+    /**
+     *
+     */
     public function testIsNotEmptyWithWrongDatatype()
     {
         $this->assertFalse(String::isNotEmpty(['a', 'b', 'c']));
     }
 
+    /**
+     *
+     */
     public function testLowerFirst()
     {
         $this->assertEquals('aBc', String::lowerFirst('ABc'));
     }
 
+    /**
+     *
+     */
     public function testUpperFirst()
     {
         $this->assertEquals('ABc', String::upperFirst('aBc'));
     }
 }
- 

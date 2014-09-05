@@ -4,6 +4,7 @@
  * GET parameter handling
  */
 namespace Codersquad\Pestophp\Request;
+
 use Codersquad\Pestophp\Classmanagement\ICommand;
 use Codersquad\Pestophp\Clipboard\ClipboardGet;
 
@@ -16,7 +17,6 @@ use Codersquad\Pestophp\Clipboard\ClipboardGet;
  */
 class Get extends ClipboardGet implements ICommand
 {
-
     /**
      * Execute command
      *
@@ -24,8 +24,7 @@ class Get extends ClipboardGet implements ICommand
      */
     public function execute()
     {
-        foreach ($_GET as $_key => $_value)
-        {
+        foreach ($_GET as $_key => $_value) {
             self::set($_key, $_value);
         }
     }

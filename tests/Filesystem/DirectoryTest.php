@@ -6,10 +6,8 @@ use Codersquad\Pestophp\Filesystem\Directory;
 use PHPUnit_Framework_TestCase;
 
 /**
- * Created by PhpStorm.
- * User: Oliver
- * Date: 24.03.2014
- * Time: 16:27
+ * Class DirectoryTest
+ * @package Codersquad\Pestophp\Tests\Filesystem
  */
 class DirectoryTest extends PHPUnit_Framework_TestCase
 {

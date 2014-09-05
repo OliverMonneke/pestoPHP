@@ -71,8 +71,7 @@ class Number implements IDatatype
      */
     public static function isPositive($number)
     {
-        if (!self::isValid($number))
-        {
+        if (!self::isValid($number)) {
             return false;
         }
 
@@ -88,8 +87,7 @@ class Number implements IDatatype
      */
     public static function isNegative($number)
     {
-        if (!self::isValid($number))
-        {
+        if (!self::isValid($number)) {
             return false;
         }
 
@@ -105,8 +103,7 @@ class Number implements IDatatype
      */
     public static function isZero($number)
     {
-        if (!self::isValid($number))
-        {
+        if (!self::isValid($number)) {
             return false;
         }
 
@@ -122,8 +119,7 @@ class Number implements IDatatype
      */
     public static function toInteger($var)
     {
-        if (Object::isValid($var))
-        {
+        if (Object::isValid($var)) {
             $var = 0;
         }
 
@@ -139,8 +135,7 @@ class Number implements IDatatype
      */
     public static function toFloat($var)
     {
-        if (Object::isValid($var))
-        {
+        if (Object::isValid($var)) {
             $var = 0;
         }
 
@@ -156,8 +151,7 @@ class Number implements IDatatype
      */
     public static function toDouble($var)
     {
-        if (Object::isValid($var))
-        {
+        if (Object::isValid($var)) {
             $var = 0;
         }
 
@@ -188,8 +182,7 @@ class Number implements IDatatype
      */
     public static function isFinite($number)
     {
-        if (!self::isDouble($number))
-        {
+        if (!self::isDouble($number)) {
             return false;
         }
 
@@ -205,8 +198,7 @@ class Number implements IDatatype
      */
     public static function isInfinite($number)
     {
-        if (!self::isDouble($number))
-        {
+        if (!self::isDouble($number)) {
             return false;
         }
 
@@ -221,11 +213,10 @@ class Number implements IDatatype
      *
      * @return int
      */
-    public static function random($min, $max = NULL)
+    public static function random($min, $max = null)
     {
         if (String::isEmpty($max) ||
-            $max > getrandmax())
-        {
+            $max > getrandmax()) {
             $max = getrandmax();
         }
 

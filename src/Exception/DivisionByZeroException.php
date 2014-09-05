@@ -14,11 +14,10 @@ namespace Codersquad\Pestophp\Exception;
  */
 class DivisionByZeroException extends Exception
 {
-
     /**
      * Error code
      *
      * @var int
      */
-    protected $_errorCode = 7;
+    protected $errorCode = 7;
 }

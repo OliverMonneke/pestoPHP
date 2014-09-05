@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Oliver
- * Date: 28.03.2014
- * Time: 21:21
- */
 
 namespace Codersquad\Pestophp\Tests\Element\Component;
 
@@ -18,7 +12,6 @@ use PHPUnit_Framework_TestCase;
  */
 class LinkTest extends PHPUnit_Framework_TestCase
 {
-
     /**
      *
      */
@@ -74,10 +67,13 @@ class LinkTest extends PHPUnit_Framework_TestCase
     public function testToStringWithId()
     {
         $link = new Link();
-        $link->setId('abc');
+        $link->setCssId('abc');
         $this->assertEquals('<a href="" id="abc"></a>', $link->__toString());
     }
 
+    /**
+     *
+     */
     public function testToStringWithChildElement()
     {
         $link = new Link();

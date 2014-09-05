@@ -19,5 +19,5 @@ class DirectoryNotFoundException extends Exception
      *
      * @var int
      */
-    protected $_errorCode = 4;
+    protected $errorCode = 4;
 }

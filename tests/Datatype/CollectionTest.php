@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Oliver
- * Date: 21.03.2014
- * Time: 09:15
- */
 
 namespace Codersquad\Pestophp\Tests\Datatype;
 
@@ -57,6 +51,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $this->assertNotEquals(4, Collection::length(['a', 'b', 'c']));
     }
 
+    /**
+     *
+     */
     public function testLengthWithWrongDatatype()
     {
         $this->assertFalse(Collection::length('abc'));
@@ -156,7 +153,13 @@ class CollectionTest extends PHPUnit_Framework_TestCase
      */
     public function testFilter()
     {
-        $this->assertEquals(['a', 'b'], Collection::filter(['a', 'b', 2], ['Codersquad\Pestophp\Datatype\String', 'isValid']));
+        $this->assertEquals(
+            ['a', 'b'],
+            Collection::filter(
+                ['a', 'b', 2],
+                ['Codersquad\Pestophp\Datatype\String', 'isValid']
+            )
+        );
     }
 
     /**
@@ -193,48 +196,70 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $this->assertFalse(Collection::isNotEmpty([]));
     }
 
+    /**
+     *
+     */
     public function testMergeWithWrongDatatype()
     {
         /** @noinspection PhpParamsInspection */
         $this->assertFalse(Collection::merge(['a', 'b', 'c'], 'abc'));
     }
 
+    /**
+     *
+     */
     public function testExistKeyWithWrongDatatype()
     {
         $this->assertFalse(Collection::existsKey('abc', 'a'));
     }
 
+    /**
+     *
+     */
     public function testExistValueWithWrongDatatype()
     {
         $this->assertFalse(Collection::existsValue('abc', 'a'));
     }
 
+    /**
+     *
+     */
     public function testFilterWithWrongDatatype()
     {
         /** @noinspection PhpParamsInspection */
         $this->assertFalse(Collection::filter('abc', 'a'));
     }
 
+    /**
+     *
+     */
     public function testExplodeWithWrongDataType()
     {
         /** @noinspection PhpParamsInspection */
         $this->assertFalse(Collection::explode(['a', 'b', 'c'], 'b'));
     }
 
+    /**
+     *
+     */
     public function testIsEmptyWithWrongDatatype()
     {
         $this->assertFalse(Collection::isEmpty('abc'));
     }
 
+    /**
+     *
+     */
     public function testIsNotEmptyWithWrongDatatype()
     {
         $this->assertFalse(Collection::isNotEmpty('abc'));
     }
 
+    /**
+     *
+     */
     public function testImplodeWithWrongDatatype()
     {
         $this->assertFalse(Collection::implode('abc', 'b'));
     }
-
-
 }

@@ -22,4 +22,4 @@ interface IDatatype
      * @return bool
      */
     public static function isValid($expression);
-} 
+}

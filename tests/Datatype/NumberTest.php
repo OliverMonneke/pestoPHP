@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Oliver
- * Date: 21.03.2014
- * Time: 13:47
- */
 
 namespace Codersquad\Pestophp\Tests\Datatype;
-
 
 use Codersquad\Pestophp\Datatype\Number;
 use stdClass;

@@ -19,5 +19,5 @@ class ControllerNotFoundException extends Exception
      *
      * @var int
      */
-    protected $_errorCode = 5;
+    protected $errorCode = 5;
 }

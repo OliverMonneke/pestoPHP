@@ -19,5 +19,5 @@ class DatabaseNotFoundException extends Exception
      *
      * @var int
      */
-    protected $_errorCode = 6;
+    protected $errorCode = 6;
 }

@@ -4,6 +4,7 @@
  * POST parameter handling
  */
 namespace Codersquad\Pestophp\Request;
+
 use Codersquad\Pestophp\Classmanagement\ICommand;
 use Codersquad\Pestophp\Clipboard\ClipboardPost;
 
@@ -16,7 +17,6 @@ use Codersquad\Pestophp\Clipboard\ClipboardPost;
  */
 class Post extends ClipboardPost implements ICommand
 {
-
     /**
      * Execute command
      *
@@ -24,8 +24,7 @@ class Post extends ClipboardPost implements ICommand
      */
     public function execute()
     {
-        foreach ($_POST as $_key => $_value)
-        {
+        foreach ($_POST as $_key => $_value) {
             self::set($_key, $_value);
         }
     }

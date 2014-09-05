@@ -4,6 +4,7 @@
  * Cookie handling
  */
 namespace Codersquad\Pestophp\Request;
+
 use Codersquad\Pestophp\Classmanagement\ICommand;
 use Codersquad\Pestophp\Clipboard\ClipboardCookie;
 
@@ -16,7 +17,6 @@ use Codersquad\Pestophp\Clipboard\ClipboardCookie;
  */
 class Cookie extends ClipboardCookie implements ICommand
 {
-
     /**
      * Execute command
      *
@@ -24,8 +24,7 @@ class Cookie extends ClipboardCookie implements ICommand
      */
     public function execute()
     {
-        foreach ($_COOKIE as $_key => $_value)
-        {
+        foreach ($_COOKIE as $_key => $_value) {
             self::set($_key, $_value);
         }
     }

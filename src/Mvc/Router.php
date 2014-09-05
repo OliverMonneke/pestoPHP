@@ -4,6 +4,7 @@
  * Router
  */
 namespace Codersquad\Pestophp\Mvc;
+
 use Codersquad\Pestophp\Classmanagement\ClassHandler;
 use Codersquad\Pestophp\Classmanagement\TSingleton;
 use Codersquad\Pestophp\Datatype\String;
@@ -19,6 +20,7 @@ use Codersquad\Pestophp\Request\Request;
 class Router
 {
     use TSingleton;
+
     /**
      * Initializing router
      *
@@ -32,8 +34,7 @@ class Router
 
         $controller = new $controllerData['controller'];
 
-        if (method_exists($controller, 'init'))
-        {
+        if (method_exists($controller, 'init')) {
             call_user_method('init', $controller);
         }
 

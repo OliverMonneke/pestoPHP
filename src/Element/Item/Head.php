@@ -5,6 +5,7 @@
 
  */
 namespace Codersquad\Pestophp\Element\Item;
+
 use Codersquad\Pestophp\Element\AContainer;
 
 /**
@@ -19,5 +20,5 @@ class Head extends AContainer
     /**
      * @var string
      */
-    protected $_tag = 'head';
-} 
+    protected $tag = 'head';
+}

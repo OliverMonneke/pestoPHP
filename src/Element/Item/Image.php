@@ -4,6 +4,7 @@
  * IMG tag
  */
 namespace Codersquad\Pestophp\Element\Item;
+
 use Codersquad\Pestophp\Element\AContainer;
 
 /**
@@ -18,10 +19,10 @@ class Image extends AContainer
     /**
      * @var string
      */
-    protected $_tag = 'img';
+    protected $tag = 'img';
 
     /**
      * @var string
      */
-    protected $_dataTag = 'src';
-} 
+    protected $dataTag = 'src';
+}

@@ -1,5 +1,7 @@
 <?php
 
+require_once(__DIR__.'/../../vendor/autoload.php');
+
 /**
  * Core class for framework
  */
@@ -15,8 +17,6 @@ use Codersquad\Pestophp\Request\Get;
 use Codersquad\Pestophp\Request\Post;
 use Codersquad\Pestophp\Request\Request;
 
-require_once(__DIR__.'/../../vendor/autoload.php');
-
 /**
  * Class Core
  *
@@ -27,12 +27,13 @@ require_once(__DIR__.'/../../vendor/autoload.php');
 class Core
 {
     use TSingleton;
+
     /**
      * Use MVC structure
      *
      * @var bool
      */
-    private $_useMvc = TRUE;
+    private $useMvc = true;
 
     /**
      * Run all needed things
@@ -41,11 +42,11 @@ class Core
      */
     public function run()
     {
-        $this->_initConfiguration();
-        $this->_initRequest();
+        $this->initConfiguration();
+        $this->initRequest();
 
-        if ($this->_useMvc) {
-            return $this->_initRouter();
+        if ($this->useMvc) {
+            return $this->initRouter();
         }
 
         return true;
@@ -56,7 +57,7 @@ class Core
      *
      * @return void
      */
-    private function _initConfiguration()
+    private function initConfiguration()
     {
         $configurationCommand = new Command();
         /** @noinspection PhpParamsInspection */
@@ -70,7 +71,7 @@ class Core
      *
      * @return void
      */
-    private function _initRequest()
+    private function initRequest()
     {
         $request = new Command();
         /** @noinspection PhpParamsInspection */
@@ -89,10 +90,11 @@ class Core
      *
      * @return bool
      */
-    private function _initRouter()
+    private function initRouter()
     {
         $router = Router::getInstance();
         echo $router->init();
+
         return true;
     }
 
@@ -105,7 +107,7 @@ class Core
      */
     public function setUseMvc($useMvc)
     {
-        $this->_useMvc = $useMvc;
+        $this->useMvc = $useMvc;
 
         return $this;
     }

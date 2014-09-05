@@ -4,6 +4,7 @@
  * Calculation
  */
 namespace Codersquad\Pestophp\Mathematic;
+
 use Codersquad\Pestophp\Datatype\Number;
 use Codersquad\Pestophp\Exception\DivisionByZeroException;
 
@@ -21,7 +22,7 @@ class Calculate
      *
      * @var int
      */
-    protected $_number = 0;
+    protected $number = 0;
 
     /**
      * Default constructor
@@ -32,7 +33,7 @@ class Calculate
      */
     public function __construct($number)
     {
-        $this->_number = $number;
+        $this->number = $number;
     }
 
     /**
@@ -44,7 +45,7 @@ class Calculate
      */
     public function add($number)
     {
-        $this->_number += $number;
+        $this->number += $number;
 
         return $this;
     }
@@ -58,7 +59,7 @@ class Calculate
      */
     public function subtract($number)
     {
-        $this->_number -= $number;
+        $this->number -= $number;
 
         return $this;
     }
@@ -72,7 +73,7 @@ class Calculate
      */
     public function multiply($number)
     {
-        $this->_number *= $number;
+        $this->number *= $number;
 
         return $this;
     }
@@ -87,12 +88,11 @@ class Calculate
      */
     public function divide($number)
     {
-        if (Number::isZero($number))
-        {
+        if (Number::isZero($number)) {
             throw new DivisionByZeroException;
         }
 
-        $this->_number = $this->_number / $number;
+        $this->number = $this->number / $number;
 
         return $this;
     }
@@ -107,7 +107,7 @@ class Calculate
      */
     public function round($precision = 0, $mode = PHP_ROUND_HALF_UP)
     {
-        $this->_number = round($this->_number, $precision, $mode);
+        $this->number = round($this->number, $precision, $mode);
 
         return $this;
     }
@@ -121,9 +121,8 @@ class Calculate
      */
     public function toTheN($number)
     {
-        for ($i = 1;$i <= $number; $i++)
-        {
-            $this->multiply($this->_number);
+        for ($i = 1; $i <= $number; $i++) {
+            $this->multiply($this->number);
         }
 
         return $this;
@@ -138,7 +137,7 @@ class Calculate
      */
     public function root($number)
     {
-        $this->_number = pow($this->_number, 1 / $number);
+        $this->number = pow($this->number, 1 / $number);
 
         return $this;
     }
@@ -150,7 +149,7 @@ class Calculate
      */
     public function absolute()
     {
-        $this->_number = abs($this->_number);
+        $this->number = abs($this->number);
 
         return $this;
     }
@@ -162,7 +161,7 @@ class Calculate
      */
     public function getResult()
     {
-        return $this->_number;
+        return $this->number;
     }
 
     /**
@@ -172,7 +171,7 @@ class Calculate
      */
     public function roundUp()
     {
-        $this->_number = ceil($this->_number);
+        $this->number = ceil($this->number);
 
         return $this;
     }
@@ -184,7 +183,7 @@ class Calculate
      */
     public function roundDown()
     {
-        $this->_number = floor($this->_number);
+        $this->number = floor($this->number);
 
         return $this;
     }
@@ -198,7 +197,7 @@ class Calculate
      */
     public function exponent($number)
     {
-        $this->_number = pow($this->_number, $number);
+        $this->number = pow($this->number, $number);
 
         return $this;
     }

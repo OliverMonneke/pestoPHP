@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Oliver
- * Date: 29.03.2014
- * Time: 11:49
- */
 
 namespace Codersquad\Pestophp\Tests\Request;
-
 
 use Codersquad\Pestophp\Request\Cookie;
 use PHPUnit_Framework_TestCase;

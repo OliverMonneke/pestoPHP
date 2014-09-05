@@ -4,6 +4,7 @@
  * a tag
  */
 namespace Codersquad\Pestophp\Element\Component;
+
 use Codersquad\Pestophp\Datatype\String;
 use Codersquad\Pestophp\Element\AContainer;
 
@@ -19,22 +20,22 @@ class Link extends AContainer
     /**
      * @var string
      */
-    protected $_tag = 'a';
+    protected $tag = 'a';
 
     /**
      * @var string
      */
-    protected $_dataTag = 'href';
+    protected $dataTag = 'href';
 
     /**
      * @var string
      */
-    protected $_href = '';
+    protected $href = '';
 
     /**
      * @var string
      */
-    protected $_target = NULL;
+    protected $target = null;
 
     /**
      * Getter for href
@@ -43,7 +44,7 @@ class Link extends AContainer
      */
     public function getHref()
     {
-        return $this->_href;
+        return $this->href;
     }
 
     /**
@@ -55,7 +56,7 @@ class Link extends AContainer
      */
     public function setHref($href)
     {
-        $this->_href = $href;
+        $this->href = $href;
 
         return $this;
     }
@@ -67,20 +68,20 @@ class Link extends AContainer
      */
     public function __toString()
     {
-        $source = '<' . $this->_tag;
-        $source .= ' ' . $this->_dataTag . '="' . $this->_href . '"';
+        $source = '<' . $this->tag;
+        $source .= ' ' . $this->dataTag . '="' . $this->href . '"';
 
-        $source = $this->_addTarget($source);
+        $source = $this->addTarget($source);
 
-        $source = $this->_addClass($source);
+        $source = $this->addClass($source);
 
-        $source = $this->_addId($source);
+        $source = $this->addId($source);
 
-        $source .= '>' . $this->_value;
+        $source .= '>' . $this->value;
 
-        $source = $this->_addChildElements($source);
+        $source = $this->addChildElements($source);
 
-        $source .= '</' . $this->_tag . '>';
+        $source .= '</' . $this->tag . '>';
 
         return $source;
     }
@@ -89,12 +90,14 @@ class Link extends AContainer
      * @param $source
      * @return string
      */
-    private function _addTarget($source)
+    private function addTarget($source)
     {
         if (String::isNotEmpty($this->getTarget())) {
-            $source .= ' target="' . $this->_target . '"';
+            $source .= ' target="' . $this->target . '"';
+
             return $source;
         }
+
         return $source;
     }
 
@@ -105,7 +108,7 @@ class Link extends AContainer
      */
     public function getTarget()
     {
-        return $this->_target;
+        return $this->target;
     }
 
     /**
@@ -117,7 +120,7 @@ class Link extends AContainer
      */
     public function setTarget($target)
     {
-        $this->_target = $target;
+        $this->target = $target;
 
         return $this;
     }

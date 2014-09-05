@@ -23,36 +23,36 @@ abstract class AModel
      *
      * @var Database
      */
-    protected $_databaseObject = NULL;
+    protected $databaseObject = null;
 
     /**
      * Data collection
      *
      * @var array
      */
-    private $_dataCollection = [];
+    private $dataCollection = [];
 
     /**
      * Value of primary key
      *
      * @var int|string
      */
-    private $_primaryValue = NULL;
+    private $primaryValue = null;
 
     /**
      * Name of model
      *
      * @var object
      */
-    private $_model = NULL;
+    private $model = null;
 
     /**
      * Default constructor
      */
     public function __construct()
     {
-        $this->_databaseObject = Database::getInstance();
-        $this->_model = get_called_class();
+        $this->databaseObject = Database::getInstance();
+        $this->model = get_called_class();
     }
 
     /**
@@ -67,12 +67,12 @@ abstract class AModel
     {
         $returnValue = '';
 
-        $magicMethod = $this->_evaluateMagicMethod($method);
+        $magicMethod = $this->evaluateMagicMethod($method);
 
         switch ($magicMethod) {
             case 'set':
                 $this->set(String::lowerFirst(String::substring($method, 3)), $arguments[0]);
-                $returnValue = $this->_model;
+                $returnValue = $this->model;
                 break;
             case 'get':
                 $returnValue = $this->get(String::lowerFirst(substr($method, 3)));
@@ -86,7 +86,7 @@ abstract class AModel
      * @param $method
      * @return string
      */
-    private function _evaluateMagicMethod($method)
+    private function evaluateMagicMethod($method)
     {
         return String::substring($method, 0, 3);
     }
@@ -125,22 +125,22 @@ abstract class AModel
      *
      * @return void
      */
-    public function load($primaryValue = NULL)
+    public function load($primaryValue = null)
     {
-        $model = $this->_model;
+        $model = $this->model;
         $query = [];
         $query[] = 'SELECT * FROM ' . $model::TABLE;
 
-        $query = $this->_loadWithPrimaryKey($primaryValue, $model, $query);
+        $query = $this->loadWithPrimaryKey($primaryValue, $model, $query);
 
-        $dataCollection = $this->_databaseObject->getInstance()->setQuery(Collection::implode($query, ''))->fetch();
+        $dataCollection = $this->databaseObject->getInstance()->setQuery(Collection::implode($query, ''))->fetch();
 
         if (Collection::length($dataCollection) === 1 ||
-            $primaryValue === NULL
+            $primaryValue === null
         ) {
-            $this->_loadSingleEntry($dataCollection, $model);
+            $this->loadSingleEntry($dataCollection, $model);
         } elseif (Collection::length($dataCollection) > 2) {
-            $this->_setProperties($dataCollection[0], $this);
+            $this->setProperties($dataCollection[0], $this);
         }
     }
 
@@ -150,11 +150,12 @@ abstract class AModel
      * @param $query
      * @return array
      */
-    private function _loadWithPrimaryKey($primaryValue, $model, $query)
+    private function loadWithPrimaryKey($primaryValue, $model, $query)
     {
-        if (NULL !== $primaryValue) {
-            $this->_primaryValue = $primaryValue;
-            $query[] = ' WHERE ' . $model::PRIMARY . ' = ' . $this->_primaryValue;
+        if (null !== $primaryValue) {
+            $this->primaryValue = $primaryValue;
+            $query[] = ' WHERE ' . $model::PRIMARY . ' = ' . $this->primaryValue;
+
             return $query;
         }
 
@@ -165,11 +166,11 @@ abstract class AModel
      * @param $dataCollection
      * @param $model
      */
-    private function _loadSingleEntry($dataCollection, $model)
+    private function loadSingleEntry($dataCollection, $model)
     {
         foreach ($dataCollection as $_data) {
-            $model = $this->_setProperties($_data, new $model());
-            $this->_dataCollection[] = $model;
+            $model = $this->setProperties($_data, new $model());
+            $this->dataCollection[] = $model;
         }
     }
 
@@ -181,7 +182,7 @@ abstract class AModel
      *
      * @return object
      */
-    private function _setProperties($data, $object)
+    private function setProperties($data, $object)
     {
         foreach ($data as $_key => $_value) {
             $object->set($_key, $_value);
@@ -197,6 +198,6 @@ abstract class AModel
      */
     public function __clone()
     {
-        $this->_primaryValue = NULL;
+        $this->primaryValue = null;
     }
 }

@@ -19,5 +19,5 @@ class ErrorNotFoundException extends Exception
      *
      * @var int
      */
-    protected $_errorCode = 3;
+    protected $errorCode = 3;
 }
