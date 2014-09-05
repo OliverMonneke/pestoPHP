@@ -4,6 +4,6 @@ php:
   - 5.5
 
 script:
-  - composer install
-  - bin/phpunit --configuration phpunit.xml.dist
+  - composer update
+  - vendors/bin/phpunit --configuration phpunit.xml.dist
 
