@@ -19,19 +19,20 @@ use Codersquad\Pestophp\Database\IDatabase;
 class Mysql implements IDatabase
 {
     use TSingleton;
+
     /**
      * Database connection
      *
      * @var \mysqli
      */
-    private $_connection = NULL;
+    private $connection = null;
 
     /**
      * Database query
      *
      * @var string
      */
-    private $_query = NULL;
+    private $query = null;
 
     /**
      * Connect to database
@@ -40,8 +41,15 @@ class Mysql implements IDatabase
      */
     public function connect()
     {
-        if (NULL === $this->_connection) {
-            $this->_connection = mysqli_connect(DatabaseConfiguration::get('host'), DatabaseConfiguration::get('user'), DatabaseConfiguration::get('password'), DatabaseConfiguration::get('database'), NULL, DatabaseConfiguration::get('socket'));
+        if (null === $this->connection) {
+            $this->connection = mysqli_connect(
+                DatabaseConfiguration::get('host'),
+                DatabaseConfiguration::get('user'),
+                DatabaseConfiguration::get('password'),
+                DatabaseConfiguration::get('database'),
+                null,
+                DatabaseConfiguration::get('socket')
+            );
         }
     }
 
@@ -70,7 +78,7 @@ class Mysql implements IDatabase
      */
     public function execute()
     {
-        return mysqli_query($this->_connection, $this->getQuery());
+        return mysqli_query($this->connection, $this->getQuery());
     }
 
     /**
@@ -80,7 +88,7 @@ class Mysql implements IDatabase
      */
     public function getQuery()
     {
-        return $this->_query;
+        return $this->query;
     }
 
     /**
@@ -92,7 +100,7 @@ class Mysql implements IDatabase
      */
     public function setQuery($query)
     {
-        $this->_query = $query;
+        $this->query = $query;
 
         return $this;
     }

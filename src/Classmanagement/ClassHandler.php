@@ -4,6 +4,7 @@
  * Handling class management like controller loading
  */
 namespace Codersquad\Pestophp\Classmanagement;
+
 use Codersquad\Pestophp\Configuration\PathConfiguration;
 use Codersquad\Pestophp\Datatype\String;
 use Codersquad\Pestophp\Filesystem\Directory;
@@ -30,18 +31,16 @@ class ClassHandler
     {
         $path = BASE_PATH.DIRECTORY_SEPARATOR.PathConfiguration::get('src');
 
-        $directory = new Directory($path, TRUE);
+        $directory = new Directory($path, true);
         $directory->setArray();
 
-        $className = self::_loadSpecificController($controller, $directory);
+        $className = self::loadSpecificController($controller, $directory);
 
-        if (!class_exists($className))
-        {
+        if (!class_exists($className)) {
             $className = 'Codersquad\Pestophp\Mvc\Controller';
         }
 
-        if (!method_exists($className, $action))
-        {
+        if (!method_exists($className, $action)) {
             $action = 'defaultAction';
         }
 
@@ -53,22 +52,22 @@ class ClassHandler
      * @param $directory
      * @return array|string
      */
-    private static function _loadSpecificController($controller, Directory $directory)
+    private static function loadSpecificController($controller, Directory $directory)
     {
         $className = '';
 
         if (String::isNotEmpty($controller)) {
-
-            $fileName = self::_findControllerFilename($controller, $directory);
+            $fileName = self::findControllerFilename($controller, $directory);
 
             /** @noinspection PhpIncludeInspection */
             include_once $fileName;
 
-            $className = self::_generateClassName($fileName);
-
+            $className = self::generateClassName($fileName);
             $className = String::replace('.php', '', implode('\\', $className));
+
             return $className;
         }
+
         return $className;
     }
 
@@ -77,7 +76,7 @@ class ClassHandler
      * @param Directory $directory
      * @return mixed
      */
-    private static function _findControllerFilename($controller, Directory $directory)
+    private static function findControllerFilename($controller, Directory $directory)
     {
         $fileName = '';
 
@@ -96,7 +95,7 @@ class ClassHandler
      * @param $fileName
      * @return array
      */
-    private static function _generateClassName($fileName)
+    private static function generateClassName($fileName)
     {
         $exploded = explode('\\', $fileName);
         $className = [];
@@ -105,6 +104,7 @@ class ClassHandler
         for ($i = $countExploded - 5; $i < $countExploded; $i++) {
             $className[] = $exploded[$i];
         }
+
         return $className;
     }
 }

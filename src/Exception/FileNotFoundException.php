@@ -20,5 +20,5 @@ class FileNotFoundException extends Exception
      *
      * @var int
      */
-    protected $_errorCode = 2;
+    protected $errorCode = 2;
 }

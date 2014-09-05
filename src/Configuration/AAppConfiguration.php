@@ -4,6 +4,7 @@
  * Abstract class for loading xml config files
  */
 namespace Codersquad\Pestophp\Configuration;
+
 use Codersquad\Pestophp\Classmanagement\ICommand;
 use Codersquad\Pestophp\Clipboard\AClipboard;
 use Codersquad\Pestophp\Filesystem\File;
@@ -23,14 +24,14 @@ abstract class AAppConfiguration extends AClipboard implements IConfiguration, I
      *
      * @var string
      */
-    protected $_path = 'resources/configuration';
+    protected $path = 'resources/configuration';
 
     /**
      * Name of configuration file
      *
      * @var string
      */
-    protected $_file = NULL;
+    protected $file = null;
 
     /**
      * Save configuration file
@@ -51,7 +52,7 @@ abstract class AAppConfiguration extends AClipboard implements IConfiguration, I
      */
     public function execute()
     {
-        $this->_import();
+        $this->import();
     }
 
     /**
@@ -59,13 +60,20 @@ abstract class AAppConfiguration extends AClipboard implements IConfiguration, I
      *
      * @return void
      */
-    private function _import()
+    private function import()
     {
-        $environment = $this->_determineEnvironment();
+        $environment = $this->determineEnvironment();
 
-        $xmlFileName = BASE_PATH . DIRECTORY_SEPARATOR . '/' . $this->_path . DIRECTORY_SEPARATOR . $environment . DIRECTORY_SEPARATOR . $this->_file;
+        $xmlFileName = BASE_PATH
+            . DIRECTORY_SEPARATOR
+            . '/'
+            . $this->path
+            . DIRECTORY_SEPARATOR
+            . $environment
+            . DIRECTORY_SEPARATOR
+            . $this->file;
 
-        $config = $this->_importFile($xmlFileName);
+        $config = $this->importFile($xmlFileName);
 
         foreach ($config as $_key => $_value) {
             /** @noinspection PhpUndefinedMethodInspection */
@@ -76,7 +84,7 @@ abstract class AAppConfiguration extends AClipboard implements IConfiguration, I
     /**
      * @return string
      */
-    private function _determineEnvironment()
+    private function determineEnvironment()
     {
         $environment = '';
 
@@ -84,6 +92,7 @@ abstract class AAppConfiguration extends AClipboard implements IConfiguration, I
             $environment = ENVIRONMENT;
             return $environment;
         }
+
         return $environment;
     }
 
@@ -91,12 +100,13 @@ abstract class AAppConfiguration extends AClipboard implements IConfiguration, I
      * @param $xmlFileName
      * @return \SimpleXMLElement
      */
-    private function _importFile($xmlFileName)
+    private function importFile($xmlFileName)
     {
         $config = [];
 
         if (File::fileExists($xmlFileName)) {
             $config = simplexml_load_file($xmlFileName);
+
             return $config;
         }
 
@@ -109,7 +119,7 @@ abstract class AAppConfiguration extends AClipboard implements IConfiguration, I
      */
     public function setPath($path)
     {
-        $this->_path = $path;
+        $this->path = $path;
 
         return $this;
     }

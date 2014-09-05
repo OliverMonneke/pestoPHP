@@ -4,6 +4,7 @@
  * Handling all REQUEST data
  */
 namespace Codersquad\Pestophp\Request;
+
 use Codersquad\Pestophp\Classmanagement\ICommand;
 use Codersquad\Pestophp\Clipboard\ClipboardRequest;
 
@@ -16,7 +17,6 @@ use Codersquad\Pestophp\Clipboard\ClipboardRequest;
  */
 class Request extends ClipboardRequest implements ICommand
 {
-
     /**
      * Execute command
      *
@@ -24,8 +24,7 @@ class Request extends ClipboardRequest implements ICommand
      */
     public function execute()
     {
-        foreach ($_REQUEST as $_key => $_value)
-        {
+        foreach ($_REQUEST as $_key => $_value) {
             self::set($_key, $_value);
         }
     }

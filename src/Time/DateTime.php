@@ -19,70 +19,70 @@ class DateTime
      *
      * @var string
      */
-    private $_formatDate = 'Y-m-d';
+    private $formatDate = 'Y-m-d';
 
     /**
      * Format of the time
      *
      * @var string
      */
-    private $_formatTime = 'H:i:s';
+    private $formatTime = 'H:i:s';
 
     /**
      * Format of date and time
      *
      * @var string
      */
-    private $_formatDateTime = 'Y-m-d H:i:s';
+    private $formatDateTime = 'Y-m-d H:i:s';
 
     /**
      * The year
      *
      * @var int
      */
-    private $_year = NULL;
+    private $year = null;
 
     /**
      * The month
      *
      * @var int
      */
-    private $_month = NULL;
+    private $month = null;
 
     /**
      * The day
      *
      * @var int
      */
-    private $_day = NULL;
+    private $day = null;
 
     /**
      * The hour
      *
      * @var int
      */
-    private $_hour = NULL;
+    private $hour = null;
 
     /**
      * The minute
      *
      * @var int
      */
-    private $_minute = NULL;
+    private $minute = null;
 
     /**
      * The second
      *
      * @var int
      */
-    private $_second = NULL;
+    private $second = null;
 
     /**
      * Timestamp
      *
      * @var int
      */
-    private $_timestamp = NULL;
+    private $timestamp = null;
 
     /**
      * Add a specific period
@@ -93,7 +93,7 @@ class DateTime
      */
     public function add($string)
     {
-        $this->_timestamp = $this->_getTimestamp() + $this->_evaluateDateString($string);
+        $this->timestamp = $this->getTimestamp() + $this->evaluateDateString($string);
 
         return $this;
     }
@@ -107,7 +107,7 @@ class DateTime
      */
     public function sub($string)
     {
-        $this->_timestamp = $this->_getTimestamp() - $this->_evaluateDateString($string);
+        $this->timestamp = $this->getTimestamp() - $this->evaluateDateString($string);
 
         return $this;
     }
@@ -119,31 +119,30 @@ class DateTime
      *
      * @return int
      */
-    private function _evaluateDateString($string)
+    private function evaluateDateString($string)
     {
         $seconds = 1;
         $matches = [];
         preg_match('/^([0-9]*)([s|M|h|d|m|y])$/', $string, $matches);
 
-        switch($matches[2])
-        {
+        switch($matches[2]) {
             case 's':
                 $seconds = $matches[1];
                 break;
             case 'M':
-                $seconds = $this->_evaluateDateString(60*$matches[1].'s');
+                $seconds = $this->evaluateDateString(60*$matches[1].'s');
                 break;
             case 'h':
-                $seconds = $this->_evaluateDateString(60*$matches[1].'M');
+                $seconds = $this->evaluateDateString(60*$matches[1].'M');
                 break;
             case 'd':
-                $seconds = $this->_evaluateDateString(24*$matches[1].'h');
+                $seconds = $this->evaluateDateString(24*$matches[1].'h');
                 break;
             case 'm':
-                $seconds = $this->_evaluateDateString(30*$matches[1].'d');
+                $seconds = $this->evaluateDateString(30*$matches[1].'d');
                 break;
             case 'y':
-                $seconds = $this->_evaluateDateString(12*$matches[1].'m');
+                $seconds = $this->evaluateDateString(12*$matches[1].'m');
                 break;
         }
 
@@ -157,7 +156,7 @@ class DateTime
      */
     public function getDate()
     {
-        return date($this->_formatDate, $this->_getTimestamp());
+        return date($this->formatDate, $this->getTimestamp());
     }
 
     /**
@@ -167,7 +166,7 @@ class DateTime
      */
     public function getTime()
     {
-        return date($this->_formatTime, $this->_getTimestamp());
+        return date($this->formatTime, $this->getTimestamp());
     }
 
     /**
@@ -177,7 +176,7 @@ class DateTime
      */
     public function getDateTime()
     {
-        return date($this->_formatDateTime, $this->_getTimestamp());
+        return date($this->formatDateTime, $this->getTimestamp());
     }
 
     /**
@@ -189,7 +188,7 @@ class DateTime
      */
     public function setDay($day)
     {
-        $this->_day = $day;
+        $this->day = $day;
 
         return $this;
     }
@@ -203,7 +202,7 @@ class DateTime
      */
     public function setMonth($month)
     {
-        $this->_month = $month;
+        $this->month = $month;
 
         return $this;
     }
@@ -217,7 +216,7 @@ class DateTime
      */
     public function setYear($year)
     {
-        $this->_year = $year;
+        $this->year = $year;
 
         return $this;
     }
@@ -227,15 +226,12 @@ class DateTime
      *
      * @return int
      */
-    private function _getTimestamp()
+    private function getTimestamp()
     {
-        if (NULL === $this->_timestamp)
-        {
-            $timestamp = mktime($this->_hour, $this->_minute, $this->_second, $this->_month, $this->_day, $this->_year);
-        }
-        else
-        {
-            $timestamp = $this->_timestamp;
+        if (null === $this->timestamp) {
+            $timestamp = mktime($this->hour, $this->minute, $this->second, $this->month, $this->day, $this->year);
+        } else {
+            $timestamp = $this->timestamp;
         }
 
         return $timestamp;
@@ -250,7 +246,7 @@ class DateTime
      */
     public function setFormatDate($formatDate)
     {
-        $this->_formatDate = $formatDate;
+        $this->formatDate = $formatDate;
 
         return $this;
     }
@@ -264,7 +260,7 @@ class DateTime
      */
     public function setHour($hour)
     {
-        $this->_hour = $hour;
+        $this->hour = $hour;
 
         return $this;
     }
@@ -278,7 +274,7 @@ class DateTime
      */
     public function setMinute($minute)
     {
-        $this->_minute = $minute;
+        $this->minute = $minute;
 
         return $this;
     }
@@ -292,7 +288,7 @@ class DateTime
      */
     public function setSecond($second)
     {
-        $this->_second = $second;
+        $this->second = $second;
 
         return $this;
     }
@@ -306,7 +302,7 @@ class DateTime
      */
     public function setFormatTime($formatTime)
     {
-        $this->_formatTime = $formatTime;
+        $this->formatTime = $formatTime;
 
         return $this;
     }
@@ -320,7 +316,7 @@ class DateTime
      */
     public function setFormatDateTime($formatDateTime)
     {
-        $this->_formatDateTime = $formatDateTime;
+        $this->formatDateTime = $formatDateTime;
 
         return $this;
     }

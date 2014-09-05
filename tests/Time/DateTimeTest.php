@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Oliver
- * Date: 21.03.2014
- * Time: 15:31
- */
 
 namespace Codersquad\Pestophp\Tests\Time;
 
@@ -18,6 +12,9 @@ use PHPUnit_Framework_TestCase;
 class DateTimeTest extends PHPUnit_Framework_TestCase
 {
 
+    /**
+     *
+     */
     public function testAdd()
     {
         $dateTime = new DateTime();
@@ -29,6 +26,9 @@ class DateTimeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('1980-09-01', $dateTime->getDate());
     }
 
+    /**
+     *
+     */
     public function testSub()
     {
         $dateTime = new DateTime();
@@ -40,6 +40,9 @@ class DateTimeTest extends PHPUnit_Framework_TestCase
 #        $this->assertEquals('1978-08-30', $dateTime->getDate());
     }
 
+    /**
+     *
+     */
     public function testGetDate()
     {
         $dateTime = new DateTime();
@@ -50,6 +53,9 @@ class DateTimeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('1980-08-30', $dateTime->getDate());
     }
 
+    /**
+     *
+     */
     public function testGetTime()
     {
         $dateTime = new DateTime();
@@ -63,6 +69,9 @@ class DateTimeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('15:36:12', $dateTime->getTime());
     }
 
+    /**
+     *
+     */
     public function testGetDateTime()
     {
         $dateTime = new DateTime();
@@ -76,6 +85,9 @@ class DateTimeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('1980-08-30 15:36:12', $dateTime->getDateTime());
     }
 
+    /**
+     *
+     */
     public function testSetFormatDate()
     {
         $dateTime = new DateTime();
@@ -87,6 +99,9 @@ class DateTimeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('30.08.1980', $dateTime->getDate());
     }
 
+    /**
+     *
+     */
     public function testSetFormatTime()
     {
         $dateTime = new DateTime();
@@ -98,6 +113,9 @@ class DateTimeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('03:36:12', $dateTime->getTime());
     }
 
+    /**
+     *
+     */
     public function testSetFormatDateTime()
     {
         $dateTime = new DateTime();

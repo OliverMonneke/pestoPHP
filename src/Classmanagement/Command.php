@@ -20,7 +20,7 @@ class Command
      *
      * @var array
      */
-    private $_commands = [];
+    private $commands = [];
 
     /**
      * Add command
@@ -31,7 +31,7 @@ class Command
      */
     public function add(ICommand $command)
     {
-        $this->_commands[] = $command;
+        $this->commands[] = $command;
     }
 
     /**
@@ -42,8 +42,7 @@ class Command
     public function run()
     {
         /** @var $_command ICommand */
-        foreach ($this->_commands as $_command)
-        {
+        foreach ($this->commands as $_command) {
             $_command->execute();
         }
     }

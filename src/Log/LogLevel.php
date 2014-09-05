@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Oliver
- * Date: 28.03.2014
- * Time: 22:46
- */
 
 namespace Codersquad\Pestophp\Log;
-
 
 /**
  * Class LogLevel

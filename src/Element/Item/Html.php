@@ -4,6 +4,7 @@
  * HTML tag
  */
 namespace Codersquad\Pestophp\Element\Item;
+
 use Codersquad\Pestophp\Element\AContainer;
 
 /**
@@ -18,5 +19,5 @@ class Html extends AContainer
     /**
      * @var string
      */
-    protected $_tag = 'html';
+    protected $tag = 'html';
 }

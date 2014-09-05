@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Oliver
- * Date: 29.03.2014
- * Time: 10:44
- */
 
 namespace Codersquad\Pestophp\Classmanagement;
 
@@ -21,7 +15,7 @@ trait TSingleton
      *
      * @var array
      */
-    private static $_instances = [];
+    private static $instances = [];
 
     /**
      * No instance allowed
@@ -51,7 +45,7 @@ trait TSingleton
 
         self::_createInstance($className);
 
-        return self::$_instances[$className];
+        return self::$instances[$className];
     }
 
     /**
@@ -59,8 +53,8 @@ trait TSingleton
      */
     private static function _createInstance($className)
     {
-        if (!Collection::existsKey(self::$_instances, $className)) {
-            self::$_instances[$className] = new $className();
+        if (!Collection::existsKey(self::$instances, $className)) {
+            self::$instances[$className] = new $className();
         }
     }
 

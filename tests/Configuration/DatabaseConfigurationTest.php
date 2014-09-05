@@ -16,13 +16,19 @@ class DatabaseConfigurationTest extends PHPUnit_Framework_TestCase
     /**
      * @var DatabaseConfiguration
      */
-    private $_config;
+    private $config;
 
+    /**
+     *
+     */
     public function testExport()
     {
-        $this->assertFalse($this->_config->export());
+        $this->assertFalse($this->config->export());
     }
 
+    /**
+     *
+     */
     protected function setUp()
     {
 
@@ -32,7 +38,7 @@ class DatabaseConfigurationTest extends PHPUnit_Framework_TestCase
             define('BASE_PATH', __DIR__ . '/..');
         }
 
-        $this->_config = DatabaseConfiguration::getInstance();
-        $this->_config->setPath('tests/resources');
+        $this->config = DatabaseConfiguration::getInstance();
+        $this->config->setPath('tests/resources');
     }
 }

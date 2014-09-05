@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Oliver
- * Date: 28.03.2014
- * Time: 21:51
- */
 
 namespace Codersquad\Pestophp\Tests\Mathematic;
 

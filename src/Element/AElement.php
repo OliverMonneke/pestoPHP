@@ -17,27 +17,27 @@ abstract class AElement
     /**
      * @var string
      */
-    protected $_tag = NULL;
+    protected $tag = null;
 
     /**
      * @var string
      */
-    protected $_value = NULL;
+    protected $value = null;
 
     /**
      * @var array
      */
-    protected $_class = [];
+    protected $class = [];
 
     /**
      * @var string
      */
-    protected $_id = NULL;
+    protected $cssId = null;
 
     /**
      * @var string
      */
-    protected $_name = NULL;
+    protected $name = null;
 
     /**
      * Add a single class
@@ -48,7 +48,7 @@ abstract class AElement
      */
     public function addClass($class)
     {
-        $this->_class[] = $class;
+        $this->class[] = $class;
 
         return $this;
     }
@@ -60,7 +60,7 @@ abstract class AElement
      */
     public function getClass()
     {
-        return $this->_class;
+        return $this->class;
     }
 
     /**
@@ -70,9 +70,9 @@ abstract class AElement
      *
      * @return AElement
      */
-    public function setId($cssId)
+    public function setCssId($cssId)
     {
-        $this->_id = $cssId;
+        $this->cssId = $cssId;
 
         return $this;
     }
@@ -82,9 +82,9 @@ abstract class AElement
      *
      * @return string
      */
-    public function getId()
+    public function getCssId()
     {
-        return $this->_id;
+        return $this->cssId;
     }
 
     /**
@@ -96,7 +96,7 @@ abstract class AElement
      */
     public function setName($name)
     {
-        $this->_name = $name;
+        $this->name = $name;
 
         return $this;
     }
@@ -108,7 +108,7 @@ abstract class AElement
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -120,7 +120,7 @@ abstract class AElement
      */
     public function setValue($value)
     {
-        $this->_value = $value;
+        $this->value = $value;
 
         return $this;
     }
@@ -132,6 +132,6 @@ abstract class AElement
      */
     public function getValue()
     {
-        return $this->_value;
+        return $this->value;
     }
 }

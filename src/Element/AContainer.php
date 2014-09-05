@@ -20,12 +20,12 @@ abstract class AContainer extends AElement
     /**
      * @var string
      */
-    protected $_dataTag = NULL;
+    protected $dataTag = null;
 
     /**
      * @var array
      */
-    protected $_elements = [];
+    protected $elements = [];
 
     /**
      * Add an element
@@ -36,7 +36,7 @@ abstract class AContainer extends AElement
      */
     public function addElement(AElement $element)
     {
-        $this->_elements[] = $element;
+        $this->elements[] = $element;
 
         return $this;
     }
@@ -48,21 +48,21 @@ abstract class AContainer extends AElement
      */
     public function __toString()
     {
-        $source = '<' . $this->_tag;
+        $source = '<' . $this->tag;
 
-        $source = $this->_addDataTag($source);
+        $source = $this->addDataTag($source);
 
-        $source = $this->_addName($source);
+        $source = $this->addName($source);
 
-        $source = $this->_addClass($source);
+        $source = $this->addClass($source);
 
-        $source = $this->_addId($source);
+        $source = $this->addId($source);
 
         $source .= '>';
 
-        $source = $this->_addChildElements($source);
+        $source = $this->addChildElements($source);
 
-        $source .= '</' . $this->_tag . '>';
+        $source .= '</' . $this->tag . '>';
 
         return $source;
     }
@@ -71,10 +71,11 @@ abstract class AContainer extends AElement
      * @param $source
      * @return string
      */
-    protected function _addDataTag($source)
+    protected function addDataTag($source)
     {
-        if (String::isNotEmpty($this->_dataTag)) {
-            $source .= ' ' . $this->_dataTag . '="' . $this->_value . '"';
+        if (String::isNotEmpty($this->dataTag)) {
+            $source .= ' ' . $this->dataTag . '="' . $this->value . '"';
+
             return $source;
         }
 
@@ -85,10 +86,11 @@ abstract class AContainer extends AElement
      * @param $source
      * @return string
      */
-    protected function _addName($source)
+    protected function addName($source)
     {
-        if (String::isNotEmpty($this->_name)) {
-            $source .= ' name="' . $this->_name . '"';
+        if (String::isNotEmpty($this->name)) {
+            $source .= ' name="' . $this->name . '"';
+
             return $source;
         }
 
@@ -99,7 +101,7 @@ abstract class AContainer extends AElement
      * @param $source
      * @return string
      */
-    protected function _addClass($source)
+    public function addClass($source)
     {
         if (Collection::isNotEmpty($this->getClass())) {
             $source .= ' class="' . Collection::implode($this->getClass(), ' ') . '"';
@@ -113,10 +115,10 @@ abstract class AContainer extends AElement
      * @param $source
      * @return string
      */
-    protected function _addId($source)
+    protected function addId($source)
     {
-        if (String::isNotEmpty($this->getId())) {
-            $source .= ' id="' . $this->getId() . '"';
+        if (String::isNotEmpty($this->getCssId())) {
+            $source .= ' id="' . $this->getCssId() . '"';
             return $source;
         }
 
@@ -127,9 +129,9 @@ abstract class AContainer extends AElement
      * @param $source
      * @return string
      */
-    protected function _addChildElements($source)
+    protected function addChildElements($source)
     {
-        foreach ($this->_elements as $_element) {
+        foreach ($this->elements as $_element) {
             $source .= $_element;
         }
 

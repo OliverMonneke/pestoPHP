@@ -4,6 +4,7 @@
  * Directory handling
  */
 namespace Codersquad\Pestophp\Filesystem;
+
 use Codersquad\Pestophp\Classmanagement\AIterator;
 use Codersquad\Pestophp\Classmanagement\IIterator;
 
@@ -22,14 +23,19 @@ class Directory
      *
      * @var string
      */
-    private $_startPath = NULL;
+    private $startPath = null;
 
     /**
      * Recursive
      *
      * @var bool
      */
-    private $_recursive = FALSE;
+    private $recursive = false;
+
+    /**
+     * @var array
+     */
+    private $array = [];
 
     /**
      * Default constructor
@@ -39,7 +45,7 @@ class Directory
      *
      * @return \Codersquad\Pestophp\Filesystem\Directory
      */
-    public function __construct($startPath = NULL, $recursive = FALSE)
+    public function __construct($startPath = null, $recursive = false)
     {
         $this->setStartPath($startPath);
         $this->setRecursive($recursive);
@@ -48,13 +54,15 @@ class Directory
     /**
      * Setter for recursive
      *
-     * @param bool $_recursive Recursive
+     * @param bool $recursive Recursive
      *
-     * @return void
+     * @return $this
      */
-    public function setRecursive($_recursive)
+    public function setRecursive($recursive)
     {
-        $this->_recursive = $_recursive;
+        $this->recursive = $recursive;
+
+        return $this;
     }
 
     /**
@@ -64,7 +72,7 @@ class Directory
      */
     public function setArray()
     {
-        $this->_evaluateDirectory();
+        $this->evaluateDirectory();
     }
 
     /**
@@ -74,35 +82,36 @@ class Directory
      *
      * @return void
      */
-    private function _evaluateDirectory($directory = NULL)
+    private function evaluateDirectory($directory = null)
     {
-        $directory = $this->_setDirectoryFallback($directory);
+        $directory = $this->setDirectoryFallback($directory);
 
         /** @noinspection PhpAssignmentInConditionInspection */
-        $this->_run($directory);
+        $this->run($directory);
     }
 
     /**
      * @param $directory
      * @return string
      */
-    private function _setDirectoryFallback($directory)
+    private function setDirectoryFallback($directory)
     {
-        if (NULL === $directory) {
-            $directory = $this->_startPath;
+        if (null === $directory) {
+            $directory = $this->startPath;
             return $directory;
         }
+
         return $directory;
     }
 
     /**
      * @param $directory
      */
-    private function _run($directory)
+    private function run($directory)
     {
         /** @noinspection PhpAssignmentInConditionInspection */
         if ($directoryHandle = opendir($directory)) {
-            $this->_walkDirectory($directory, $directoryHandle);
+            $this->walkDirectory($directory, $directoryHandle);
         }
     }
 
@@ -110,10 +119,10 @@ class Directory
      * @param $directory
      * @param $directoryHandle
      */
-    private function _walkDirectory($directory, $directoryHandle)
+    private function walkDirectory($directory, $directoryHandle)
     {
-        while (($file = readdir($directoryHandle)) !== FALSE) {
-            $this->_handleDirectory($directory, $file);
+        while (($file = readdir($directoryHandle)) !== false) {
+            $this->handleDirectory($directory, $file);
         }
     }
 
@@ -121,12 +130,12 @@ class Directory
      * @param $directory
      * @param $file
      */
-    private function _handleDirectory($directory, $file)
+    private function handleDirectory($directory, $file)
     {
         if (!preg_match('/^\.{1,2}$/', $file)) {
-            $this->_array[] = $directory . DIRECTORY_SEPARATOR . $file;
+            $this->array[] = $directory . DIRECTORY_SEPARATOR . $file;
 
-            $this->_walkDirectoryRecursive($directory, $file);
+            $this->walkDirectoryRecursive($directory, $file);
         }
     }
 
@@ -134,12 +143,12 @@ class Directory
      * @param $directory
      * @param $file
      */
-    private function _walkDirectoryRecursive($directory, $file)
+    private function walkDirectoryRecursive($directory, $file)
     {
         if (is_dir($directory . DIRECTORY_SEPARATOR . $file) &&
             $this->isRecursive()
         ) {
-            $this->_evaluateDirectory($directory . DIRECTORY_SEPARATOR . $file);
+            $this->evaluateDirectory($directory . DIRECTORY_SEPARATOR . $file);
         }
     }
 
@@ -150,7 +159,7 @@ class Directory
      */
     public function isRecursive()
     {
-        return $this->_recursive;
+        return $this->recursive;
     }
 
     /**
@@ -160,7 +169,7 @@ class Directory
      */
     public function getArray()
     {
-        return $this->_array;
+        return $this->array;
     }
 
     /**
@@ -170,18 +179,20 @@ class Directory
      */
     public function getStartPath()
     {
-        return $this->_startPath;
+        return $this->startPath;
     }
 
     /**
      * Setter for starting path
      *
-     * @param string $_startPath Start path
+     * @param string $startPath Start path
      *
-     * @return void
+     * @return $this
      */
-    public function setStartPath($_startPath)
+    public function setStartPath($startPath)
     {
-        $this->_startPath = $_startPath;
+        $this->startPath = $startPath;
+
+        return $this;
     }
 }

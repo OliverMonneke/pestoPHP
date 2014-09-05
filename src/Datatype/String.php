@@ -35,8 +35,7 @@ class String implements IDatatype
      */
     public static function lower($string)
     {
-        if (!self::isValid($string))
-        {
+        if (!self::isValid($string)) {
             return false;
         }
 
@@ -52,8 +51,7 @@ class String implements IDatatype
      */
     public static function upper($string)
     {
-        if (!self::isValid($string))
-        {
+        if (!self::isValid($string)) {
             return false;
         }
 
@@ -69,10 +67,9 @@ class String implements IDatatype
      *
      * @return string
      */
-    public static function substring($string, $start = 0, $length = NULL)
+    public static function substring($string, $start = 0, $length = null)
     {
-        if (!self::isValid($string))
-        {
+        if (!self::isValid($string)) {
             return false;
         }
 
@@ -88,8 +85,7 @@ class String implements IDatatype
      */
     public static function length($string)
     {
-        if (!self::isValid($string))
-        {
+        if (!self::isValid($string)) {
             return false;
         }
 
@@ -105,15 +101,13 @@ class String implements IDatatype
      *
      * @return bool
      */
-    public static function startsWith($needle, $haystack, $caseSensitive = TRUE)
+    public static function startsWith($needle, $haystack, $caseSensitive = true)
     {
-        if (!self::isValid($needle))
-        {
+        if (!self::isValid($needle)) {
             return false;
         }
 
-        if (!$caseSensitive)
-        {
+        if (!$caseSensitive) {
             $needle = self::lower($needle);
             $haystack = self::lower($haystack);
         }
@@ -130,10 +124,9 @@ class String implements IDatatype
      *
      * @return bool
      */
-    public static function endsWith($needle, $haystack, $caseSensitive = TRUE)
+    public static function endsWith($needle, $haystack, $caseSensitive = true)
     {
-        if (!$caseSensitive)
-        {
+        if (!$caseSensitive) {
             $needle = self::lower($needle);
             $haystack = self::lower($haystack);
         }
@@ -150,20 +143,18 @@ class String implements IDatatype
      *
      * @return bool
      */
-    public static function contains($needle, $haystack, $caseSensitive = TRUE)
+    public static function contains($needle, $haystack, $caseSensitive = true)
     {
-        if (!self::isValid($haystack))
-        {
+        if (!self::isValid($haystack)) {
             return false;
         }
 
-        if (!$caseSensitive)
-        {
+        if (!$caseSensitive) {
             $needle = self::lower($needle);
             $haystack = self::lower($haystack);
         }
 
-        return (mb_strpos($haystack, $needle) !== FALSE);
+        return (mb_strpos($haystack, $needle) !== false);
     }
 
     /**
@@ -176,19 +167,15 @@ class String implements IDatatype
      *
      * @return string
      */
-    public static function replace($search, $replace, $string, $caseSensitive = TRUE)
+    public static function replace($search, $replace, $string, $caseSensitive = true)
     {
-        if (!self::isValid($replace))
-        {
+        if (!self::isValid($replace)) {
             return false;
         }
 
-        if (!$caseSensitive)
-        {
+        if (!$caseSensitive) {
             return str_ireplace($search, $replace, $string);
-        }
-        else
-        {
+        } else {
             return str_replace($search, $replace, $string);
         }
     }
@@ -203,12 +190,11 @@ class String implements IDatatype
     public static function isEmpty($string)
     {
         if (!self::isValid($string) &&
-            null !== $string)
-        {
+            null !== $string) {
             return false;
         }
 
-        return ($string === NULL || $string === '');
+        return ($string === null || $string === '');
     }
 
     /**
@@ -221,8 +207,7 @@ class String implements IDatatype
     public static function isNotEmpty($string)
     {
         if (!self::isValid($string) &&
-            null !== $string)
-        {
+            null !== $string) {
             return false;
         }
 

@@ -45,6 +45,4 @@ class CoreTest extends PHPUnit_Framework_TestCase
             define('BASE_PATH', __DIR__ . '/../../');
         }
     }
-
-
 }
