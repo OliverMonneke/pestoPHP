@@ -5,9 +5,6 @@
  */
 namespace Codersquad\Pestophp\Filesystem;
 
-use Codersquad\Pestophp\Classmanagement\AIterator;
-use Codersquad\Pestophp\Classmanagement\IIterator;
-
 /**
  * Class Directory
  *
