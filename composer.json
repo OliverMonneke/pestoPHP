@@ -13,7 +13,10 @@
         }
     ],
     "require": {
-        "php": ">=5.5.0",
+        "php": "~5",
+        "codersquad/pennephp": "dev-develop"
+    },
+    "require-dev": {
         "phpunit/phpunit": "~4"
     },
     "autoload": {
