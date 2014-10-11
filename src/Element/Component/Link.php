@@ -5,7 +5,7 @@
  */
 namespace Codersquad\Pestophp\Element\Component;
 
-use Codersquad\Pestophp\Datatype\String;
+use Codersquad\Pennephp\Datatype\String;
 use Codersquad\Pestophp\Element\AContainer;
 
 /**

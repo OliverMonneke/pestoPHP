@@ -5,9 +5,9 @@
  */
 namespace Codersquad\Pestophp\Mvc;
 
+use Codersquad\Pennephp\Datatype\String;
 use Codersquad\Pestophp\Classmanagement\ClassHandler;
 use Codersquad\Pestophp\Classmanagement\TSingleton;
-use Codersquad\Pestophp\Datatype\String;
 use Codersquad\Pestophp\Request\Request;
 
 /**

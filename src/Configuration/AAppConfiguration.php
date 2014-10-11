@@ -5,9 +5,9 @@
  */
 namespace Codersquad\Pestophp\Configuration;
 
+use Codersquad\Pennephp\Filesystem\File;
 use Codersquad\Pestophp\Classmanagement\ICommand;
 use Codersquad\Pestophp\Clipboard\AClipboard;
-use Codersquad\Pestophp\Filesystem\File;
 
 /**
  * Class AAppConfiguration

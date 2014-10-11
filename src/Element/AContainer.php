@@ -5,8 +5,8 @@
  */
 namespace Codersquad\Pestophp\Element;
 
-use Codersquad\Pestophp\Datatype\Collection;
-use Codersquad\Pestophp\Datatype\String;
+use Codersquad\Pennephp\Datatype\Collection;
+use Codersquad\Pennephp\Datatype\String;
 
 /**
  * Class AContainer

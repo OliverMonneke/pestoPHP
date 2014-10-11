@@ -2,7 +2,7 @@
 
 namespace Codersquad\Pestophp\Classmanagement;
 
-use Codersquad\Pestophp\Datatype\Collection;
+use Codersquad\Pennephp\Datatype\Collection;
 
 /**
  * Class TSingleton

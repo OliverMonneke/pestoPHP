@@ -74,7 +74,7 @@ class ViewTest extends PHPUnit_Framework_TestCase
      */
     public function testViewNotExists()
     {
-        $this->setExpectedException('Codersquad\Pestophp\Exception\FileNotFoundException');
+        $this->setExpectedException('Codersquad\Pennephp\Exception\FileNotFoundException');
         new View('dummy.html');
     }
 }

@@ -5,11 +5,11 @@
  */
 namespace Codersquad\Pestophp\Mvc;
 
-use Codersquad\Pestophp\Datatype\Collection;
-use Codersquad\Pestophp\Datatype\Object;
-use Codersquad\Pestophp\Datatype\String;
-use Codersquad\Pestophp\Exception\FileNotFoundException;
-use Codersquad\Pestophp\Filesystem\File;
+use Codersquad\Pennephp\Datatype\Collection;
+use Codersquad\Pennephp\Datatype\Object;
+use Codersquad\Pennephp\Datatype\String;
+use Codersquad\Pennephp\Exception\FileNotFoundException;
+use Codersquad\Pennephp\Filesystem\File;
 
 /**
  * Class View
@@ -50,7 +50,7 @@ class View
      * Default constructor
      *
      * @param string $file The view
-     * @throws \Codersquad\Pestophp\Exception\FileNotFoundException
+     * @throws FileNotFoundException
      */
     public function __construct($file)
     {
@@ -178,7 +178,7 @@ class View
      * Setter for file
      *
      * @param $file
-     * @throws \Codersquad\Pestophp\Exception\FileNotFoundException
+     * @throws FileNotFoundException
      * @return View
      */
     public function setFile($file)
@@ -191,7 +191,7 @@ class View
 
     /**
      * @param $file
-     * @throws \Codersquad\Pestophp\Exception\FileNotFoundException
+     * @throws FileNotFoundException
      */
     private function checkViewExists($file)
     {
