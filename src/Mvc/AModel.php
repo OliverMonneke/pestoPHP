@@ -26,13 +26,6 @@ abstract class AModel
     protected $databaseObject = null;
 
     /**
-     * Data collection
-     *
-     * @var array
-     */
-    private $dataCollection = [];
-
-    /**
      * Value of primary key
      *
      * @var int|string
