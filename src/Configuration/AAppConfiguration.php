@@ -10,13 +10,13 @@ use Codersquad\Pestophp\Classmanagement\CommandInterface;
 use Codersquad\Pestophp\Clipboard\AClipboard;
 
 /**
- * Class AAppConfiguration
+ * Class AAppConfigurationInterface
  *
  * @package Codersquad\Pestophp\Configuration
  * @author Oliver Monneek <oliver@codersquad.de>
  * @version 0.1
  */
-abstract class AAppConfiguration extends AClipboard implements IConfiguration, CommandInterface
+abstract class AAppConfigurationInterface extends AClipboard implements ConfigurationInterface, CommandInterface
 {
 
     /**

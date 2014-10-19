@@ -12,7 +12,7 @@ namespace Codersquad\Pestophp\Log;
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-interface ILogger
+interface LoggerInterface
 {
     /**
      * @param $message

@@ -12,7 +12,7 @@ namespace Codersquad\Pestophp\Configuration;
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-class PathConfiguration extends AAppConfiguration
+class PathConfiguration extends AAppConfigurationInterface
 {
 
     /**

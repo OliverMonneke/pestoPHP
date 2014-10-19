@@ -6,13 +6,13 @@
 namespace Codersquad\Pestophp\Database;
 
 /**
- * Interface IDatabase
+ * Interface DatabaseInterface
  *
  * @package Codersquad\Pestophp\Database
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-interface IDatabase
+interface DatabaseInterface
 {
     /**
      * Connect to database

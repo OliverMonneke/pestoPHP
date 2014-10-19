@@ -7,7 +7,7 @@ namespace Codersquad\Pestophp\Database\Types;
 
 use Codersquad\Pestophp\Classmanagement\TSingleton;
 use Codersquad\Pestophp\Configuration\DatabaseConfiguration;
-use Codersquad\Pestophp\Database\IDatabase;
+use Codersquad\Pestophp\Database\DatabaseInterface;
 
 /**
  * Class Mysql
@@ -16,7 +16,7 @@ use Codersquad\Pestophp\Database\IDatabase;
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-class Mysql implements IDatabase
+class Mysql implements DatabaseInterface
 {
     use TSingleton;
 

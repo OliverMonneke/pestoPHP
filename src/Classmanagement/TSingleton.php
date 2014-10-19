@@ -43,7 +43,7 @@ trait TSingleton
     {
         $className = get_called_class();
 
-        self::_createInstance($className);
+        self::createInstance($className);
 
         return self::$instances[$className];
     }
@@ -51,7 +51,7 @@ trait TSingleton
     /**
      * @param $className
      */
-    private static function _createInstance($className)
+    private static function createInstance($className)
     {
         if (!Collection::existsKey(self::$instances, $className)) {
             self::$instances[$className] = new $className();
