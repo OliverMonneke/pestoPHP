@@ -178,11 +178,11 @@ abstract class AModel
      * Set class property
      *
      * @param array $data The data
-     * @param $object Object to set the property in
+     * @param AModel $object Object to set the property in
      *
      * @return object
      */
-    private function setProperties($data, $object)
+    private function setProperties($data, AModel $object)
     {
         foreach ($data as $_key => $_value) {
             $object->set($_key, $_value);

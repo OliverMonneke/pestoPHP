@@ -21,11 +21,4 @@ interface IConfiguration
      * @return void
      */
     public function execute();
-
-    /**
-     * Export configuration
-     *
-     * @return void
-     */
-    public function export();
 }
