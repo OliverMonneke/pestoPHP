@@ -6,8 +6,8 @@
 namespace Codersquad\Pestophp\Mvc;
 
 use Codersquad\Pestophp\Database\Database;
-use Codersquad\Pestophp\Datatype\Collection;
-use Codersquad\Pestophp\Datatype\String;
+use Codersquad\Pennephp\Datatype\Collection;
+use Codersquad\Pennephp\Datatype\String;
 
 /**
  * Class Model
@@ -178,7 +178,7 @@ abstract class AModel
      * Set class property
      *
      * @param array $data The data
-     * @param object $object Object to set the property in
+     * @param $object Object to set the property in
      *
      * @return object
      */
