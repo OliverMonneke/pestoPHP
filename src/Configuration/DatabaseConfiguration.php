@@ -12,7 +12,7 @@ namespace Codersquad\Pestophp\Configuration;
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-class DatabaseConfiguration extends AAppConfigurationInterface
+class DatabaseConfiguration extends AAppConfiguration
 {
 
     /**
