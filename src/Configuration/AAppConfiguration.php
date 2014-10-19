@@ -34,18 +34,6 @@ abstract class AAppConfiguration extends AClipboard implements IConfiguration, I
     protected $file = null;
 
     /**
-     * Save configuration file
-     *
-     * @todo implement code for saving
-     *
-     * @return bool
-     */
-    public function export()
-    {
-        return false;
-    }
-
-    /**
      * Execute command
      *
      * @return void
