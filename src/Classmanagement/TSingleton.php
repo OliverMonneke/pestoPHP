@@ -33,13 +33,13 @@ trait TSingleton
      */
     public static function getInstance()
     {
-        return self::_getInstance();
+        return self::prepareInstance();
     }
 
     /**
      * @return mixed
      */
-    protected static function _getInstance()
+    protected static function prepareInstance()
     {
         $className = get_called_class();
 
