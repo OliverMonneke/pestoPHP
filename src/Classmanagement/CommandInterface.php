@@ -6,13 +6,13 @@
 namespace Codersquad\Pestophp\Classmanagement;
 
 /**
- * Class ICommand
+ * Class CommandInterface
  *
  * @package Codersquad\Pestophp\Classmanagement
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-interface ICommand
+interface CommandInterface
 {
 
     /**

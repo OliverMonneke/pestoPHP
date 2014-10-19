@@ -25,11 +25,11 @@ class Command
     /**
      * Add command
      *
-     * @param ICommand $command The command
+     * @param CommandInterface $command The command
      *
      * @return void
      */
-    public function add(ICommand $command)
+    public function add(CommandInterface $command)
     {
         $this->commands[] = $command;
     }
@@ -41,7 +41,7 @@ class Command
      */
     public function run()
     {
-        /** @var $_command ICommand */
+        /** @var $_command CommandInterface */
         foreach ($this->commands as $_command) {
             $_command->execute();
         }

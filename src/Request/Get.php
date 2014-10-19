@@ -5,7 +5,7 @@
  */
 namespace Codersquad\Pestophp\Request;
 
-use Codersquad\Pestophp\Classmanagement\ICommand;
+use Codersquad\Pestophp\Classmanagement\CommandInterface;
 use Codersquad\Pestophp\Clipboard\ClipboardGet;
 
 /**
@@ -15,7 +15,7 @@ use Codersquad\Pestophp\Clipboard\ClipboardGet;
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-class Get extends ClipboardGet implements ICommand
+class Get extends ClipboardGet implements CommandInterface
 {
     /**
      * Execute command

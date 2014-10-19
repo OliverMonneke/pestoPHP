@@ -6,7 +6,7 @@
 namespace Codersquad\Pestophp\Configuration;
 
 use Codersquad\Pennephp\Filesystem\File;
-use Codersquad\Pestophp\Classmanagement\ICommand;
+use Codersquad\Pestophp\Classmanagement\CommandInterface;
 use Codersquad\Pestophp\Clipboard\AClipboard;
 
 /**
@@ -16,7 +16,7 @@ use Codersquad\Pestophp\Clipboard\AClipboard;
  * @author Oliver Monneek <oliver@codersquad.de>
  * @version 0.1
  */
-abstract class AAppConfiguration extends AClipboard implements IConfiguration, ICommand
+abstract class AAppConfiguration extends AClipboard implements IConfiguration, CommandInterface
 {
 
     /**
