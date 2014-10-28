@@ -7,3 +7,4 @@ vendor/
 /atlassian-ide-plugin.xml
 bin
 /composer.lock
+.idea
