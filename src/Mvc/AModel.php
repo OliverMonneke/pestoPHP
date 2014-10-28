@@ -26,6 +26,11 @@ abstract class AModel
     protected $databaseObject = null;
 
     /**
+     * @var array
+     */
+    protected $dataCollection;
+
+    /**
      * Value of primary key
      *
      * @var int|string
@@ -35,7 +40,7 @@ abstract class AModel
     /**
      * Name of model
      *
-     * @var object
+     * @var string
      */
     private $model = null;
 
@@ -122,6 +127,7 @@ abstract class AModel
     {
         $model = $this->model;
         $query = [];
+        /** @noinspection PhpUndefinedFieldInspection */
         $query[] = 'SELECT * FROM ' . $model::TABLE;
 
         $query = $this->loadWithPrimaryKey($primaryValue, $model, $query);
