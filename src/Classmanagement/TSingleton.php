@@ -19,8 +19,6 @@ trait TSingleton
 
     /**
      * No instance allowed
-     *
-     * @return \Codersquad\Pestophp\Classmanagement\TSingleton
      */
     private function __construct()
     {
