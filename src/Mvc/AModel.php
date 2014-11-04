@@ -6,8 +6,8 @@
 namespace Codersquad\Pestophp\Mvc;
 
 use Codersquad\Pestophp\Database\Database;
-use Codersquad\Pestophp\Datatype\Collection;
-use Codersquad\Pestophp\Datatype\String;
+use Codersquad\Pennephp\Datatype\Collection;
+use Codersquad\Pennephp\Datatype\String;
 
 /**
  * Class Model
@@ -26,11 +26,9 @@ abstract class AModel
     protected $databaseObject = null;
 
     /**
-     * Data collection
-     *
      * @var array
      */
-    private $dataCollection = [];
+    protected $dataCollection;
 
     /**
      * Value of primary key
@@ -42,7 +40,7 @@ abstract class AModel
     /**
      * Name of model
      *
-     * @var object
+     * @var string
      */
     private $model = null;
 
@@ -129,6 +127,7 @@ abstract class AModel
     {
         $model = $this->model;
         $query = [];
+        /** @noinspection PhpUndefinedFieldInspection */
         $query[] = 'SELECT * FROM ' . $model::TABLE;
 
         $query = $this->loadWithPrimaryKey($primaryValue, $model, $query);
@@ -178,11 +177,11 @@ abstract class AModel
      * Set class property
      *
      * @param array $data The data
-     * @param object $object Object to set the property in
+     * @param AModel $object Object to set the property in
      *
      * @return object
      */
-    private function setProperties($data, $object)
+    private function setProperties($data, AModel $object)
     {
         foreach ($data as $_key => $_value) {
             $object->set($_key, $_value);

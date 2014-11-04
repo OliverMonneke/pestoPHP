@@ -6,32 +6,32 @@
 namespace Codersquad\Pestophp\Classmanagement;
 
 /**
- * Class IObserveAble
+ * Class ObserveAbleInterface
  *
  * @package Codersquad\Pestophp\Classmanagement
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-interface IObserveAble
+interface ObserveAbleInterface
 {
 
     /**
      * Attach observer
      *
-     * @param IObserver $observer The observer
+     * @param ObserverInterface $observer The observer
      *
      * @return void
      */
-    public function attach(IObserver $observer);
+    public function attach(ObserverInterface $observer);
 
     /**
      * Remove observer
      *
-     * @param IObserver $observer The observer
+     * @param ObserverInterface $observer The observer
      *
      * @return void
      */
-    public function detach(IObserver $observer);
+    public function detach(ObserverInterface $observer);
 
     /**
      * Notify observers

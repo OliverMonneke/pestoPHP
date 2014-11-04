@@ -35,9 +35,9 @@ class Router
         $controller = new $controllerData['controller'];
 
         if (method_exists($controller, 'init')) {
-            call_user_method('init', $controller);
+            call_user_func(array($controller, 'init'));
         }
 
-        return call_user_method($controllerData['action'], $controller);
+        return call_user_func(array($controller, $controllerData['action']));
     }
 }

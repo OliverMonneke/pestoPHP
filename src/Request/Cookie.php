@@ -5,7 +5,7 @@
  */
 namespace Codersquad\Pestophp\Request;
 
-use Codersquad\Pestophp\Classmanagement\ICommand;
+use Codersquad\Pestophp\Classmanagement\CommandInterface;
 use Codersquad\Pestophp\Clipboard\ClipboardCookie;
 
 /**
@@ -15,7 +15,7 @@ use Codersquad\Pestophp\Clipboard\ClipboardCookie;
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-class Cookie extends ClipboardCookie implements ICommand
+class Cookie extends ClipboardCookie implements CommandInterface
 {
     /**
      * Execute command

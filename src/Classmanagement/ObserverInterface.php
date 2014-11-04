@@ -6,19 +6,19 @@
 namespace Codersquad\Pestophp\Classmanagement;
 
 /**
- * Class IObserver
+ * Class ObserverInterface
  *
  * @package Codersquad\Pestophp\Classmanagement
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-interface IObserver
+interface ObserverInterface
 {
 
     /**
      * Update the observer
      *
-     * @internal param \Codersquad\Pestophp\Classmanagement\IObserver $observer The observer
+     * @internal param \Codersquad\Pestophp\Classmanagement\ObserverInterface $observer The observer
      *
      * @return void
      */

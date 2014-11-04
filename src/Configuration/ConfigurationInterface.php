@@ -6,13 +6,13 @@
 namespace Codersquad\Pestophp\Configuration;
 
 /**
- * Class IConfiguration
+ * Class ConfigurationInterface
  *
  * @package Codersquad\Pestophp\Configuration
  * @author Oliver Monneke <oliver@codersquad.de>
  * @version 0.1
  */
-interface IConfiguration
+interface ConfigurationInterface
 {
 
     /**
@@ -21,11 +21,4 @@ interface IConfiguration
      * @return void
      */
     public function execute();
-
-    /**
-     * Export configuration
-     *
-     * @return void
-     */
-    public function export();
 }

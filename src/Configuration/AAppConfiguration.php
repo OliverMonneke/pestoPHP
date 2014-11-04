@@ -6,7 +6,7 @@
 namespace Codersquad\Pestophp\Configuration;
 
 use Codersquad\Pennephp\Filesystem\File;
-use Codersquad\Pestophp\Classmanagement\ICommand;
+use Codersquad\Pestophp\Classmanagement\CommandInterface;
 use Codersquad\Pestophp\Clipboard\AClipboard;
 
 /**
@@ -16,7 +16,7 @@ use Codersquad\Pestophp\Clipboard\AClipboard;
  * @author Oliver Monneek <oliver@codersquad.de>
  * @version 0.1
  */
-abstract class AAppConfiguration extends AClipboard implements IConfiguration, ICommand
+abstract class AAppConfiguration extends AClipboard implements ConfigurationInterface, CommandInterface
 {
 
     /**
@@ -32,18 +32,6 @@ abstract class AAppConfiguration extends AClipboard implements IConfiguration, I
      * @var string
      */
     protected $file = null;
-
-    /**
-     * Save configuration file
-     *
-     * @todo implement code for saving
-     *
-     * @return bool
-     */
-    public function export()
-    {
-        return false;
-    }
 
     /**
      * Execute command

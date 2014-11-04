@@ -35,7 +35,7 @@ abstract class AClipboard
             self::$registry[get_called_class()] = [];
         }
 
-        return self::_getInstance();
+        return self::prepareInstance();
     }
 
     /**
